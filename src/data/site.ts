@@ -48,7 +48,7 @@ export const site = {
     schedule: 'Lunes a viernes, de 9 a 18 h',
     instagram: {
       handle: '@akdemia.autoescuela',
-      url: 'https://instagram.com/akdemia.autoescuela',
+      url: 'https://www.instagram.com/akdemia.autoescuela',
     },
   },
 
