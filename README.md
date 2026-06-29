@@ -70,7 +70,7 @@ npm run preview
 Todo el texto del sitio vive en [`src/data/site.ts`](src/data/site.ts). Los componentes no tienen contenido hardcodeado: leen siempre desde ahí. Para cambiar algo, editá ese archivo:
 
 - **Contacto y negocio** → objeto `site` (nombre, descripción, URL, WhatsApp, horarios, Instagram, ubicación/geo).
-  - El WhatsApp se define en `whatsappLocal` (visible) y `whatsappInternational` (para el enlace `wa.me`). El enlace `whatsappUrl` se arma solo.
+  - El WhatsApp se define con `phoneDisplay`, `phoneInternational` y `whatsappNumber`. El enlace `whatsappUrl` se arma solo.
 - **Hero** → objeto `hero` (título, subtítulo, CTAs, highlights).
 - **Profesor** → objeto `teacher` (rol, biografía, credenciales, foto).
 - **Servicios** → array `services`.
@@ -82,13 +82,13 @@ Todo el texto del sitio vive en [`src/data/site.ts`](src/data/site.ts). Los comp
 
 Para reemplazar imágenes, dejá tus archivos en `public/images/` con el mismo nombre (o actualizá las rutas en `site.ts` / componentes).
 
-> **Instagram:** el campo `site.contact.instagram.url` es un placeholder. Reemplazalo por el perfil real.
+> **Instagram:** el perfil configurado es `@akdemia.autoescuela`.
 
 ## SEO
 
 - `title`, `description` y `canonical` configurables desde `BaseLayout` / `SEO.astro` (defaults en `site.ts`).
 - Open Graph y Twitter Card básicos.
-- JSON-LD `DrivingSchool` (negocio local) y `FAQPage`.
+- JSON-LD `LocalBusiness` (negocio local) y `FAQPage`.
 - HTML semántico, un único `<h1>` y headings ordenados.
 
 La URL del sitio se define en `astro.config.mjs` (`site`) y en `site.url`. Actualizá ambos si cambia el dominio.

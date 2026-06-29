@@ -11,13 +11,13 @@
 // ---------------------------------------------------------------------------
 
 /** Teléfono tal como se muestra al usuario (formato local argentino). */
-const phoneDisplay = '11 5314-4859';
+const phoneDisplay = '11 5314-8559';
 
 /** Teléfono en formato internacional E.164 legible (para `telephone` de schema.org). */
-const phoneInternational = '+54 9 11 5314-4859';
+const phoneInternational = '+54 9 11 5314-8559';
 
 /** Número para enlaces wa.me: solo dígitos, con código de país (Argentina = 54 9). */
-const whatsappNumber = '5491153144859';
+const whatsappNumber = '5491153148559';
 
 /** Mensaje pre-cargado al abrir WhatsApp. */
 const whatsappMessage =
@@ -30,7 +30,7 @@ export const site = {
   // Texto descriptivo corto, usado en hero y metadata.
   description:
     'Clases de manejo para principiantes en Villa Urquiza, CABA. Aprendé a manejar con un profesor paciente, clases prácticas a tu ritmo y autos con doble comando.',
-  url: 'https://akdemia.vercel.app',
+  url: 'https://akdemiaautoescuela.vercel.app',
   locale: 'es_AR',
 
   contact: {
@@ -48,7 +48,7 @@ export const site = {
     schedule: 'Lunes a viernes, de 9 a 18 h',
     instagram: {
       handle: '@akdemia.autoescuela',
-      url: 'https://instagram.com/', // TODO: reemplazar por el perfil real
+      url: 'https://instagram.com/akdemia.autoescuela',
     },
   },
 
