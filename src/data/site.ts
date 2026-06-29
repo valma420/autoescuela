@@ -52,6 +52,11 @@ export const site = {
     },
   },
 
+  assets: {
+    heroImage: '/images/hero-driving.jpg',
+    ctaImage: '/images/steering-wheel.jpg',
+  },
+
   location: {
     // Localidad / zona del barrio.
     area: 'Villa Urquiza',
@@ -83,6 +88,11 @@ export const hero = {
     'Profesor paciente',
     'Horarios flexibles',
   ],
+  stats: [
+    { value: '+10', label: 'años de experiencia' },
+    { value: '1:1', label: 'clases personalizadas' },
+    { value: 'CABA', label: 'zona de práctica' },
+  ],
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -92,7 +102,7 @@ export const hero = {
 export const teacher = {
   name: 'Tu instructor',
   role: 'Instructor de manejo matriculado',
-  photo: '/images/profesor.svg',
+  photo: '/images/driver-profile.jpg',
   bio: [
     'Más de 10 años enseñando a manejar en Villa Urquiza y la zona norte de CABA. Mi prioridad es que manejes seguro y tranquilo, sin apuro y sin presiones.',
     'Trabajo con principiantes que nunca tocaron un volante y también con quienes quieren perder el miedo o prepararse para el examen de licencia.',
@@ -114,29 +124,34 @@ export interface Service {
   description: string;
   /** Emoji o símbolo simple usado como ícono liviano (sin librerías). */
   icon: string;
+  image: string;
 }
 
 export const services: Service[] = [
   {
     icon: '🚗',
+    image: '/images/practice-driving.jpg',
     title: 'Clases para principiantes',
     description:
       'Desde cero y a tu ritmo. Arrancamos con lo básico hasta que manejes con confianza por la ciudad.',
   },
   {
     icon: '🛣️',
+    image: '/images/hero-driving.jpg',
     title: 'Clases prácticas',
     description:
       'Práctica real en calle: estacionamiento, avenidas, rotondas y situaciones del tránsito porteño.',
   },
   {
     icon: '📘',
+    image: '/images/steering-wheel.jpg',
     title: 'Preparación para el examen',
     description:
       'Te preparamos para el examen práctico de la licencia de conducir de CABA con todo lo que se evalúa.',
   },
   {
     icon: '😌',
+    image: '/images/driver-profile.jpg',
     title: 'Clases para perder el miedo',
     description:
       'Si ya sabés algo pero te falta seguridad, retomamos con paciencia hasta que manejes tranquilo.',

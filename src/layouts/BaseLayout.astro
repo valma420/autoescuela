@@ -3,6 +3,7 @@
  * Layout base del sitio. Define el <head> con SEO y envuelve el contenido.
  */
 import SEO from '../components/SEO.astro';
+import SiteHeader from '../components/SiteHeader.astro';
 import { site } from '../data/site';
 import '../styles/global.css';
 
@@ -20,29 +21,30 @@ const { title, description, canonical } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#1a5fdb" />
+    <meta name="theme-color" content="#071328" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <SEO title={title} description={description} canonical={canonical} />
   </head>
-  <body class="bg-white text-slate-800 antialiased">
+  <body class="bg-slate-50 text-slate-800 antialiased">
     <a
       href="#contenido"
       class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-brand-600 focus:px-4 focus:py-2 focus:text-white"
     >
       Saltar al contenido
     </a>
+    <SiteHeader />
     <slot />
-    <footer class="border-t border-slate-200 bg-slate-50 py-8">
+    <footer class="bg-brand-950 py-10 text-white">
       <div
-        class="mx-auto flex max-w-6xl flex-col items-center gap-2 px-4 text-center text-sm text-slate-500"
+        class="mx-auto flex max-w-6xl flex-col items-center gap-2 px-4 text-center text-sm text-slate-300"
       >
-        <p class="font-semibold text-slate-700">{site.name}</p>
+        <p class="font-semibold text-white">{site.name}</p>
         <p>{site.location.area}, {site.location.regionShort}, {site.location.country}</p>
         <p>{site.contact.schedule}</p>
         <p>
           &copy; {new Date().getFullYear()}
-          {site.name}. Todos los derechos reservados.
+          {' '}{site.name}. Todos los derechos reservados.
         </p>
       </div>
     </footer>
