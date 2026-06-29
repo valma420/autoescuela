@@ -106,3 +106,47 @@ La URL del sitio se define en `astro.config.mjs` (`site`) y en `site.url`. Actua
 ## Trabajo en `main`
 
 > ⚠️ Este proyecto trabaja **directamente sobre la rama `main`**. No se usan ramas de feature. Hacé commits claros y andá probando con `npm run build` antes de pushear.
+
+## Trabajo local y colaboración
+
+El proyecto es 100% estático y se trabaja **siempre sobre `main`**, sin ramas. Cada push a `main` dispara un **deploy automático en Vercel**.
+
+- **Repositorio:** https://github.com/valma420/autoescuela
+- **Producción:** https://akdemiaautoescuela.vercel.app
+
+### 1. Clonar el repo en otra máquina
+
+Requisitos previos: Node.js (`^18.20.8`, `^20.3.0` o `>=22`), npm 10+ y Git.
+
+```bash
+git clone https://github.com/valma420/autoescuela.git
+cd autoescuela
+npm install
+npm run dev
+```
+
+El sitio queda en `http://localhost:4321`.
+
+> **Acceso para pushear:** el repo es público, así que cualquiera puede clonarlo. Pero para **pushear** cambios, la persona debe estar agregada como **colaborador** en GitHub: en https://github.com/valma420/autoescuela → *Settings → Collaborators → Add people*. Nunca compartas tu usuario, contraseña ni tokens personales: cada persona usa su propia cuenta de GitHub.
+
+### 2. Build de producción
+
+```bash
+npm run build      # genera ./dist
+npm run preview    # sirve el build localmente para revisarlo
+```
+
+### 3. Flujo de trabajo directo sobre `main`
+
+> 📌 **Regla obligatoria:** hacé `git pull origin main` **antes de empezar a modificar** (para no pisar cambios de la otra persona) y `npm run build` **antes de pushear** (para no romper el deploy).
+
+```bash
+git pull origin main                       # traer lo último ANTES de modificar
+npm run build                              # validar que compila ANTES de pushear
+git status
+git add .
+git commit -m "Descripción breve del cambio"
+git push origin main                       # dispara el deploy automático en Vercel
+```
+
+Como no hay ramas, mantené los commits chicos y descriptivos, y coordiná con la otra persona para no trabajar sobre los mismos archivos al mismo tiempo.
