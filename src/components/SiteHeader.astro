@@ -23,20 +23,13 @@ const navItems = [
 
   <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
     <a href="/" class="flex items-center gap-3" aria-label={`${site.name} inicio`}>
-      <span
-        class="grid h-10 w-10 place-items-center rounded-lg bg-brand-950 text-sm font-black text-accent-400 shadow-sm"
-        aria-hidden="true"
-      >
-        AK
-      </span>
-      <span class="leading-tight">
-        <span class="block text-base font-black tracking-tight text-brand-950">
-          {site.shortName}
-        </span>
-        <span class="block text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-          autoescuela
-        </span>
-      </span>
+      <img
+        src={site.assets.logo}
+        alt={site.name}
+        width="864"
+        height="391"
+        class="h-12 w-auto max-w-[170px] object-contain sm:h-14 sm:max-w-[220px]"
+      />
     </a>
 
     <nav class="hidden items-center gap-7 text-sm font-semibold text-slate-700 md:flex">

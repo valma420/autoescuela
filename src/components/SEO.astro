@@ -25,6 +25,7 @@ const canonicalUrl = canonical.startsWith('http')
   ? canonical
   : new URL(canonical, site.url).href;
 const imageUrl = new URL(image, site.url).href;
+const logoUrl = new URL(site.assets.logo, site.url).href;
 
 // JSON-LD: negocio local de escuela de manejo.
 const localBusinessLd = {
@@ -35,6 +36,7 @@ const localBusinessLd = {
   description: site.description,
   url: site.url,
   image: imageUrl,
+  logo: logoUrl,
   telephone: site.contact.phoneInternational,
   areaServed: site.location.coverageNote,
   address: {

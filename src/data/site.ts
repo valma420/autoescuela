@@ -53,6 +53,7 @@ export const site = {
   },
 
   assets: {
+    logo: '/images/logo-akdemia-autoescuela.png',
     heroImage: '/images/hero-driving.jpg',
     ctaImage: '/images/steering-wheel.jpg',
   },
