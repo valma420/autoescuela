@@ -101,7 +101,7 @@ export const hero = {
 // ---------------------------------------------------------------------------
 
 export const teacher = {
-  name: 'Tu instructor',
+  name: 'Facundo Massó',
   role: 'Instructor de manejo matriculado',
   photo: '/images/driver-profile.jpg',
   bio: [
