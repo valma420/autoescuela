@@ -1,0 +1,61 @@
+---
+import 'leaflet/dist/leaflet.css';
+import { coverage } from '../data/site';
+---
+
+<section id="cobertura" class="bg-white py-16 sm:py-24">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="text-sm font-bold uppercase tracking-[0.22em] text-brand-600">
+        Cobertura
+      </p>
+      <h2 class="mt-3 text-3xl font-black tracking-tight text-brand-950 sm:text-5xl">
+        Zonas de cobertura
+      </h2>
+      <p class="mt-4 text-lg leading-8 text-slate-600">
+        Toma clases de manejo en tu zona. Cubrimos barrios clave del norte de la ciudad.
+      </p>
+    </div>
+
+    <div
+      class="mt-10 overflow-hidden rounded-lg border border-slate-200 bg-slate-100 shadow-2xl shadow-slate-200/70"
+    >
+      <div
+        id="coverage-map"
+        data-coverage-map
+        class="h-[360px] w-full lg:h-[460px]"
+        role="img"
+        aria-label="Mapa interactivo de zonas de cobertura de AKDemia autoescuela"
+      >
+      </div>
+    </div>
+
+    <p
+      data-coverage-map-status
+      class="mt-4 hidden rounded-lg border border-accent-300 bg-accent-50 px-4 py-3 text-sm font-semibold text-brand-950"
+    >
+      No pudimos cargar el mapa interactivo. Abajo tenes el listado de zonas cubiertas.
+    </p>
+
+    <div class="mt-8">
+      <p class="text-center text-sm font-semibold leading-6 text-slate-600">
+        Zonas cubiertas: Villa Urquiza, Villa Pueyrredon, Coghlan, Saavedra,
+        Belgrano, Villa Ortuzar, Parque Chas y Agronomia.
+      </p>
+
+      <ul class="mt-5 flex flex-wrap justify-center gap-2">
+        {
+          coverage.areas.map((area) => (
+            <li class="inline-flex items-center rounded-lg border border-accent-300 bg-accent-50 px-3 py-1.5 text-sm font-bold text-brand-950">
+              {area}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<script>
+  import '../scripts/coverage-map';
+</script>
