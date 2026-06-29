@@ -1,0 +1,110 @@
+---
+/**
+ * Metadatos SEO reutilizables: title, description, canonical, Open Graph
+ * y JSON-LD LocalBusiness. Todo configurable vía props con defaults desde site.ts.
+ */
+import { site, faqs, services } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Ruta relativa o URL absoluta para el canonical. */
+  canonical?: string;
+  image?: string;
+}
+
+const {
+  title = `${site.name} — ${site.tagline}`,
+  description = site.description,
+  canonical = site.url,
+  image = '/images/og-image.svg',
+} = Astro.props;
+
+// Canonical absoluto a partir de site.url si llega una ruta relativa.
+const canonicalUrl = canonical.startsWith('http')
+  ? canonical
+  : new URL(canonical, site.url).href;
+const imageUrl = new URL(image, site.url).href;
+
+// JSON-LD: negocio local de escuela de manejo.
+const localBusinessLd = {
+  '@context': 'https://schema.org',
+  // Tipo conservador: LocalBusiness genérico, con datos orientados a escuela de manejo.
+  '@type': 'LocalBusiness',
+  name: site.name,
+  description: site.description,
+  url: site.url,
+  image: imageUrl,
+  telephone: site.contact.phoneInternational,
+  areaServed: site.location.coverageNote,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: site.location.area,
+    addressRegion: site.location.region,
+    addressCountry: site.location.countryCode,
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: site.location.geo.lat,
+    longitude: site.location.geo.lng,
+  },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '09:00',
+    closes: '18:00',
+  },
+  // Catálogo de servicios de la escuela de manejo (a partir de site.ts).
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Clases de manejo',
+    itemListElement: services.map((service) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: service.title,
+        description: service.description,
+      },
+    })),
+  },
+  sameAs: [site.contact.instagram.url],
+};
+
+// JSON-LD: preguntas frecuentes.
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer },
+  })),
+};
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={site.name} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:locale" content={site.locale} />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+
+<!-- JSON-LD -->
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(localBusinessLd)}
+/>
+<script is:inline type="application/ld+json" set:html={JSON.stringify(faqLd)} />

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480" role="img" aria-label="Clase de manejo en Villa Urquiza">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d9eaff" />
+      <stop offset="1" stop-color="#eef6ff" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" fill="url(#sky)" />
+  <rect y="320" width="640" height="160" fill="#5b6470" />
+  <rect y="392" width="640" height="8" fill="#f5d547" />
+  <g>
+    <rect x="200" y="250" width="240" height="90" rx="22" fill="#1a5fdb" />
+    <rect x="240" y="210" width="160" height="70" rx="26" fill="#2f7bf6" />
+    <rect x="258" y="222" width="120" height="50" rx="12" fill="#bcdaff" />
+    <circle cx="250" cy="345" r="34" fill="#1f2937" />
+    <circle cx="250" cy="345" r="15" fill="#9ca3af" />
+    <circle cx="390" cy="345" r="34" fill="#1f2937" />
+    <circle cx="390" cy="345" r="15" fill="#9ca3af" />
+  </g>
+  <text x="320" y="120" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800" fill="#193b72" text-anchor="middle">AKDemia autoescuela</text>
+  <text x="320" y="158" font-family="Inter, Arial, sans-serif" font-size="20" fill="#174db1" text-anchor="middle">Villa Urquiza · CABA</text>
+</svg>

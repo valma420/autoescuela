@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="AKDemia autoescuela — Escuela de manejo en Villa Urquiza">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a5fdb" />
+      <stop offset="1" stop-color="#193b72" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <text x="80" y="290" font-family="Inter, Arial, sans-serif" font-size="76" font-weight="800" fill="#ffffff">AKDemia autoescuela</text>
+  <text x="80" y="360" font-family="Inter, Arial, sans-serif" font-size="40" fill="#bcdaff">Escuela de manejo en Villa Urquiza, CABA</text>
+  <text x="80" y="430" font-family="Inter, Arial, sans-serif" font-size="30" fill="#8ec2ff">Clases de manejo para principiantes · Clases prácticas</text>
+  <rect x="80" y="470" width="360" height="70" rx="16" fill="#16a34a" />
+  <text x="260" y="516" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700" fill="#ffffff" text-anchor="middle">Reservá por WhatsApp</text>
+</svg>
