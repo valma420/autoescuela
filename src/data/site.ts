@@ -11,13 +11,13 @@
 // ---------------------------------------------------------------------------
 
 /** Teléfono tal como se muestra al usuario (formato local argentino). */
-const phoneDisplay = '11 5314-8559';
+const phoneDisplay = '11 5314-5859';
 
 /** Teléfono en formato internacional E.164 legible (para `telephone` de schema.org). */
-const phoneInternational = '+54 9 11 5314-8559';
+const phoneInternational = '+54 9 11 5314-5859';
 
 /** Número para enlaces wa.me: solo dígitos, con código de país (Argentina = 54 9). */
-const whatsappNumber = '5491153148559';
+const whatsappNumber = '5491153145859';
 
 /** Mensaje pre-cargado al abrir WhatsApp. */
 const whatsappMessage =
