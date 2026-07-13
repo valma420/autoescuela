@@ -1,210 +1,90 @@
 # AGENTS.md
 
-## Proyecto
+## Project
 
-Landing page para **AKDemia autoescuela**, una academia/escuela de manejo ubicada en Villa Urquiza, CABA.
+### Product
 
-El sitio está pensado como una landing comercial simple, rápida y optimizada para SEO local. El objetivo principal es convertir visitas en contactos por WhatsApp.
+This repository contains the static commercial landing page for AKDemia autoescuela, a driving school in Villa Urquiza, CABA.
 
-## Stack
+- The primary conversion is a WhatsApp contact.
+- Keep the site fast, mobile-first, accessible, and focused on local SEO.
+- Production: https://akdemiaautoescuela.vercel.app
+- Repository: https://github.com/valma420/autoescuela
 
-* Astro
-* TypeScript
-* Tailwind CSS
-* Git/GitHub
-* Vercel
+### Stack and architecture
 
-## Deploy
+- Astro with TypeScript strict mode.
+- Tailwind CSS through `@tailwindcss/vite`.
+- Static output deployed to Vercel.
+- No React, Vue, Svelte, backend, CMS, or database.
 
-* Producción: https://akdemiaautoescuela.vercel.app
-* Repo: https://github.com/valma420/autoescuela
-* Rama única de trabajo: `main`
-* Cada push a `main` dispara deploy automático en Vercel.
+Main structure:
 
-## Reglas de trabajo
+- `src/data/site.ts`: source of truth for editable business content.
+- `src/components/`: page sections and reusable UI.
+- `src/layouts/BaseLayout.astro`: base document layout.
+- `src/pages/index.astro`: landing page composition.
+- `src/styles/global.css`: Tailwind setup and brand tokens.
+- `public/images/`: static images.
 
-* Trabajar siempre sobre `main`.
-* No crear ramas.
-* Antes de modificar archivos, ejecutar:
+Keep business details out of components when they can live in `src/data/site.ts`. This includes contact data, location, coverage, services, testimonials, FAQs, CTAs, schedules, social links, and SEO defaults.
 
-```bash
-git pull origin main
-```
+## Source of truth
 
-* Antes de proponer o subir cambios, ejecutar:
+### Content and SEO
 
-```bash
-npm run build
-npm run check
-git status
-```
+- Preserve verified business facts and do not invent credentials, services, prices, schedules, coverage, testimonials, or contact details.
+- Keep visible copy natural for the Spanish-language audience.
+- Preserve the WhatsApp conversion path and ensure contact values remain consistent.
+- Keep `astro.config.mjs` site URL and `site.url` synchronized if the domain changes.
+- Maintain `title`, `description`, canonical URL, Open Graph, Twitter Card, and JSON-LD for `LocalBusiness` and `FAQPage`.
+- Keep semantic headings, exactly one `h1`, meaningful image text, and no keyword stuffing.
+- Preserve local intent around driving lessons, beginner lessons, Villa Urquiza, and CABA.
 
-* No hacer push automático salvo pedido explícito.
-* No cambiar el remoto de Git.
-* No tocar configuración de Vercel salvo pedido explícito.
-* No agregar backend, Supabase, CMS, base de datos ni variables de entorno salvo que se solicite.
-* No ejecutar `npm audit fix --force` sin autorización.
+## Critical invariants
 
-## Comandos principales
+### Performance and design
 
-Instalar dependencias:
+- Keep the output static and avoid unnecessary client-side JavaScript.
+- Use Astro components, semantic HTML, and Tailwind before adding another framework or runtime.
+- Keep images lightweight and preserve responsive behavior.
+- Do not add animation libraries or major visual systems unless explicitly requested.
+- The final visual direction belongs to the designer. Prefer structural, content, accessibility, responsive, and SEO improvements over speculative redesign.
 
-```bash
+## Scope boundaries
+
+### Dependencies, configuration, and secrets
+
+- Do not add a backend, Supabase, CMS, database, or environment variables unless explicitly requested.
+- Never run `npm audit fix --force` without explicit authorization.
+- Do not change Vercel configuration unless explicitly requested.
+- The current site uses no runtime environment variables. Do not introduce `.env` files or credentials unless an explicitly requested feature requires them; never version secrets.
+
+## External systems
+
+### Git and deployment
+
+- Vercel may deploy automatically after a push to its connected branch. Treat that push as both a Git mutation and a deployment; perform it only when the user explicitly requests that exact effect.
+- Do not trigger or change a deployment through any other path unless the user explicitly requests it.
+
+## Validation
+
+### Commands and validation
+
+Common commands:
+
+```sh
 npm install
-```
-
-Correr en desarrollo:
-
-```bash
 npm run dev
-```
-
-Build de producción:
-
-```bash
 npm run build
-```
-
-Preview local del build:
-
-```bash
 npm run preview
-```
-
-Chequeo del proyecto:
-
-```bash
 npm run check
 ```
 
-## Estructura principal
+For code or content changes:
 
-```txt
-src/
-  components/
-  data/
-    site.ts
-  layouts/
-  pages/
-public/
-  images/
-```
-
-## Contenido editable
-
-El contenido comercial principal debe estar centralizado en:
-
-```txt
-src/data/site.ts
-```
-
-Siempre que sea razonable, editar textos, datos de contacto, zonas, servicios, testimonios, FAQs, CTAs y datos SEO desde ese archivo.
-
-Evitar hardcodear datos comerciales importantes directamente en componentes.
-
-## Prioridades técnicas
-
-1. Estructura limpia.
-2. Contenido fácil de editar.
-3. SEO local fuerte.
-4. Performance alta.
-5. Buena experiencia mobile-first.
-6. Deploy simple en Vercel.
-7. Código claro y mantenible.
-
-## SEO local
-
-Cuidar especialmente:
-
-* `title`
-* `description`
-* canonical
-* Open Graph
-* JSON-LD `LocalBusiness`
-* headings semánticos
-* un solo `h1`
-* textos orientados a búsquedas locales sin keyword stuffing
-
-Términos relevantes:
-
-* escuela de manejo en Villa Urquiza
-* clases de manejo para principiantes
-* curso de manejo
-* clases prácticas de manejo
-* autoescuela en CABA
-
-## Performance
-
-* Mantener el sitio estático.
-* Evitar JavaScript innecesario.
-* No agregar frameworks extra como React, Vue o Svelte salvo necesidad explícita.
-* No agregar librerías de animación sin autorización.
-* Usar Astro components, HTML y Tailwind.
-* Mantener imágenes livianas.
-* Cuidar especialmente mobile.
-
-## Diseño
-
-El diseño visual definitivo lo ajustará la diseñadora. No sobrediseñar ni introducir decisiones visuales complejas sin pedido explícito.
-
-Priorizar estructura, semántica, contenido editable, responsive y SEO.
-
-## Git
-
-Antes de trabajar:
-
-```bash
-git pull origin main
-```
-
-Antes de commitear:
-
-```bash
-npm run build
-npm run check
-git status
-```
-
-Commit sugerido:
-
-```bash
-git add .
-git commit -m "Descripción breve del cambio"
-```
-
-Push:
-
-```bash
-git push origin main
-```
-
-## Archivos que no deben versionarse
-
-Confirmar que sigan ignorados:
-
-```txt
-node_modules/
-dist/
-.astro/
-.env
-.env.*
-.DS_Store
-```
-
-## Seguridad
-
-* No agregar secretos al repo.
-* No subir tokens, credenciales ni claves.
-* No crear archivos `.env` versionados.
-* No compartir credenciales de GitHub, Vercel o terceros.
-
-## Criterio de aceptación para cambios
-
-Un cambio se considera listo si:
-
-* `npm run build` pasa sin errores.
-* `npm run check` pasa sin errores.
-* `git status` muestra solo cambios esperados.
-* No se agregaron dependencias innecesarias.
-* No se rompió el contenido editable desde `src/data/site.ts`.
-* No se degradó SEO, performance ni experiencia mobile.
+1. Run `npm run check`.
+2. Run `npm run build`.
+3. For visual changes, inspect the relevant desktop and mobile views.
+4. Confirm that only expected files changed.
+5. Confirm that `src/data/site.ts` remains the editable content source and that SEO, performance, and the WhatsApp path did not regress.
