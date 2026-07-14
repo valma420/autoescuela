@@ -1,122 +1,27 @@
 # AKDemia autoescuela — Landing
 
-Sitio estático de **AKDemia autoescuela**, escuela de manejo en Villa Urquiza, CABA. Página de presentación con servicios, beneficios, zonas de cobertura, testimonios, preguntas frecuentes y contacto directo por WhatsApp.
+Sitio estático de **AKDemia autoescuela**, escuela de manejo en Villa Urquiza, CABA. Presenta servicios, beneficios, zonas de cobertura, testimonios, preguntas frecuentes y un contacto directo por WhatsApp.
+
+- **Producción:** https://akdemiaautoescuela.vercel.app
+- **Repositorio:** https://github.com/valma420/autoescuela
 
 ## Stack
 
-- **[Astro](https://astro.build/)** — generador de sitios estáticos (output 100% estático, sin JS innecesario).
-- **TypeScript** (modo `strict`).
-- **Tailwind CSS v4** vía `@tailwindcss/vite`.
-- **Git / GitHub** para el código.
-- **Vercel** para el deploy.
+- [Astro](https://astro.build/) con salida estática.
+- TypeScript en modo `strict`.
+- Tailwind CSS v4 mediante `@tailwindcss/vite`.
+- [Leaflet](https://leafletjs.com/) para el mapa de cobertura.
+- Vercel para hosting y deploy.
 
-Sin React/Vue/Svelte, sin librerías de animación, sin backend ni formularios.
+No usa React, Vue, Svelte, backend, CMS, base de datos ni variables de entorno.
 
 ## Requisitos
 
-- Node.js `^18.20.8`, `^20.3.0` o `>=22` (probado con Node 20.20.2).
-- npm 10+.
+- Node.js `>=22.12.0`.
+- npm `>=9.6.5`.
+- Git para clonar y colaborar.
 
-## Instalación
-
-```bash
-npm install
-```
-
-## Comandos
-
-| Comando           | Acción                                              |
-| ----------------- | --------------------------------------------------- |
-| `npm run dev`     | Servidor de desarrollo en `http://localhost:4321`   |
-| `npm run build`   | Compila el sitio estático en `./dist/`              |
-| `npm run preview` | Sirve localmente el build de producción             |
-| `npm run check`   | Chequeo de tipos y diagnósticos de Astro            |
-
-## Ejecución local
-
-```bash
-npm install
-npm run dev
-```
-
-Abrí `http://localhost:4321` en el navegador. Para revisar el sitio ya compilado:
-
-```bash
-npm run build
-npm run preview
-```
-
-## Estructura
-
-```
-.
-├── astro.config.mjs        # Config de Astro (site URL + plugin de Tailwind)
-├── public/
-│   ├── favicon.svg
-│   └── images/             # Imágenes placeholder (SVG livianos)
-├── src/
-│   ├── components/         # Hero, AboutTeacher, Services, Benefits,
-│   │                       # Coverage, Testimonials, FAQ, ContactCTA,
-│   │                       # FloatingWhatsApp, SEO
-│   ├── data/site.ts        # ← TODO el contenido editable del sitio
-│   ├── layouts/BaseLayout.astro
-│   ├── pages/index.astro   # Ensambla todas las secciones
-│   └── styles/global.css   # Tailwind + tokens de marca
-└── README.md
-```
-
-## Cómo editar el contenido (`src/data/site.ts`)
-
-Todo el texto del sitio vive en [`src/data/site.ts`](src/data/site.ts). Los componentes no tienen contenido hardcodeado: leen siempre desde ahí. Para cambiar algo, editá ese archivo:
-
-- **Contacto y negocio** → objeto `site` (nombre, descripción, URL, WhatsApp, horarios, Instagram, ubicación/geo).
-  - El WhatsApp se define con `phoneDisplay`, `phoneInternational` y `whatsappNumber`. El enlace `whatsappUrl` se arma solo.
-- **Hero** → objeto `hero` (título, subtítulo, CTAs, highlights).
-- **Profesor** → objeto `teacher` (rol, biografía, credenciales, foto).
-- **Servicios** → array `services`.
-- **Beneficios** → array `benefits`.
-- **Cobertura / zonas** → objeto `coverage`.
-- **Testimonios** → array `testimonials`.
-- **Preguntas frecuentes** → array `faqs` (también alimenta el JSON-LD `FAQPage`).
-- **CTA final** → objeto `contactCta`.
-
-Para reemplazar imágenes, dejá tus archivos en `public/images/` con el mismo nombre (o actualizá las rutas en `site.ts` / componentes).
-
-> **Instagram:** el perfil configurado es `@akdemia.autoescuela`.
-
-## SEO
-
-- `title`, `description` y `canonical` configurables desde `BaseLayout` / `SEO.astro` (defaults en `site.ts`).
-- Open Graph y Twitter Card básicos.
-- JSON-LD `LocalBusiness` (negocio local) y `FAQPage`.
-- HTML semántico, un único `<h1>` y headings ordenados.
-
-La URL del sitio se define en `astro.config.mjs` (`site`) y en `site.url`. Actualizá ambos si cambia el dominio.
-
-## Deploy en Vercel
-
-1. Subí el repo a GitHub (ver aviso abajo).
-2. En [Vercel](https://vercel.com/new), importá el repositorio `valma420/autoescuela`.
-3. Vercel detecta Astro automáticamente:
-   - **Framework preset:** Astro
-   - **Build command:** `npm run build`
-   - **Output directory:** `dist`
-4. Deploy. No se requieren variables de entorno ni adapter.
-
-## Trabajo en `main`
-
-> ⚠️ Este proyecto trabaja **directamente sobre la rama `main`**. No se usan ramas de feature. Hacé commits claros y andá probando con `npm run build` antes de pushear.
-
-## Trabajo local y colaboración
-
-El proyecto es 100% estático y se trabaja **siempre sobre `main`**, sin ramas. Cada push a `main` dispara un **deploy automático en Vercel**.
-
-- **Repositorio:** https://github.com/valma420/autoescuela
-- **Producción:** https://akdemiaautoescuela.vercel.app
-
-### 1. Clonar el repo en otra máquina
-
-Requisitos previos: Node.js (`^18.20.8`, `^20.3.0` o `>=22`), npm 10+ y Git.
+## Inicio rápido
 
 ```bash
 git clone https://github.com/valma420/autoescuela.git
@@ -125,28 +30,79 @@ npm install
 npm run dev
 ```
 
-El sitio queda en `http://localhost:4321`.
+Abrir `http://localhost:4321` en el navegador.
 
-> **Acceso para pushear:** el repo es público, así que cualquiera puede clonarlo. Pero para **pushear** cambios, la persona debe estar agregada como **colaborador** en GitHub: en https://github.com/valma420/autoescuela → *Settings → Collaborators → Add people*. Nunca compartas tu usuario, contraseña ni tokens personales: cada persona usa su propia cuenta de GitHub.
+## Comandos
 
-### 2. Build de producción
+| Comando | Acción |
+| --- | --- |
+| `npm run dev` | Inicia el servidor de desarrollo en `http://localhost:4321`. |
+| `npm run check` | Ejecuta el chequeo de tipos y los diagnósticos de Astro. |
+| `npm run build` | Genera el sitio estático en `dist/`. |
+| `npm run preview` | Sirve localmente el build de producción. |
 
-```bash
-npm run build      # genera ./dist
-npm run preview    # sirve el build localmente para revisarlo
+## Estructura
+
+```text
+.
+|-- astro.config.mjs              # URL canónica y plugin de Tailwind
+|-- public/
+|   |-- data/coverage-zones.geojson
+|   |-- favicon.svg
+|   `-- images/                   # Fotos, logo e imágenes sociales/fallback
+|-- src/
+|   |-- components/               # Secciones y UI reutilizable
+|   |-- data/site.ts              # Datos editables del negocio y contenido principal
+|   |-- layouts/BaseLayout.astro
+|   |-- pages/index.astro          # Composición de la landing
+|   |-- scripts/coverage-map.ts    # Inicialización del mapa Leaflet
+|   `-- styles/global.css          # Tailwind y tokens de marca
+|-- package.json
+`-- tsconfig.json
 ```
 
-### 3. Flujo de trabajo directo sobre `main`
+## Contenido e imágenes
 
-> 📌 **Regla obligatoria:** hacé `git pull origin main` **antes de empezar a modificar** (para no pisar cambios de la otra persona) y `npm run build` **antes de pushear** (para no romper el deploy).
+[`src/data/site.ts`](src/data/site.ts) es la fuente principal para los datos editables del negocio: contacto, ubicación, cobertura, servicios, testimonios, preguntas frecuentes, llamadas a la acción y valores SEO predeterminados. El enlace de WhatsApp se construye a partir de los números configurados allí.
+
+Algunos textos estructurales de navegación, componentes y mapa viven junto a su interfaz. Antes de editar, buscá el texto o dato concreto y conservá consistentes sus apariciones; no asumas que todo el copy está centralizado en `site.ts`.
+
+- Las imágenes públicas viven en `public/images/`. Para reemplazarlas, conservá el nombre o actualizá la ruta que las referencia.
+- Las zonas del mapa se cargan desde `public/data/coverage-zones.geojson` y se renderizan mediante `src/scripts/coverage-map.ts` y `CoverageMap.astro`.
+- El Instagram configurado actualmente es `@akdemia.autoescuela`.
+
+## SEO
+
+El sitio incluye:
+
+- `title`, `description` y URL canónica;
+- Open Graph y Twitter Card;
+- JSON-LD de `LocalBusiness` y `FAQPage`;
+- HTML semántico, un único `<h1>` y headings ordenados.
+
+La URL pública se configura tanto en `astro.config.mjs` (`site`) como en `site.url`. Si cambia el dominio, hay que actualizar ambos valores.
+
+## Validación
+
+Antes de publicar cambios:
 
 ```bash
-git pull origin main                       # traer lo último ANTES de modificar
-npm run build                              # validar que compila ANTES de pushear
-git status
-git add .
-git commit -m "Descripción breve del cambio"
-git push origin main                       # dispara el deploy automático en Vercel
+npm run check
+npm run build
 ```
 
-Como no hay ramas, mantené los commits chicos y descriptivos, y coordiná con la otra persona para no trabajar sobre los mismos archivos al mismo tiempo.
+Para cambios visuales, revisá también las vistas relevantes en escritorio y móvil, el mapa de cobertura y el enlace de WhatsApp.
+
+## Colaboración y deploy
+
+El equipo trabaja directamente sobre `main`, por lo que conviene coordinar cambios sobre los mismos archivos y mantener commits chicos y descriptivos. Cada colaborador debe usar su propia cuenta de GitHub; no se comparten contraseñas ni tokens.
+
+Flujo humano habitual:
+
+1. Sincronizar la copia local antes de empezar.
+2. Implementar y revisar el cambio.
+3. Ejecutar `npm run check` y `npm run build`.
+4. Confirmar con `git status` que solo se incluyan los archivos esperados.
+5. Crear el commit y hacer push cuando se quiera publicar.
+
+Un push a la rama conectada puede disparar automáticamente un deploy de Vercel. La configuración inicial o recuperación del proyecto en Vercel usa el preset Astro, `npm run build` como build command y `dist` como output directory; no requiere adapter ni variables de entorno.
