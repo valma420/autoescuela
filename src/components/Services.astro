@@ -1,55 +1,112 @@
 ---
-import { services, site } from '../data/site';
+import { hero, services, site } from '../data/site';
 ---
 
-<section id="servicios" class="bg-slate-100 py-16 sm:py-24">
-  <div class="mx-auto max-w-6xl px-4">
-    <div class="mx-auto max-w-3xl text-center">
-      <p class="text-sm font-bold uppercase tracking-[0.22em] text-brand-600">
-        Clases
-      </p>
-      <h2 class="mt-3 text-3xl font-black tracking-tight text-brand-950 sm:text-5xl">
-        Clases y servicios
+<section id="servicios" class="ak-section bg-brand-50 text-brand-950">
+  <div class="ak-container">
+    <div class="max-w-2xl">
+      <h2 class="font-display text-4xl font-black uppercase leading-[0.98] sm:text-5xl">
+        Clases prácticas
       </h2>
-      <p class="mt-4 text-lg leading-8 text-slate-600">
-        Elegí el tipo de clase de manejo que mejor se adapta a vos, desde tus
-        primeras prácticas hasta el examen de la licencia.
+      <p class="mt-4 max-w-xl text-base leading-7 text-brand-800/80 md:text-lg">
+        Cada clase apunta a una meta concreta: arrancar de cero, ganar calle o
+        practicar para el examen de CABA.
       </p>
     </div>
 
-    <ul class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+    <ul class="mt-6 flex flex-wrap gap-2">
       {
-        services.map((service) => (
-          <li class="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-lg shadow-slate-200/70 transition hover:-translate-y-1 hover:shadow-xl">
-            <img
-              src={service.image}
-              alt=""
-              width="1200"
-              height="800"
-              loading="eager"
-              class="h-44 w-full object-cover"
-            />
-            <div class="p-5">
-              <span
-                class="grid h-11 w-11 place-items-center rounded-lg bg-accent-400 text-xl"
-                aria-hidden="true"
-              >
-                {service.icon}
-              </span>
-              <h3 class="mt-4 text-lg font-black text-brand-950">{service.title}</h3>
-              <p class="mt-2 text-sm leading-6 text-slate-600">{service.description}</p>
-              <a
-                href={site.contact.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="mt-5 inline-flex w-full items-center justify-center rounded-lg bg-accent-400 px-4 py-2.5 text-sm font-black text-brand-950 transition hover:bg-accent-300"
-              >
-                Consultar
-              </a>
-            </div>
+        hero.highlights.map((item) => (
+          <li class="inline-flex min-h-9 items-center gap-2 rounded-full bg-white px-4 text-xs font-black text-brand-800 shadow-[0_8px_20px_-12px_rgba(25,26,51,0.4)]">
+            <span class="ak-dot"></span>
+            {item}
           </li>
         ))
       }
     </ul>
+
+    <ul class="mt-5 grid gap-3 md:grid-cols-2">
+      {
+        services.map((service, index) => (
+          <li
+            class:list={[
+              'rounded-md p-5 shadow-[0_10px_24px_-14px_rgba(25,26,51,0.45)] transition duration-200 hover:-translate-y-0.5',
+              index === 0
+                ? 'bg-brand-950 text-white'
+                : 'bg-white text-brand-950',
+            ]}
+          >
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p
+                  class:list={[
+                    'text-xs font-black uppercase tracking-[0.28em]',
+                    index === 0 ? 'text-accent-300' : 'text-accent-500',
+                  ]}
+                >
+                  {service.icon}
+                </p>
+                <h3 class="mt-2 text-xl font-black leading-6">{service.title}</h3>
+              </div>
+              <a
+                href={site.contact.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Consultar por ${service.title}`}
+                class:list={[
+                  'ak-focus grid h-9 w-9 shrink-0 place-items-center rounded-full text-lg font-black transition',
+                  index === 0
+                    ? 'bg-accent-400 text-brand-950 hover:bg-white'
+                    : 'bg-brand-100 text-brand-950 hover:bg-accent-400',
+                ]}
+              >
+                →
+              </a>
+            </div>
+            <p
+              class:list={[
+                'mt-4 text-sm leading-6',
+                index === 0 ? 'text-brand-100' : 'text-brand-800/75',
+              ]}
+            >
+              {service.description}
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="mt-10 grid gap-4 md:grid-cols-[0.95fr_1.05fr] md:items-stretch">
+      <div class="overflow-hidden rounded-md bg-brand-950">
+        <img
+          src="/images/practice-driving.jpg"
+          alt="Interior de un auto durante una práctica de manejo"
+          width="1200"
+          height="800"
+          loading="lazy"
+          class="h-full min-h-64 w-full object-cover opacity-80"
+        />
+      </div>
+      <div class="rounded-md bg-brand-100 p-6 md:p-8">
+        <dl class="grid gap-5 sm:grid-cols-3">
+          {
+            hero.stats.map((stat) => (
+              <div>
+                <dt class="font-display text-3xl font-black leading-none text-brand-950">
+                  {stat.value}
+                </dt>
+                <dd class="mt-2 text-xs font-black uppercase tracking-[0.16em] text-brand-800/70">
+                  {stat.label}
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+        <p class="mt-8 max-w-xl text-base leading-7 text-brand-800/80">
+          Una práctica clara, progresiva y sin apuros, pensada para que entiendas
+          qué estás haciendo antes de enfrentarte solo al tránsito.
+        </p>
+      </div>
+    </div>
   </div>
 </section>

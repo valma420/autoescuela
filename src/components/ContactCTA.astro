@@ -2,40 +2,28 @@
 import { contactCta, site } from '../data/site';
 ---
 
-<section id="contacto" class="bg-white px-4 py-16 sm:py-24">
-  <div
-    class="relative isolate mx-auto max-w-6xl overflow-hidden rounded-lg bg-brand-950 px-6 py-14 text-center shadow-2xl sm:px-10 sm:py-20"
-  >
-    <img
-      src={site.assets.ctaImage}
-      alt=""
-      width="1200"
-      height="800"
-      loading="lazy"
-      class="absolute inset-0 -z-20 h-full w-full object-cover"
-    />
-    <div class="absolute inset-0 -z-10 bg-brand-950/82"></div>
-
-    <p class="text-sm font-bold uppercase tracking-[0.22em] text-accent-400">
-      Contacto
+<section id="contacto" class="ak-section bg-brand-950 text-white">
+  <div class="ak-container">
+    <p class="text-xs font-black uppercase tracking-[0.32em] text-accent-300">
+      Empezá hoy
     </p>
-    <h2 class="mx-auto mt-3 max-w-2xl text-3xl font-black tracking-tight text-white sm:text-5xl">
+    <h2 class="font-display mt-4 max-w-3xl text-4xl font-black uppercase leading-[0.94] sm:text-6xl">
       {contactCta.title}
     </h2>
-    <p class="mx-auto mt-5 max-w-xl text-lg leading-8 text-slate-200">
+    <p class="mt-6 max-w-xl text-base leading-7 text-brand-100/82 md:text-lg md:leading-8">
       {contactCta.description}
     </p>
 
-    <div class="mt-8 flex flex-col items-center gap-4">
+    <div class="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
       <a
         href={site.contact.whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center justify-center rounded-full bg-accent-400 px-8 py-4 text-lg font-black text-brand-950 shadow-lg transition hover:bg-accent-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-300 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-950"
+        class="ak-focus inline-flex min-h-12 w-full items-center justify-center rounded-full bg-accent-400 px-8 text-xs font-black uppercase text-brand-950 shadow-[0_14px_30px_-12px_rgba(0,158,226,0.75)] transition duration-200 hover:-translate-y-0.5 hover:bg-white sm:w-auto"
       >
         {contactCta.cta}
       </a>
-      <p class="text-sm font-semibold text-slate-200">
+      <p class="text-sm font-semibold text-brand-100/75">
         {site.contact.phoneDisplay} · {site.contact.schedule}
       </p>
     </div>

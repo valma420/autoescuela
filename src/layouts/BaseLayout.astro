@@ -21,30 +21,44 @@ const { title, description, canonical } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#071328" />
+    <meta name="theme-color" content="#191A33" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <SEO title={title} description={description} canonical={canonical} />
   </head>
-  <body class="bg-slate-50 text-slate-800 antialiased">
+  <body class="bg-brand-950 text-brand-100 antialiased">
     <a
       href="#contenido"
-      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-brand-600 focus:px-4 focus:py-2 focus:text-white"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-accent-400 focus:px-4 focus:py-2 focus:text-brand-950"
     >
       Saltar al contenido
     </a>
     <SiteHeader />
     <slot />
-    <footer class="bg-brand-950 py-10 text-white">
+    <footer class="border-t border-white/8 bg-brand-800 py-10 text-brand-100">
       <div
-        class="mx-auto flex max-w-6xl flex-col items-center gap-2 px-4 text-center text-sm text-slate-300"
+        class="ak-container flex flex-col items-start gap-3 text-sm md:flex-row md:items-end md:justify-between"
       >
-        <p class="font-semibold text-white">{site.name}</p>
-        <p>{site.location.area}, {site.location.regionShort}, {site.location.country}</p>
-        <p>{site.contact.schedule}</p>
-        <p>
-          &copy; {new Date().getFullYear()}
-          {' '}{site.name}. Todos los derechos reservados.
+        <div>
+          <p class="font-display text-xl font-black uppercase leading-none text-white">
+            AKDEMIA
+          </p>
+          <p class="mt-1 text-[0.68rem] font-black uppercase tracking-[0.28em] text-accent-400">
+            Autoescuela
+          </p>
+          <p class="mt-5">{site.location.area} · {site.location.regionShort} · {site.location.country}</p>
+          <p class="mt-1">{site.contact.schedule}</p>
+          <a
+            href={site.contact.instagram.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-1 inline-block font-semibold text-accent-300 ak-focus"
+          >
+            {site.contact.instagram.handle}
+          </a>
+        </div>
+        <p class="max-w-xs text-xs leading-5 text-brand-100/70">
+          &copy; {new Date().getFullYear()} {site.name}. Todos los derechos reservados.
         </p>
       </div>
     </footer>

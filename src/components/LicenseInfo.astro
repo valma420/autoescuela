@@ -1,0 +1,33 @@
+---
+import { licenseInfo } from '../data/site';
+---
+
+<section id="licencia" class="ak-section bg-brand-950 text-white">
+  <div class="ak-container">
+    <div class="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
+      <div>
+        <h2 class="font-display text-4xl font-black uppercase leading-[0.98] sm:text-5xl">
+          {licenseInfo.title}
+        </h2>
+        <p class="mt-5 max-w-md text-base leading-7 text-brand-100/82">
+          {licenseInfo.description}
+        </p>
+      </div>
+
+      <ul class="grid gap-3 md:grid-cols-2">
+        {
+          licenseInfo.items.map((item, index) => (
+            <li class="rounded-md border border-brand-100/10 bg-brand-800 p-5 shadow-[0_16px_32px_-24px_rgba(0,0,0,0.75)]">
+              <span class="block h-1 w-10 rounded-full bg-accent-400" aria-hidden="true"></span>
+              <p class="mt-4 text-xs font-black uppercase tracking-[0.24em] text-accent-300">
+                {String(index + 1).padStart(2, '0')}
+              </p>
+              <h3 class="mt-3 text-lg font-black leading-6 text-white">{item.title}</h3>
+              <p class="mt-3 text-sm leading-6 text-brand-100/78">{item.description}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

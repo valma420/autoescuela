@@ -77,17 +77,18 @@ export const site = {
 // ---------------------------------------------------------------------------
 
 export const hero = {
-  eyebrow: 'Villa Urquiza · CABA',
-  title: 'Aprendé a manejar en Villa Urquiza',
+  eyebrow: 'CABA',
+  title: 'Aprendé a manejar',
   subtitle:
-    'Clases de manejo para principiantes, a tu ritmo y con paciencia. Sacá la confianza que necesitás al volante con clases prácticas adaptadas a vos.',
-  primaryCta: 'Reservar por WhatsApp',
+    'Clases prácticas con método y auto doble comando. Seguridad real al volante, a tu ritmo.',
+  primaryCta: 'Agendá tu clase',
   secondaryCta: 'Ver servicios',
-  // Puntos de confianza que aparecen bajo el CTA.
+  // Puntos de confianza que aparecen bajo el CTA y en el bloque de servicios.
   highlights: [
-    'Auto con doble comando',
-    'Profesor paciente',
-    'Horarios flexibles',
+    '45 min por clase',
+    'Caja manual',
+    'Doble comando',
+    'Puerta a puerta',
   ],
   stats: [
     { value: '+10', label: 'años de experiencia' },
@@ -102,7 +103,7 @@ export const hero = {
 
 export const teacher = {
   name: 'Facundo Massó',
-  role: 'Instructor de manejo matriculado',
+  role: 'Instructor matriculado por el GCBA',
   photo: '/images/driver-profile.jpg',
   bio: [
     'Más de 10 años enseñando a manejar en Villa Urquiza y la zona norte de CABA. Mi prioridad es que manejes seguro y tranquilo, sin apuro y sin presiones.',
@@ -113,6 +114,7 @@ export const teacher = {
     '+10 años de experiencia',
     'Clases 100% personalizadas',
     'Enfoque en seguridad vial',
+    'Título GCBA en técnicas de conducción',
   ],
 } as const;
 
@@ -123,37 +125,37 @@ export const teacher = {
 export interface Service {
   title: string;
   description: string;
-  /** Emoji o símbolo simple usado como ícono liviano (sin librerías). */
+  /** Dato decorativo heredado; los componentes actuales usan numeración visual. */
   icon: string;
   image: string;
 }
 
 export const services: Service[] = [
   {
-    icon: '🚗',
+    icon: '01',
     image: '/images/practice-driving.jpg',
-    title: 'Clases para principiantes',
+    title: 'Para principiantes',
     description:
       'Desde cero y a tu ritmo. Arrancamos con lo básico hasta que manejes con confianza por la ciudad.',
   },
   {
-    icon: '🛣️',
+    icon: '02',
     image: '/images/hero-driving.jpg',
     title: 'Clases prácticas',
     description:
       'Práctica real en calle: estacionamiento, avenidas, rotondas y situaciones del tránsito porteño.',
   },
   {
-    icon: '📘',
+    icon: '03',
     image: '/images/steering-wheel.jpg',
-    title: 'Preparación para el examen',
+    title: 'Preparación de examen',
     description:
       'Te preparamos para el examen práctico de la licencia de conducir de CABA con todo lo que se evalúa.',
   },
   {
-    icon: '😌',
+    icon: '04',
     image: '/images/driver-profile.jpg',
-    title: 'Clases para perder el miedo',
+    title: 'Perder el miedo',
     description:
       'Si ya sabés algo pero te falta seguridad, retomamos con paciencia hasta que manejes tranquilo.',
   },
@@ -171,24 +173,24 @@ export interface Benefit {
 
 export const benefits: Benefit[] = [
   {
-    icon: '🤝',
-    title: 'Trato paciente y cercano',
-    description: 'Sin retos ni apuros. Aprendés cómodo y a tu tiempo.',
+    icon: '01',
+    title: 'Método, no improvisación',
+    description: 'Un plan por alumno: sabés qué vas a practicar en cada clase.',
   },
   {
-    icon: '🧰',
+    icon: '02',
     title: 'Auto con doble comando',
-    description: 'Manejás seguro desde la primera clase, con freno de apoyo.',
+    description: 'Freno de apoyo desde la primera clase. Manejás seguro siempre.',
   },
   {
-    icon: '🗓️',
+    icon: '03',
     title: 'Horarios flexibles',
-    description: 'Coordinamos los días y horarios que mejor te queden.',
+    description: 'Coordinás los días y las horas que mejor te queden.',
   },
   {
-    icon: '📍',
-    title: 'Te pasamos a buscar',
-    description: 'Empezamos la clase desde tu casa en Villa Urquiza y alrededores.',
+    icon: '04',
+    title: 'Puerta a puerta',
+    description: 'La clase empieza y termina en la puerta de tu casa.',
   },
 ];
 
@@ -197,18 +199,44 @@ export const benefits: Benefit[] = [
 // ---------------------------------------------------------------------------
 
 export const coverage = {
-  title: 'Zonas donde damos clases',
+  title: 'Dónde doy clases',
   description:
-    'Damos clases de manejo en Villa Urquiza y los barrios cercanos de la zona norte de la Ciudad de Buenos Aires.',
+    'Damos clases en Villa Urquiza, Paternal y Parque Chas, y en zonas de bajo riesgo para que practiques según dónde vas a rendir.',
   areas: [
     'Villa Urquiza',
-    'Villa Pueyrredón',
-    'Coghlan',
-    'Saavedra',
-    'Belgrano',
-    'Villa Ortúzar',
+    'Paternal',
     'Parque Chas',
-    'Agronomía',
+  ],
+} as const;
+
+// ---------------------------------------------------------------------------
+// Licencia de conducir en CABA
+// ---------------------------------------------------------------------------
+
+export const licenseInfo = {
+  title: 'Tu licencia en CABA',
+  description:
+    'Lo que tenés que saber para rendir. Te acompañamos con la info del trámite.',
+  items: [
+    {
+      title: 'Charla de educación vial',
+      description:
+        'Es obligatoria para tramitar la licencia. Te decimos cómo y dónde hacerla.',
+    },
+    {
+      title: 'Dónde rendís',
+      description:
+        'Elegís la comuna. Recomendamos la 11 (Devoto), 12 (Villa Urquiza) o 15 (Palermo).',
+    },
+    {
+      title: 'Examen práctico',
+      description:
+        'Es en calle y únicamente con el vehículo del GCBA: no se rinde con tu auto ni con uno alquilado.',
+    },
+    {
+      title: 'Requisito',
+      description: 'Tener domicilio en CABA en el DNI.',
+    },
   ],
 } as const;
 

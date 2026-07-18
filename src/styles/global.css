@@ -2,30 +2,32 @@
 
 /* Tema de marca AKDemia — tokens reutilizables en utilidades Tailwind v4. */
 @theme {
-  --color-brand-50: #eef4ff;
-  --color-brand-100: #dbe8ff;
-  --color-brand-200: #b9d1ff;
-  --color-brand-300: #8aaeff;
-  --color-brand-400: #557dff;
-  --color-brand-500: #2f55f6;
-  --color-brand-600: #1f3edb;
-  --color-brand-700: #1b32ad;
-  --color-brand-800: #162a79;
-  --color-brand-900: #101f4f;
-  --color-brand-950: #071328;
+  --color-brand-50: #f2f9fc;
+  --color-brand-100: #cdebf9;
+  --color-brand-200: #8fd4f1;
+  --color-brand-300: #42b9ea;
+  --color-brand-400: #009ee2;
+  --color-brand-500: #008fcc;
+  --color-brand-600: #007cb4;
+  --color-brand-700: #116186;
+  --color-brand-800: #23244a;
+  --color-brand-900: #1b1c38;
+  --color-brand-950: #191a33;
 
-  --color-accent-50: #fffbe6;
-  --color-accent-100: #fff5b8;
-  --color-accent-300: #ffe45c;
-  --color-accent-400: #ffd91a;
-  --color-accent-500: #facc15;
-  --color-accent-600: #d9a800;
+  --color-accent-50: #f2f9fc;
+  --color-accent-100: #e3f2f7;
+  --color-accent-200: #cdebf9;
+  --color-accent-300: #8fd4f1;
+  --color-accent-400: #009ee2;
+  --color-accent-500: #007cb4;
+  --color-accent-600: #006796;
 
   --color-whatsapp-500: #25d366;
   --color-whatsapp-600: #1ebe5d;
 
-  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+  --font-sans: 'General Sans', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
     Roboto, Helvetica, Arial, sans-serif;
+  --font-display: 'Monument Extended', 'Arial Black', 'Impact', var(--font-sans);
 }
 
 html {
@@ -34,11 +36,76 @@ html {
 
 body {
   font-family: var(--font-sans);
+  background: #191a33;
+  color: #cdebf9;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.ak-section {
+  padding-block: 3.25rem;
+}
+
+.ak-container {
+  margin-inline: auto;
+  max-width: 72rem;
+  padding-inline: 1.375rem;
+}
+
+.ak-pill {
+  display: inline-flex;
+  min-height: 2.25rem;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 999px;
+  background: rgba(205, 235, 249, 0.12);
+  padding: 0.5rem 0.875rem;
+  color: #cdebf9;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.ak-dot {
+  height: 0.375rem;
+  width: 0.375rem;
+  flex: none;
+  border-radius: 999px;
+  background: #009ee2;
+}
+
+.ak-focus {
+  outline: 2px solid transparent;
+  outline-offset: 3px;
+}
+
+.ak-focus:focus-visible {
+  outline-color: #009ee2;
 }
 
 /* Respeta a quienes prefieren menos movimiento. */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .ak-section {
+    padding-block: 5.5rem;
+  }
+
+  .ak-container {
+    padding-inline: 2rem;
   }
 }

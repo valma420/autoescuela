@@ -7,15 +7,15 @@ const geoJsonUrl = '/data/coverage-zones.geojson';
 const defaultCenter: L.LatLngExpression = [-34.5705, -58.4865];
 
 const zoneStyle: L.PathOptions = {
-  color: '#071328',
-  fillColor: '#ffd91a',
-  fillOpacity: 0.28,
+  color: '#009ee2',
+  fillColor: '#cdebf9',
+  fillOpacity: 0.34,
   opacity: 0.95,
   weight: 2,
 };
 
 const zoneHoverStyle: L.PathOptions = {
-  fillOpacity: 0.52,
+  fillOpacity: 0.58,
   weight: 3,
 };
 
