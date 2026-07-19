@@ -2,13 +2,14 @@
 import { hero, services, site } from '../data/site';
 ---
 
-<section id="servicios" class="ak-section bg-brand-50 text-brand-950">
+<section id="servicios" class="ak-section relative bg-brand-100 text-brand-950">
   <div class="ak-container">
+    <p class="absolute left-[22px] top-[30px] text-[13px] font-semibold tracking-[2px] text-brand-800/80">01</p>
     <div class="max-w-2xl">
-      <h2 class="font-display text-4xl font-black uppercase leading-[0.98] sm:text-5xl">
-        Clases prácticas
+      <h2 class="font-display text-[30px] font-black leading-none tracking-[-0.01em] sm:text-5xl">
+        Clases a medida
       </h2>
-      <p class="mt-4 max-w-xl text-base leading-7 text-brand-800/80 md:text-lg">
+      <p class="mt-[14px] max-w-xl text-base leading-6 text-brand-800/80 md:text-lg">
         Cada clase apunta a una meta concreta: arrancar de cero, ganar calle o
         practicar para el examen de CABA.
       </p>
@@ -17,7 +18,7 @@ import { hero, services, site } from '../data/site';
     <ul class="mt-6 flex flex-wrap gap-2">
       {
         hero.highlights.map((item) => (
-          <li class="inline-flex min-h-9 items-center gap-2 rounded-full bg-white px-4 text-xs font-black text-brand-800 shadow-[0_8px_20px_-12px_rgba(25,26,51,0.4)]">
+          <li class="inline-flex min-h-9 items-center gap-2 rounded-full bg-white px-[13px] text-[13px] font-medium text-brand-950">
             <span class="ak-dot"></span>
             {item}
           </li>
@@ -30,24 +31,14 @@ import { hero, services, site } from '../data/site';
         services.map((service, index) => (
           <li
             class:list={[
-              'rounded-md p-5 shadow-[0_10px_24px_-14px_rgba(25,26,51,0.45)] transition duration-200 hover:-translate-y-0.5',
+              'rounded-[18px] px-[22px] pb-6 pt-[22px] shadow-[0_8px_20px_-6px_rgba(26,77,115,0.15)] transition duration-200 hover:-translate-y-0.5',
               index === 0
                 ? 'bg-brand-950 text-white'
                 : 'bg-white text-brand-950',
             ]}
           >
             <div class="flex items-start justify-between gap-4">
-              <div>
-                <p
-                  class:list={[
-                    'text-xs font-black uppercase tracking-[0.28em]',
-                    index === 0 ? 'text-accent-300' : 'text-accent-500',
-                  ]}
-                >
-                  {service.icon}
-                </p>
-                <h3 class="mt-2 text-xl font-black leading-6">{service.title}</h3>
-              </div>
+              <h3 class="text-[22px] font-bold leading-[1.1] tracking-[-0.01em]">{service.title}</h3>
               <a
                 href={site.contact.whatsappUrl}
                 target="_blank"
@@ -65,7 +56,7 @@ import { hero, services, site } from '../data/site';
             </div>
             <p
               class:list={[
-                'mt-4 text-sm leading-6',
+                'mt-3 text-sm font-medium leading-[1.45]',
                 index === 0 ? 'text-brand-100' : 'text-brand-800/75',
               ]}
             >
@@ -76,37 +67,5 @@ import { hero, services, site } from '../data/site';
       }
     </ul>
 
-    <div class="mt-10 grid gap-4 md:grid-cols-[0.95fr_1.05fr] md:items-stretch">
-      <div class="overflow-hidden rounded-md bg-brand-950">
-        <img
-          src="/images/practice-driving.jpg"
-          alt="Interior de un auto durante una práctica de manejo"
-          width="1200"
-          height="800"
-          loading="lazy"
-          class="h-full min-h-64 w-full object-cover opacity-80"
-        />
-      </div>
-      <div class="rounded-md bg-brand-100 p-6 md:p-8">
-        <dl class="grid gap-5 sm:grid-cols-3">
-          {
-            hero.stats.map((stat) => (
-              <div>
-                <dt class="font-display text-3xl font-black leading-none text-brand-950">
-                  {stat.value}
-                </dt>
-                <dd class="mt-2 text-xs font-black uppercase tracking-[0.16em] text-brand-800/70">
-                  {stat.label}
-                </dd>
-              </div>
-            ))
-          }
-        </dl>
-        <p class="mt-8 max-w-xl text-base leading-7 text-brand-800/80">
-          Una práctica clara, progresiva y sin apuros, pensada para que entiendas
-          qué estás haciendo antes de enfrentarte solo al tránsito.
-        </p>
-      </div>
-    </div>
   </div>
 </section>

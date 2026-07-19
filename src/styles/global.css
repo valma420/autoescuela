@@ -26,9 +26,9 @@
   --color-whatsapp-500: #25d366;
   --color-whatsapp-600: #1ebe5d;
 
-  --font-sans: 'General Sans', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+  --font-sans: 'General Sans', 'Manrope', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
     Roboto, Helvetica, Arial, sans-serif;
-  --font-display: 'Monument Extended', 'Arial Black', 'Impact', var(--font-sans);
+  --font-display: 'Monument Extended', 'Archivo', 'Arial Black', 'Impact', var(--font-sans);
 }
 
 html {
@@ -46,7 +46,7 @@ body {
 }
 
 .ak-section {
-  padding-block: 3.25rem;
+  padding-block: 3.5rem;
 }
 
 .ak-container {

@@ -1,53 +1,53 @@
 ---
 import { hero, site } from '../data/site';
 
-const titleParts = hero.title.split(' ');
-const titleAccent = titleParts.pop();
-const titleLead = titleParts.join(' ');
+const [titleLead, titleConnector, titleAccent] = hero.title.split(' ');
 ---
 
-<section class="relative isolate min-h-[760px] overflow-hidden bg-brand-950 md:min-h-[820px]">
+<section class="relative isolate min-h-[777px] overflow-hidden bg-brand-950 md:min-h-[820px]">
   <img
     src={site.assets.heroImage}
-    alt="Persona manejando durante una clase de manejo"
-    width="1800"
-    height="1200"
+    alt="Auto de práctica recorriendo un circuito con conos"
+    width="1011"
+    height="1555"
     loading="eager"
-    class="absolute inset-0 -z-30 h-full w-full object-cover object-center"
+    fetchpriority="high"
+    class="absolute inset-x-0 top-[50px] -z-30 h-[780px] w-full object-cover object-[50%_top] opacity-35 md:inset-0 md:h-full md:object-center md:opacity-55"
   />
-  <div class="absolute inset-0 -z-20 bg-brand-950/42"></div>
+  <div class="absolute inset-0 -z-20 bg-[linear-gradient(111deg,#2b2e5c_0%,#14162b_71%)] opacity-70"></div>
   <div
-    class="absolute inset-x-0 bottom-0 -z-10 h-[62%] bg-gradient-to-t from-brand-950 via-brand-950/86 to-transparent"
+    class="absolute inset-x-0 bottom-0 -z-10 h-[64%] bg-gradient-to-t from-brand-950 via-brand-950/90 to-transparent md:h-[62%]"
   >
   </div>
 
-  <div class="ak-container flex min-h-[760px] items-end pb-12 pt-28 md:min-h-[820px] md:pb-16">
+  <div class="ak-container flex min-h-[777px] items-end pb-[125px] pt-28 md:min-h-[820px] md:pb-16">
     <div class="max-w-3xl">
-      <p class="ak-pill">
+      <p class="inline-flex items-center gap-2 py-[7px] pr-[14px] text-xs font-semibold tracking-[0.04em] text-white uppercase">
         <span class="ak-dot"></span>
         {hero.eyebrow}
       </p>
       <h1
-        class="font-display mt-5 max-w-[10ch] text-[3.1rem] font-black uppercase leading-[0.88] text-white sm:text-7xl md:text-8xl"
+        class="font-display mt-4 text-[46px] font-black leading-none tracking-[-0.02em] text-white sm:text-7xl md:max-w-[10ch] md:text-8xl"
       >
-        {titleLead} <span class="block text-accent-400">{titleAccent}</span>
+        <span class="block">{titleLead}</span>
+        <span class="block">{titleConnector} <span class="text-accent-400">{titleAccent}</span></span>
       </h1>
-      <p class="mt-5 max-w-xl text-base font-semibold leading-7 text-brand-100 md:text-lg md:leading-8">
+      <p class="mt-4 max-w-xl text-base leading-6 text-brand-100 md:text-lg md:leading-8">
         {hero.subtitle}
       </p>
 
-      <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+      <div class="mt-4 flex flex-col gap-3 sm:flex-row">
         <a
           href={site.contact.whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="ak-focus inline-flex min-h-12 items-center justify-center rounded-full bg-accent-400 px-7 text-xs font-black uppercase text-brand-950 shadow-[0_14px_30px_-10px_rgba(0,158,226,0.7)] transition duration-200 hover:-translate-y-0.5 hover:bg-brand-100"
+          class="ak-focus inline-flex min-h-[50px] w-full items-center justify-center rounded-full bg-accent-400 px-7 text-xs font-semibold tracking-[0.04em] uppercase text-brand-950 transition duration-200 hover:-translate-y-0.5 hover:bg-brand-100 sm:w-auto"
         >
           {hero.primaryCta}
         </a>
         <a
           href="#servicios"
-          class="ak-focus inline-flex min-h-12 items-center justify-center rounded-full border border-brand-100/25 bg-brand-100/10 px-7 text-xs font-black uppercase text-white backdrop-blur transition duration-200 hover:bg-white hover:text-brand-950"
+          class="ak-focus hidden min-h-12 items-center justify-center rounded-full border border-brand-100/25 bg-brand-100/10 px-7 text-xs font-black uppercase text-white backdrop-blur transition duration-200 hover:bg-white hover:text-brand-950 sm:inline-flex"
         >
           {hero.secondaryCta}
         </a>

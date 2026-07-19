@@ -9,15 +9,20 @@ const navItems = [
 ];
 ---
 
-<header class="fixed inset-x-0 top-0 z-40 bg-gradient-to-b from-brand-950/82 to-transparent">
-  <div class="ak-container flex min-h-20 items-center justify-between gap-4 py-3">
-    <a href="/" class="ak-focus flex items-center gap-3" aria-label={`${site.name} inicio`}>
+<header class="absolute inset-x-0 top-0 z-40 bg-brand-950 md:fixed md:bg-gradient-to-b md:from-brand-950/90 md:to-transparent">
+  <div class="mx-auto flex h-[84px] max-w-6xl items-center justify-between gap-4 px-[30px] md:min-h-20 md:px-8 md:py-3">
+    <a href="/" class="ak-focus relative h-[60px] w-[171px] shrink-0 md:flex md:items-center" aria-label={`${site.name} inicio`}>
+      <span class="md:hidden">
+        <img src="/images/akdemia-menu-logo-car.svg" alt="" width="120" height="51" class="absolute left-[14.8%] top-[7.38%] h-[85.25%] w-[70.4%]" />
+        <img src="/images/akdemia-menu-logo-wordmark.svg" alt={site.name} width="91" height="13" class="absolute left-[22.86%] top-[40.65%] h-[21.95%] w-[53.15%]" />
+        <img src="/images/akdemia-menu-logo-subtitle.svg" alt="" width="64" height="7" class="absolute left-[30.56%] top-[64.67%] h-[10.86%] w-[37.44%]" />
+      </span>
       <img
         src={site.assets.logo}
         alt={site.name}
         width="864"
         height="391"
-        class="h-14 w-auto max-w-[172px] object-contain"
+        class="hidden h-14 w-auto max-w-[172px] object-contain md:block"
       />
     </a>
 
@@ -44,7 +49,7 @@ const navItems = [
       aria-controls="mobile-navigation"
       aria-expanded="false"
       aria-label="Abrir menú"
-      class="ak-focus relative grid h-11 w-11 place-items-center rounded-full bg-white/10 text-white backdrop-blur md:hidden"
+      class="ak-focus relative grid h-11 w-11 place-items-center text-brand-100 md:hidden"
       data-menu-toggle
       type="button"
     >

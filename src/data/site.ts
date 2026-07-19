@@ -54,7 +54,7 @@ export const site = {
 
   assets: {
     logo: '/images/logo-akdemia-autoescuela.png',
-    heroImage: '/images/hero-driving.jpg',
+    heroImage: '/images/driving-practice-cones.jpg',
     ctaImage: '/images/steering-wheel.jpg',
   },
 
@@ -81,7 +81,7 @@ export const hero = {
   title: 'Aprendé a manejar',
   subtitle:
     'Clases prácticas con método y auto doble comando. Seguridad real al volante, a tu ritmo.',
-  primaryCta: 'Agendá tu clase',
+  primaryCta: 'Agendá por WhatsApp',
   secondaryCta: 'Ver servicios',
   // Puntos de confianza que aparecen bajo el CTA y en el bloque de servicios.
   highlights: [
@@ -106,8 +106,8 @@ export const teacher = {
   role: 'Instructor matriculado por el GCBA',
   photo: '/images/driver-profile.jpg',
   bio: [
-    'Más de 10 años enseñando a manejar en Villa Urquiza y la zona norte de CABA. Mi prioridad es que manejes seguro y tranquilo, sin apuro y sin presiones.',
-    'Trabajo con principiantes que nunca tocaron un volante y también con quienes quieren perder el miedo o prepararse para el examen de licencia.',
+    'Más de 10 años enseñando a manejar en Villa Urquiza y la zona norte de CABA. Trabajo con un método claro para que manejes seguro y tranquilo, sin apuros.',
+    'Doy clases a quienes nunca tocaron un volante y también a quienes quieren perder el miedo o preparar el examen de la licencia.',
   ],
   // Datos rápidos que refuerzan confianza.
   credentials: [
@@ -136,28 +136,28 @@ export const services: Service[] = [
     image: '/images/practice-driving.jpg',
     title: 'Para principiantes',
     description:
-      'Desde cero y a tu ritmo. Arrancamos con lo básico hasta que manejes con confianza por la ciudad.',
+      'Desde cero y a tu ritmo. Arrancamos con lo básico hasta que manejes con confianza.',
   },
   {
     icon: '02',
     image: '/images/hero-driving.jpg',
     title: 'Clases prácticas',
     description:
-      'Práctica real en calle: estacionamiento, avenidas, rotondas y situaciones del tránsito porteño.',
+      'Práctica real en calle: estacionamiento, avenidas, rotondas y el tránsito porteño.',
   },
   {
     icon: '03',
     image: '/images/steering-wheel.jpg',
     title: 'Preparación de examen',
     description:
-      'Te preparamos para el examen práctico de la licencia de conducir de CABA con todo lo que se evalúa.',
+      'Te preparamos para el examen práctico de la licencia de CABA, con todo lo que se evalúa.',
   },
   {
     icon: '04',
     image: '/images/driver-profile.jpg',
     title: 'Perder el miedo',
     description:
-      'Si ya sabés algo pero te falta seguridad, retomamos con paciencia hasta que manejes tranquilo.',
+      'Si ya sabés algo pero te falta seguridad, retomamos hasta que manejes tranquilo.',
   },
 ];
 
@@ -313,6 +313,6 @@ export const faqs: Faq[] = [
 export const contactCta = {
   title: '¿Listo para empezar a manejar?',
   description:
-    'Escribinos por WhatsApp y coordinamos tu primera clase de manejo en Villa Urquiza. Sin compromiso.',
-  cta: 'Escribir por WhatsApp',
+    'Escribinos por WhatsApp y coordinamos tu primera clase en Villa Urquiza. Sin compromiso.',
+  cta: 'Agendá por WhatsApp',
 } as const;

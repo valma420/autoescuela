@@ -35,29 +35,29 @@ const { title, description, canonical } = Astro.props;
     </a>
     <SiteHeader />
     <slot />
-    <footer class="border-t border-white/8 bg-brand-800 py-10 text-brand-100">
+    <footer class="bg-brand-800 py-10 text-brand-100">
       <div
         class="ak-container flex flex-col items-start gap-3 text-sm md:flex-row md:items-end md:justify-between"
       >
         <div>
-          <p class="font-display text-xl font-black uppercase leading-none text-white">
+          <p class="font-display text-[22px] font-bold leading-[1.1] tracking-[-0.01em] text-white">
             AKDEMIA
           </p>
-          <p class="mt-1 text-[0.68rem] font-black uppercase tracking-[0.28em] text-accent-400">
+          <p class="mt-px text-[9px] font-medium uppercase tracking-[0.22em] text-accent-400">
             Autoescuela
           </p>
-          <p class="mt-5">{site.location.area} · {site.location.regionShort} · {site.location.country}</p>
-          <p class="mt-1">{site.contact.schedule}</p>
+          <p class="mt-[18px] text-[13px] font-medium">{site.location.area} · {site.location.regionShort} · {site.location.country}</p>
+          <p class="mt-1 text-[13px] font-medium text-[#9a9ec4]">{site.contact.schedule}</p>
           <a
             href={site.contact.instagram.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="mt-1 inline-block font-semibold text-accent-300 ak-focus"
+            class="mt-1 inline-block text-sm font-semibold text-brand-200 ak-focus"
           >
             {site.contact.instagram.handle}
           </a>
         </div>
-        <p class="max-w-xs text-xs leading-5 text-brand-100/70">
+        <p class="w-full border-t border-brand-750 pt-4 text-[11px] font-medium leading-[1.2] tracking-[0.04em] text-[#9a9ec4] md:w-auto md:border-0 md:pt-0">
           &copy; {new Date().getFullYear()} {site.name}. Todos los derechos reservados.
         </p>
       </div>

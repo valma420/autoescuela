@@ -2,28 +2,28 @@
 import { contactCta, site } from '../data/site';
 ---
 
-<section id="contacto" class="ak-section bg-brand-950 text-white">
+<section id="contacto" class="bg-brand-950 py-[54px] text-white md:py-[5.5rem]">
   <div class="ak-container">
-    <p class="text-xs font-black uppercase tracking-[0.32em] text-accent-300">
+    <p class="text-[13px] font-semibold leading-none tracking-[0.08em] text-brand-200 uppercase">
       Empezá hoy
     </p>
-    <h2 class="font-display mt-4 max-w-3xl text-4xl font-black uppercase leading-[0.94] sm:text-6xl">
+    <h2 class="font-display mt-[18px] max-w-3xl text-[32px] font-black leading-[1.04] tracking-[-0.015em] sm:text-6xl">
       {contactCta.title}
     </h2>
-    <p class="mt-6 max-w-xl text-base leading-7 text-brand-100/82 md:text-lg md:leading-8">
+    <p class="mt-[18px] max-w-xl text-base leading-6 text-brand-100 md:text-lg md:leading-8">
       {contactCta.description}
     </p>
 
-    <div class="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+    <div class="mt-[18px] flex flex-col items-start gap-4 sm:flex-row sm:items-center">
       <a
         href={site.contact.whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="ak-focus inline-flex min-h-12 w-full items-center justify-center rounded-full bg-accent-400 px-8 text-xs font-black uppercase text-brand-950 shadow-[0_14px_30px_-12px_rgba(0,158,226,0.75)] transition duration-200 hover:-translate-y-0.5 hover:bg-white sm:w-auto"
+        class="ak-focus inline-flex min-h-[50px] w-full items-center justify-center rounded-full bg-accent-400 px-8 text-xs font-semibold tracking-[0.04em] uppercase text-brand-950 transition duration-200 hover:-translate-y-0.5 hover:bg-white sm:w-auto"
       >
         {contactCta.cta}
       </a>
-      <p class="text-sm font-semibold text-brand-100/75">
+      <p class="hidden text-sm font-semibold text-brand-100/75 sm:block">
         {site.contact.phoneDisplay} · {site.contact.schedule}
       </p>
     </div>
