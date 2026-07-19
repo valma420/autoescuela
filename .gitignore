@@ -26,3 +26,6 @@ pnpm-debug.log*
 .vscode/*
 !.vscode/extensions.json
 .idea/
+
+# Codex local files
+/.codex*/
