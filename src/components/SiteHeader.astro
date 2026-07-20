@@ -9,9 +9,9 @@ const navItems = [
 ];
 ---
 
-<header class="absolute inset-x-0 top-0 z-40 bg-brand-950 md:fixed md:bg-gradient-to-b md:from-brand-950/90 md:to-transparent">
-  <div class="mx-auto flex h-[84px] max-w-6xl items-center justify-between gap-4 px-[30px] md:min-h-20 md:px-8 md:py-3">
-    <a href="/" class="ak-focus relative h-[60px] w-[171px] shrink-0 md:flex md:items-center" aria-label={`${site.name} inicio`}>
+<header class="absolute inset-x-0 top-0 z-40 bg-brand-950 shadow-[inset_0_4px_4px_rgba(0,0,0,0.25)] md:fixed md:bg-gradient-to-b md:from-brand-950/90 md:to-transparent md:shadow-none">
+  <div class="relative mx-auto flex h-[84px] max-w-6xl items-center gap-4 px-[30px] md:min-h-20 md:justify-between md:px-8 md:py-3">
+    <a href="/" class="ak-focus absolute left-1/2 top-3 h-[60px] w-[171px] shrink-0 -translate-x-1/2 md:static md:flex md:translate-x-0 md:items-center" aria-label={`${site.name} inicio`}>
       <span class="md:hidden">
         <img src="/images/akdemia-menu-logo-car.svg" alt="" width="120" height="51" class="absolute left-[14.8%] top-[7.38%] h-[85.25%] w-[70.4%]" />
         <img src="/images/akdemia-menu-logo-wordmark.svg" alt={site.name} width="91" height="13" class="absolute left-[22.86%] top-[40.65%] h-[21.95%] w-[53.15%]" />
@@ -49,14 +49,14 @@ const navItems = [
       aria-controls="mobile-navigation"
       aria-expanded="false"
       aria-label="Abrir menú"
-      class="ak-focus relative grid h-11 w-11 place-items-center text-brand-100 md:hidden"
+      class="ak-focus relative ml-auto grid h-11 w-11 place-items-center text-brand-100 md:hidden"
       data-menu-toggle
       type="button"
     >
       <span class="sr-only">Menú</span>
-      <span class="absolute h-0.5 w-5 -translate-y-1.5 rounded-full bg-current"></span>
-      <span class="absolute h-0.5 w-5 rounded-full bg-current"></span>
-      <span class="absolute h-0.5 w-5 translate-y-1.5 rounded-full bg-current"></span>
+      <span class="absolute right-0 h-0.5 w-5 -translate-y-1.5 rounded-full bg-current"></span>
+      <span class="absolute right-0 h-0.5 w-5 rounded-full bg-current"></span>
+      <span class="absolute right-0 h-0.5 w-5 translate-y-1.5 rounded-full bg-current"></span>
     </button>
   </div>
 </header>
