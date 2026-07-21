@@ -29,3 +29,6 @@ pnpm-debug.log*
 
 # Codex local files
 /.codex*/
+
+# Agent scratch space
+/.agent-tmp/
