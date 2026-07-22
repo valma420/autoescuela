@@ -68,6 +68,7 @@ Abrir `http://localhost:4321` en el navegador.
 Algunos textos estructurales de navegación, componentes y mapa viven junto a su interfaz. Antes de editar, buscá el texto o dato concreto y conservá consistentes sus apariciones; no asumas que todo el copy está centralizado en `site.ts`.
 
 - Las imágenes públicas viven en `public/images/`. Para reemplazarlas, conservá el nombre o actualizá la ruta que las referencia.
+- Los placeholders visuales retirados se conservan fuera del repositorio, en `90 Archivo` de la biblioteca indicada por `docs/project-context.local.md`.
 - Las zonas del mapa se cargan desde `public/data/coverage-zones.geojson` y se renderizan mediante `src/scripts/coverage-map.ts` y `CoverageMap.astro`.
 - El Instagram configurado actualmente es `@akdemia.autoescuela`.
 

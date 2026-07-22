@@ -35,3 +35,7 @@ pnpm-debug.log*
 
 # Machine-local project context
 /docs/project-context.local.md
+
+# Retired local visual assets
+/public/images/hero.svg
+/public/images/profesor.svg
