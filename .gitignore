@@ -32,3 +32,6 @@ pnpm-debug.log*
 
 # Agent scratch space
 /.agent-tmp/
+
+# Machine-local project context
+/docs/project-context.local.md
