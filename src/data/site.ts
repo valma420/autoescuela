@@ -81,7 +81,7 @@ export const hero = {
   title: 'Aprendé a manejar',
   subtitle:
     'Clases prácticas con método y auto doble comando. Seguridad real al volante, a tu ritmo.',
-  primaryCta: 'Agendá por WhatsApp',
+  primaryCta: 'Agendá tu clase',
   secondaryCta: 'Ver servicios',
   // Puntos de confianza que aparecen bajo el CTA y en el bloque de servicios.
   highlights: [
@@ -179,7 +179,7 @@ export const benefits: Benefit[] = [
   },
   {
     icon: '02',
-    title: 'Auto con doble comando',
+    title: 'Auto doble comando',
     description: 'Freno de apoyo desde la primera clase. Manejás seguro siempre.',
   },
   {
@@ -314,5 +314,5 @@ export const contactCta = {
   title: '¿Listo para empezar a manejar?',
   description:
     'Escribinos por WhatsApp y coordinamos tu primera clase en Villa Urquiza. Sin compromiso.',
-  cta: 'Agendá por WhatsApp',
+  cta: 'Escribir por WhatsApp',
 } as const;

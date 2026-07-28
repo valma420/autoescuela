@@ -2,11 +2,11 @@
 import { coverage } from '../data/site';
 ---
 
-<section id="cobertura" class="ak-section bg-brand-950 text-white">
+<section id="cobertura" class="h-[570px] overflow-hidden bg-brand-950 py-14 text-brand-50 md:h-auto md:py-[5.5rem]">
   <div class="ak-container">
-    <div class="grid gap-5 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-12">
+    <div class="lg:grid lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-12">
       <div>
-        <h2 class="font-display text-[33px] font-black leading-[1.04] tracking-[-0.015em] sm:text-5xl">
+        <h2 class="font-display text-[30px] font-medium leading-none tracking-[-0.03em] sm:text-5xl">
           {coverage.title}
         </h2>
         <p class="mt-5 max-w-lg text-base leading-6 text-brand-100 md:text-lg md:leading-7">
@@ -14,9 +14,9 @@ import { coverage } from '../data/site';
         </p>
       </div>
 
-      <div>
+      <div class="mt-5 lg:mt-0">
         <div
-          class="relative h-[220px] overflow-hidden rounded-[20px] border border-brand-750 bg-brand-800 bg-[linear-gradient(to_right,#33356a_1px,transparent_1px),linear-gradient(to_bottom,#33356a_1px,transparent_1px)] bg-[size:50px_44px]"
+          class="relative h-[220px] overflow-hidden rounded-[20px] border border-brand-750 bg-brand-950 bg-[linear-gradient(to_right,#5c6b77_1px,transparent_1px),linear-gradient(to_bottom,#5c6b77_1px,transparent_1px)] bg-[size:50px_44px]"
           role="img"
           aria-label="Representación gráfica de la zona de clases con base en Villa Urquiza"
         >
@@ -29,10 +29,10 @@ import { coverage } from '../data/site';
           <span class="absolute left-[47%] top-[55%] text-xs font-semibold tracking-[0.04em] text-brand-100 uppercase">Villa Urquiza</span>
         </div>
 
-        <ul class="mt-5 flex flex-wrap gap-2">
+        <ul class="mt-5 flex h-[76px] content-start flex-wrap gap-2 md:h-auto">
           {
             coverage.areas.map((area) => (
-              <li class="inline-flex min-h-9 items-center gap-2 rounded-full border border-brand-750 bg-brand-800 px-[13px] text-[13px] font-medium text-brand-100">
+              <li class="inline-flex h-[34px] items-center gap-2 rounded-full border border-brand-750 bg-brand-950 py-2 pl-3 pr-[14px] text-sm font-normal text-brand-100">
                 <span class="ak-dot"></span>
                 {area}
               </li>

@@ -2,21 +2,21 @@
 import { benefits } from '../data/site';
 ---
 
-<section id="beneficios" class="ak-section bg-brand-100 text-brand-950">
+<section id="beneficios" class="h-[482px] overflow-hidden bg-brand-100 pb-14 pt-[42px] text-brand-950 md:h-auto md:py-[5.5rem]">
   <div class="ak-container">
     <div class="max-w-xl">
-      <h2 class="font-display text-[33px] font-black leading-[1.04] tracking-[-0.015em] sm:text-5xl">
+      <h2 class="font-display h-9 text-[30px] font-medium leading-none tracking-[-0.03em] sm:h-auto sm:text-5xl">
         Seguridad que se nota
       </h2>
     </div>
 
-    <ul class="mt-[22px] grid grid-cols-2 gap-3 lg:grid-cols-4">
+    <ul class="mt-[22px] grid h-[326px] grid-cols-2 grid-rows-[165px_149px] gap-3 lg:h-auto lg:grid-cols-4 lg:grid-rows-none">
       {
         benefits.map((benefit) => (
-          <li class="rounded-[16px] border border-brand-200 bg-white px-[18px] pb-5 pt-[18px] shadow-[0_8px_20px_-6px_rgba(26,77,115,0.15)]">
+          <li class="h-full rounded-[16px] border border-brand-100 bg-brand-50 px-[18px] pb-5 pt-[18px] shadow-[0_8px_20px_-6px_rgba(26,77,115,0.15)]">
             <span class="block h-[3px] w-7 rounded-full bg-accent-400" aria-hidden="true"></span>
-            <h3 class="mt-[10px] text-base font-semibold leading-[1.18] tracking-[0.005em]">{benefit.title}</h3>
-            <p class="mt-[10px] text-[13px] font-medium leading-[1.45] text-brand-800/80">{benefit.description}</p>
+            <h3 class="font-display mt-[10px] h-10 text-xl font-medium leading-[1.02] tracking-[-0.03em]">{benefit.title}</h3>
+            <p class="mt-[10px] text-sm font-normal leading-none text-brand-750">{benefit.description}</p>
           </li>
         ))
       }

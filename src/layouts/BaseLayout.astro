@@ -24,6 +24,12 @@ const { title, description, canonical } = Astro.props;
     <meta name="theme-color" content="#191A33" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;700&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <SEO title={title} description={description} canonical={canonical} />
   </head>
   <body class="bg-brand-950 text-brand-100 antialiased">
@@ -35,29 +41,44 @@ const { title, description, canonical } = Astro.props;
     </a>
     <SiteHeader />
     <slot />
-    <footer class="bg-brand-800 py-10 text-brand-100">
-      <div
-        class="ak-container flex flex-col items-start gap-3 text-sm md:flex-row md:items-end md:justify-between"
-      >
+    <footer class="h-[259px] overflow-hidden bg-[#0a0e19] py-10 text-brand-100 md:h-auto">
+      <div class="ak-container md:flex md:items-end md:justify-between">
         <div>
-          <p class="font-display text-[22px] font-bold leading-[1.1] tracking-[-0.01em] text-white">
-            AKDEMIA
-          </p>
-          <p class="mt-px text-[9px] font-medium uppercase tracking-[0.22em] text-accent-400">
-            Autoescuela
-          </p>
-          <p class="mt-[18px] text-[13px] font-medium">{site.location.area} · {site.location.regionShort} · {site.location.country}</p>
-          <p class="mt-1 text-[13px] font-medium text-[#9a9ec4]">{site.contact.schedule}</p>
+          <a class="ak-focus relative block h-10 w-[114px]" href="/" aria-label={`${site.name} inicio`}>
+            <img
+              src="/images/akdemia-menu-logo-car.svg"
+              alt=""
+              width="80"
+              height="34"
+              class="absolute left-[14.8%] top-[7.38%] h-[85.25%] w-[70.4%]"
+            />
+            <img
+              src="/images/akdemia-menu-logo-wordmark.svg"
+              alt={site.name}
+              width="61"
+              height="9"
+              class="absolute left-[22.86%] top-[40.65%] h-[21.95%] w-[53.15%]"
+            />
+            <img
+              src="/images/akdemia-menu-logo-subtitle.svg"
+              alt=""
+              width="43"
+              height="5"
+              class="absolute left-[30.56%] top-[64.67%] h-[10.86%] w-[37.44%]"
+            />
+          </a>
+          <p class="mt-[26px] text-sm leading-none">{site.location.area} · {site.location.regionShort} · {site.location.country}</p>
+          <p class="mt-2 text-sm leading-none text-brand-750">{site.contact.schedule}</p>
           <a
             href={site.contact.instagram.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="mt-1 inline-block text-sm font-semibold text-brand-200 ak-focus"
+            class="ak-focus mt-2 inline-block text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-100"
           >
             {site.contact.instagram.handle}
           </a>
         </div>
-        <p class="w-full border-t border-brand-750 pt-4 text-[11px] font-medium leading-[1.2] tracking-[0.04em] text-[#9a9ec4] md:w-auto md:border-0 md:pt-0">
+        <p class="mt-2 w-full border-t border-brand-750 pt-2 text-sm font-normal leading-none text-brand-750 md:mt-0 md:w-auto md:border-0 md:pt-0">
           &copy; {new Date().getFullYear()} {site.name}. Todos los derechos reservados.
         </p>
       </div>

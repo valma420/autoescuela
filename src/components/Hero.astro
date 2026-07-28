@@ -4,54 +4,43 @@ import { hero, site } from '../data/site';
 const [titleLead, titleConnector, titleAccent] = hero.title.split(' ');
 ---
 
-<section class="relative isolate min-h-[777px] overflow-hidden bg-brand-950 md:min-h-[820px]">
-  <img
-    src={site.assets.heroImage}
-    alt="Auto de práctica recorriendo un circuito con conos"
-    width="1011"
-    height="1555"
-    loading="eager"
-    fetchpriority="high"
-    class="absolute inset-x-0 top-[50px] -z-30 h-[780px] w-full object-cover object-[50%_top] opacity-35 md:inset-0 md:h-full md:object-center md:opacity-55"
-  />
-  <div class="absolute inset-0 -z-20 bg-[linear-gradient(111deg,#2b2e5c_0%,#14162b_71%)] opacity-70"></div>
-  <div
-    class="absolute inset-x-0 bottom-0 -z-10 h-[64%] bg-gradient-to-t from-brand-950 via-brand-950/90 to-transparent md:h-[62%]"
-  >
+<section class="relative isolate h-[777px] overflow-hidden bg-[linear-gradient(111deg,#191a33_0%,#0a0e19_71%)] md:h-[820px]">
+  <div class="absolute -left-0.5 top-[50px] -z-30 h-[780px] w-full overflow-hidden md:inset-0 md:h-full">
+    <img
+      src={site.assets.heroImage}
+      alt="Auto de práctica recorriendo un circuito con conos"
+      width="1011"
+      height="1555"
+      loading="eager"
+      fetchpriority="high"
+      class="absolute left-[-46.67%] top-0 h-[116.92%] w-[155.89%] max-w-none opacity-35 md:left-0 md:h-full md:w-full md:object-cover md:object-top md:opacity-55"
+    />
+    <div class="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(25,26,51,0)_0%,rgba(25,26,51,0.35)_45%,rgba(19,20,41,0.97)_100%)]"></div>
   </div>
 
-  <div class="ak-container flex min-h-[777px] items-end pb-[125px] pt-28 md:min-h-[820px] md:pb-16">
-    <div class="max-w-3xl">
-      <p class="inline-flex items-center gap-2 py-[7px] pr-[14px] text-xs font-semibold tracking-[0.04em] text-white uppercase">
+  <div class="absolute inset-x-0 bottom-0 h-[346px] md:h-[500px]">
+    <div class="ak-container flex h-full flex-col justify-center gap-4 pb-[34px] md:items-start md:justify-end md:pb-20">
+      <p class="inline-flex items-center gap-2 py-[7px] pr-[14px] text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-50 uppercase">
         <span class="ak-dot"></span>
         {hero.eyebrow}
       </p>
       <h1
-        class="font-display mt-4 text-[46px] font-black leading-none tracking-[-0.02em] text-white sm:text-7xl md:max-w-[10ch] md:text-8xl"
+        class="font-display w-full text-[46px] font-bold leading-[0.85] tracking-[-0.03em] text-brand-50 md:max-w-[10ch] md:text-8xl"
       >
         <span class="block">{titleLead}</span>
         <span class="block">{titleConnector} <span class="text-accent-400">{titleAccent}</span></span>
       </h1>
-      <p class="mt-4 max-w-xl text-base leading-6 text-brand-100 md:text-lg md:leading-8">
+      <p class="w-full max-w-xl text-base leading-6 text-brand-100 md:text-lg md:leading-8">
         {hero.subtitle}
       </p>
-
-      <div class="mt-4 flex flex-col gap-3 sm:flex-row">
-        <a
-          href={site.contact.whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="ak-focus inline-flex min-h-[50px] w-full items-center justify-center rounded-full bg-accent-400 px-7 text-xs font-semibold tracking-[0.04em] uppercase text-brand-950 transition duration-200 hover:-translate-y-0.5 hover:bg-brand-100 sm:w-auto"
-        >
-          {hero.primaryCta}
-        </a>
-        <a
-          href="#servicios"
-          class="ak-focus hidden min-h-12 items-center justify-center rounded-full border border-brand-100/25 bg-brand-100/10 px-7 text-xs font-black uppercase text-white backdrop-blur transition duration-200 hover:bg-white hover:text-brand-950 sm:inline-flex"
-        >
-          {hero.secondaryCta}
-        </a>
-      </div>
+      <a
+        href={site.contact.whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="ak-focus inline-flex min-h-[51px] w-full items-center justify-center rounded-full bg-accent-400 px-7 text-sm font-medium tracking-[0.01em] text-brand-50 uppercase transition duration-200 hover:bg-brand-50 hover:text-brand-950 md:w-auto"
+      >
+        {hero.primaryCta}
+      </a>
     </div>
   </div>
 </section>
