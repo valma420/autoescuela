@@ -80,14 +80,14 @@ export const hero = {
   eyebrow: 'CABA',
   title: 'Aprendé a manejar',
   subtitle:
-    'Clases prácticas con método y auto doble comando. Seguridad real al volante, a tu ritmo.',
+    'Clases prácticas con método y auto de doble comando. Seguridad real al volante, a tu ritmo.',
   primaryCta: 'Agendá tu clase',
   secondaryCta: 'Ver servicios',
   // Puntos de confianza que aparecen bajo el CTA y en el bloque de servicios.
   highlights: [
     '45 min por clase',
     'Caja manual',
-    'Auto coble comando',
+    'Clases dobles',
     'A domicilio',
   ],
   stats: [
@@ -111,7 +111,7 @@ export const teacher = {
   // Datos rápidos que refuerzan confianza.
   credentials: [
     'Clases 100% personalizadas',
-    'Enfoque en seguridad vial',
+    'Un plan por alumno, clase a clase',
     'Título GCBA en técnicas de conducción',
   ],
 } as const;
@@ -139,7 +139,7 @@ export const services: Service[] = [
   {
     icon: '02',
     image: '/images/hero-driving.jpg',
-    title: 'Circuito de examen real',
+    title: 'Circuito real',
     description:
       'Practicás en el circuito real de la comuna donde vas a rendir.',
   },
@@ -148,7 +148,7 @@ export const services: Service[] = [
     image: '/images/driver-profile.jpg',
     title: 'Perder el miedo',
     description:
-      'Para quienes ya tienen la licencia pero no se animan a manejar. Retomamos hasta que manejes tranquilo.',
+      'Para quienes ya tienen la licencia pero no se animan a manejar.',
   },
 ];
 
@@ -310,4 +310,5 @@ export const contactCta = {
   description:
     'Escribinos por WhatsApp y coordinamos tu primera clase en Villa Urquiza. Sin compromiso.',
   cta: 'Empezá ahora',
+  desktopCta: 'Agendá tu clase',
 } as const;

@@ -14,6 +14,13 @@ interface Props {
 }
 
 const { title, description, canonical } = Astro.props;
+
+const footerNavItems = [
+  { href: '#servicios', label: 'Clases' },
+  { href: '#cobertura', label: 'Zonas' },
+  { href: '#profesor', label: 'Instructor' },
+  { href: '#licencia', label: 'Licencia' },
+];
 ---
 
 <!doctype html>
@@ -41,52 +48,73 @@ const { title, description, canonical } = Astro.props;
     </a>
     <SiteHeader />
     <slot />
-    <footer class="h-[259px] overflow-hidden bg-[#0a0e19] py-10 text-brand-100 md:h-auto">
-      <div class="ak-container flex h-[179px] flex-col items-start justify-between md:h-auto md:flex-row md:items-end">
-        <a class="ak-focus relative block h-10 w-[114px] shrink-0" href="/" aria-label={`${site.name} inicio`}>
-          <img
-            src="/images/akdemia-menu-logo-car.svg"
-            alt=""
-            width="80"
-            height="34"
-            class="absolute left-[14.8%] top-[7.38%] h-[85.25%] w-[70.4%]"
-          />
-          <img
-            src="/images/akdemia-menu-logo-wordmark.svg"
-            alt={site.name}
-            width="61"
-            height="9"
-            class="absolute left-[22.86%] top-[40.65%] h-[21.95%] w-[53.15%]"
-          />
-          <img
-            src="/images/akdemia-menu-logo-subtitle.svg"
-            alt=""
-            width="43"
-            height="5"
-            class="absolute left-[30.56%] top-[64.67%] h-[10.86%] w-[37.44%]"
-          />
-        </a>
-        <span class="h-2.5 w-px shrink-0" aria-hidden="true"></span>
-        <p class="text-sm leading-[normal] text-brand-750">{site.location.area} · {site.location.regionShort} · {site.location.country}</p>
-        <p class="text-sm leading-[normal] text-brand-750">{site.contact.schedule}</p>
-        <a
-          href={site.contact.whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="ak-focus text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-100 uppercase"
-        >
-          WhatsApp {site.contact.phoneInternational}
-        </a>
-        <a
-          href={site.contact.instagram.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="ak-focus text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-100 uppercase"
-        >
-          {site.contact.instagram.handle}
-        </a>
+    <footer class="h-[259px] overflow-hidden bg-[#0a0e19] py-10 text-brand-100 md:h-auto desktop:h-[300px]">
+      <div class="ak-container flex h-[179px] flex-col items-start justify-between md:h-auto desktop:h-[220px] desktop:items-stretch">
+        <div class="contents desktop:flex desktop:h-[95px] desktop:w-full desktop:items-start desktop:justify-between">
+          <a class="ak-focus relative block h-10 w-[114px] shrink-0 desktop:h-[95px] desktop:w-[272px]" href="/" aria-label={`${site.name} inicio`}>
+            <img
+              src="/images/akdemia-menu-logo-car.svg"
+              alt=""
+              width="191"
+              height="81"
+              class="absolute left-[14.8%] top-[7.38%] h-[85.25%] w-[70.4%]"
+            />
+            <img
+              src="/images/akdemia-menu-logo-wordmark.svg"
+              alt={site.name}
+              width="145"
+              height="21"
+              class="absolute left-[22.86%] top-[40.65%] h-[21.95%] w-[53.15%]"
+            />
+            <img
+              src="/images/akdemia-menu-logo-subtitle.svg"
+              alt=""
+              width="102"
+              height="10"
+              class="absolute left-[30.56%] top-[64.67%] h-[10.86%] w-[37.44%]"
+            />
+          </a>
+
+          <nav class="hidden desktop:block" aria-label="Navegación del pie">
+            <ul class="flex items-center gap-[38px] text-base font-normal leading-[normal] text-accent-400">
+              {
+                footerNavItems.map((item) => (
+                  <li>
+                    <a class="ak-focus transition hover:text-brand-50" href={item.href}>{item.label}</a>
+                  </li>
+                ))
+              }
+            </ul>
+          </nav>
+        </div>
+
+        <span class="h-2.5 w-px shrink-0 desktop:hidden" aria-hidden="true"></span>
+
+        <div class="contents desktop:flex desktop:h-[19px] desktop:w-full desktop:items-center desktop:justify-between">
+          <p class="text-sm leading-[normal] text-brand-750 desktop:text-base desktop:font-medium desktop:leading-[1.2] desktop:tracking-[0.09em] desktop:uppercase">
+            {site.location.area} · {site.location.regionShort}<span class="desktop:hidden"> · {site.location.country}</span>
+          </p>
+          <p class="text-sm leading-[normal] text-brand-750 desktop:text-base desktop:font-medium desktop:leading-[1.2] desktop:tracking-[0.09em] desktop:uppercase">{site.contact.schedule}</p>
+          <a
+            href={site.contact.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="ak-focus text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-100 uppercase desktop:text-base desktop:text-brand-750"
+          >
+            <span class="desktop:hidden">WhatsApp </span>{site.contact.phoneInternational}
+          </a>
+          <a
+            href={site.contact.instagram.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="ak-focus text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-100 uppercase desktop:text-base desktop:text-brand-750"
+          >
+            {site.contact.instagram.handle}
+          </a>
+        </div>
+
         <span class="h-px w-full shrink-0 bg-brand-750" aria-hidden="true"></span>
-        <p class="w-full text-sm font-normal leading-[normal] text-brand-750 md:w-auto">
+        <p class="w-full text-sm font-normal leading-[normal] text-brand-750 md:w-auto desktop:text-base">
           &copy; {new Date().getFullYear()} {site.name}. Todos los derechos reservados.
         </p>
       </div>

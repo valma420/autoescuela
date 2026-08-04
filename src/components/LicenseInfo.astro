@@ -4,26 +4,44 @@ import { licenseInfo } from '../data/site';
 const [licenseDescriptionLead, licenseDescriptionEnd] = licenseInfo.description.split('. ');
 ---
 
-<section id="licencia" class="h-[658px] overflow-hidden bg-brand-100 py-[54px] text-[#0a0e19] md:h-auto md:py-[5.5rem]">
+<section id="licencia" class="h-[658px] overflow-hidden bg-brand-100 py-[54px] text-[#0a0e19] md:h-auto md:py-[5.5rem] desktop:h-[626px] desktop:py-[100px]">
   <div class="ak-container">
-    <div class="lg:grid lg:grid-cols-[0.75fr_1.25fr] lg:items-start lg:gap-12">
+    <div>
       <div>
-        <h2 class="font-display text-[30px] font-medium leading-none tracking-[-0.03em] sm:text-5xl">
+        <h2 class="font-display text-[30px] font-medium leading-none tracking-[-0.03em] sm:text-5xl desktop:text-[52px]">
           {licenseInfo.title}
         </h2>
-        <p class="mt-[18px] h-12 max-w-md text-base leading-6 text-[#0a0e19]">
+        <p class="mt-[18px] h-12 max-w-md text-base leading-6 text-[#0a0e19] desktop:mt-[21px] desktop:h-[60px] desktop:w-[312px] desktop:text-xl desktop:leading-[1.5]">
           <span class="block">{licenseDescriptionLead}.</span>
           <span class="block">{licenseDescriptionEnd}</span>
         </p>
       </div>
 
-      <ul class="mt-[18px] grid h-[436px] grid-rows-[109px_109px_125px_93px] lg:mt-0 lg:h-auto lg:grid-cols-2 lg:grid-rows-none">
+      <ul class="mt-[18px] grid h-[436px] grid-rows-[109px_109px_125px_93px] desktop:mt-[21px] desktop:h-[272px] desktop:grid-cols-[391px_391px] desktop:grid-rows-[136px_136px] desktop:pl-[338px]">
         {
           licenseInfo.items.map((item, index) => (
-            <li class="flex h-full flex-col justify-between rounded-[16px] bg-brand-100 px-5 pb-5 pt-[18px] lg:min-h-[140px]">
+            <li
+              class:list={[
+                'flex h-full flex-col justify-between rounded-[16px] bg-brand-100 px-5 pb-5 pt-[18px] desktop:min-h-0 desktop:self-start desktop:rounded-none desktop:bg-transparent desktop:p-0',
+                index === 0 && 'desktop:h-[94px]',
+                index === 1 && 'desktop:h-[94px]',
+                index === 2 && 'desktop:h-[95px]',
+                index === 3 && 'desktop:h-[77px]',
+              ]}
+            >
               <span class="block h-[3px] w-7 rounded-full bg-accent-400" aria-hidden="true"></span>
-              <h3 class="font-display text-xl font-medium leading-[1.02] tracking-[-0.03em] text-[#0a0e19]">{item.title}</h3>
-              <p class:list={['text-sm leading-[normal] text-[#0a0e19]', index === 0 && 'w-[253px]', index === 2 && 'w-[243px]']}>{item.description}</p>
+              <span class="hidden h-1.5 w-[13px] shrink-0 desktop:block" aria-hidden="true"></span>
+              <h3 class="font-display text-xl font-medium leading-[1.02] tracking-[-0.03em] text-[#0a0e19] desktop:text-2xl">{item.title}</h3>
+              <p
+                class:list={[
+                  'text-sm leading-[normal] text-[#0a0e19] desktop:text-base',
+                  index === 0 && 'w-[253px] desktop:w-[291px]',
+                  index === 1 && 'desktop:w-[342px]',
+                  index === 2 && 'w-[243px] desktop:w-[219px]',
+                ]}
+              >
+                {item.description}
+              </p>
             </li>
           ))
         }

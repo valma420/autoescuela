@@ -28,6 +28,8 @@
 
   --font-sans: 'Roboto', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-display: 'Josefin Sans', var(--font-sans);
+
+  --breakpoint-desktop: 75rem;
 }
 
 html {
@@ -107,5 +109,12 @@ body {
 
   .ak-container {
     padding-inline: 2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .ak-container {
+    max-width: 70rem;
+    padding-inline: 0;
   }
 }

@@ -2,44 +2,40 @@
 import { coverage } from '../data/site';
 ---
 
-<section id="cobertura" class="h-[504px] overflow-hidden bg-brand-950 py-14 text-brand-50 md:h-auto md:py-[5.5rem]">
-  <div class="ak-container">
-    <div class="lg:grid lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-12">
-      <div>
-        <h2 class="font-display text-[30px] font-medium leading-none tracking-[-0.03em] sm:text-5xl">
-          {coverage.title}
-        </h2>
-        <p class="mt-[18px] max-w-lg text-base leading-6 text-brand-100 md:text-lg md:leading-7">
-          {coverage.description}
-        </p>
-      </div>
+<section id="cobertura" class="h-[504px] overflow-hidden bg-brand-950 py-14 text-brand-50 md:h-auto md:py-[5.5rem] desktop:h-[594px] desktop:py-[100px]">
+  <div class="ak-container desktop:grid desktop:h-[394px] desktop:grid-cols-[460px_596px] desktop:grid-rows-[52px_60px_46px] desktop:gap-x-16 desktop:gap-y-[18px]">
+    <h2 class="font-display text-[30px] font-medium leading-none tracking-[-0.03em] sm:text-5xl desktop:col-start-1 desktop:row-start-1 desktop:text-[52px]">
+      {coverage.title}
+    </h2>
+    <p class="mt-[18px] max-w-lg text-base leading-6 text-brand-100 md:text-lg md:leading-7 desktop:col-start-1 desktop:row-start-2 desktop:mt-0 desktop:w-[392px] desktop:text-xl desktop:leading-[1.5]">
+      {coverage.description}
+    </p>
 
-      <div class="mt-[18px] lg:mt-0">
+    <div class="mt-[18px] desktop:col-start-2 desktop:row-span-3 desktop:row-start-1 desktop:mt-0 desktop:flex desktop:h-[394px] desktop:w-[596px] desktop:items-center desktop:justify-center desktop:rounded-[24px] desktop:bg-brand-50 desktop:p-8">
         <div
-          class="relative h-[220px] overflow-hidden rounded-[20px] border border-brand-750 bg-brand-950 bg-[linear-gradient(to_right,#5c6b77_1px,transparent_1px),linear-gradient(to_bottom,#5c6b77_1px,transparent_1px)] bg-[size:50px_44px]"
+          class="relative h-[220px] overflow-hidden rounded-[20px] border border-brand-750 bg-brand-950 bg-[linear-gradient(to_right,#5c6b77_1px,transparent_1px),linear-gradient(to_bottom,#5c6b77_1px,transparent_1px)] bg-[size:50px_44px] desktop:h-[330px] desktop:w-[502px] desktop:rounded-[30px] desktop:border-[1.5px] desktop:border-brand-950 desktop:bg-brand-100 desktop:bg-[size:75px_66px]"
           role="img"
           aria-label="Representación gráfica de la zona de clases con base en Villa Urquiza"
         >
-          <span class="absolute left-[119px] top-[69px] h-2.5 w-2.5 rounded-full bg-accent-400"></span>
-          <span class="absolute left-[209px] top-[109px] h-2 w-2 rounded-full bg-accent-400"></span>
-          <span class="absolute left-[89px] top-[149px] h-2 w-2 rounded-full bg-accent-400"></span>
-          <span class="absolute left-[259px] top-[59px] h-2 w-2 rounded-full bg-accent-400"></span>
-          <span class="absolute left-[174px] top-[159px] h-2 w-2 rounded-full bg-accent-400"></span>
-          <span class="absolute left-[159px] top-[94px] h-[18px] w-[18px] rounded-full border-[3px] border-white bg-accent-500"></span>
-          <span class="absolute left-[159px] top-[117px] text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-100 uppercase">Villa Urquiza</span>
+          <span class="absolute left-[119px] top-[69px] h-2.5 w-2.5 rounded-full bg-accent-400 desktop:left-[180px] desktop:top-[105px] desktop:h-[15px] desktop:w-[15px]"></span>
+          <span class="absolute left-[209px] top-[109px] h-2 w-2 rounded-full bg-accent-400 desktop:left-[315px] desktop:top-[165px] desktop:h-3 desktop:w-3"></span>
+          <span class="absolute left-[89px] top-[149px] h-2 w-2 rounded-full bg-accent-400 desktop:left-[135px] desktop:top-[225px] desktop:h-3 desktop:w-3"></span>
+          <span class="absolute left-[259px] top-[59px] h-2 w-2 rounded-full bg-accent-400 desktop:left-[390px] desktop:top-[90px] desktop:h-3 desktop:w-3"></span>
+          <span class="absolute left-[174px] top-[159px] h-2 w-2 rounded-full bg-accent-400 desktop:left-[262.5px] desktop:top-[240px] desktop:h-3 desktop:w-3"></span>
+          <span class="absolute left-[159px] top-[94px] h-[18px] w-[18px] rounded-full border-[3px] border-white bg-accent-500 desktop:left-[240px] desktop:top-[142.5px] desktop:h-[27px] desktop:w-[27px] desktop:border-[4px] desktop:border-brand-950 desktop:bg-accent-400"></span>
+          <span class="absolute left-[159px] top-[117px] text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-100 uppercase desktop:left-[240px] desktop:top-[177px] desktop:text-[19.5px] desktop:text-brand-950">Villa Urquiza</span>
         </div>
-
-        <ul class="mt-[18px] flex h-10 content-start flex-wrap gap-2 overflow-hidden md:h-auto">
-          {
-            coverage.areas.map((area, index) => (
-              <li class="inline-flex items-center gap-2 text-sm font-normal leading-[normal] text-brand-100">
-                {area}
-                {index < coverage.areas.length - 1 && <span class="ak-dot"></span>}
-              </li>
-            ))
-          }
-        </ul>
-      </div>
     </div>
+
+    <ul class="mt-[18px] flex h-10 content-start flex-wrap gap-2 overflow-hidden md:h-auto desktop:col-start-1 desktop:row-start-3 desktop:mt-0 desktop:h-[46px] desktop:w-[460px]">
+      {
+        coverage.areas.map((area, index) => (
+          <li class="inline-flex items-center gap-2 text-sm font-normal leading-[normal] text-brand-100 desktop:text-base">
+            {area}
+            {index < coverage.areas.length - 1 && <span class="ak-dot"></span>}
+          </li>
+        ))
+      }
+    </ul>
   </div>
 </section>

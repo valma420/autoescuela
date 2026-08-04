@@ -9,9 +9,9 @@ const navItems = [
 ];
 ---
 
-<header class="absolute inset-x-0 top-0 z-40 bg-brand-950 shadow-[inset_0_4px_4px_rgba(0,0,0,0.25)] md:fixed md:bg-gradient-to-b md:from-brand-950/90 md:to-transparent md:shadow-none">
-  <div class="relative mx-auto flex h-[84px] max-w-6xl items-center gap-4 px-[30px] md:min-h-20 md:justify-between md:px-8 md:py-3">
-    <a href="/" class="ak-focus absolute left-1/2 top-3 h-[60px] w-[171px] shrink-0 -translate-x-1/2 md:static md:flex md:translate-x-0 md:items-center" aria-label={`${site.name} inicio`}>
+<header class="absolute inset-x-0 top-0 z-40 bg-brand-950 shadow-[inset_0_4px_4px_rgba(0,0,0,0.25)]">
+  <div class="relative mx-auto flex h-[84px] max-w-6xl items-center gap-4 px-[30px] lg:w-[calc(100%-4rem)] lg:max-w-[1120px] lg:gap-6 lg:px-0 xl:w-[1120px] xl:gap-12">
+    <a href="/" class="ak-focus absolute left-1/2 top-3 h-[60px] w-[171px] shrink-0 -translate-x-1/2 lg:relative lg:left-auto lg:top-auto lg:translate-x-0" aria-label={`${site.name} inicio`}>
       <span>
         <img src="/images/akdemia-menu-logo-car.svg" alt="" width="120" height="51" class="absolute left-[14.8%] top-[7.38%] h-[85.25%] w-[70.4%]" />
         <img src="/images/akdemia-menu-logo-wordmark.svg" alt={site.name} width="91" height="13" class="absolute left-[22.86%] top-[40.65%] h-[21.95%] w-[53.15%]" />
@@ -19,7 +19,9 @@ const navItems = [
       </span>
     </a>
 
-    <nav class="hidden items-center gap-8 text-sm font-medium text-brand-50 md:flex">
+    <span class="hidden h-[65px] min-w-0 flex-1 lg:block xl:w-[354px] xl:flex-none" aria-hidden="true"></span>
+
+    <nav class="hidden w-[337px] shrink-0 items-center gap-[38px] text-base font-normal leading-[normal] text-brand-50 lg:flex">
       {
         navItems.map((item) => (
           <a class="ak-focus transition hover:text-accent-300" href={item.href}>
@@ -33,16 +35,16 @@ const navItems = [
       href={site.contact.whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      class="ak-focus hidden min-h-12 items-center justify-center rounded-full bg-accent-400 px-5 text-sm font-medium uppercase text-brand-50 shadow-[0_10px_24px_-4px_rgba(0,158,226,0.35)] transition hover:bg-brand-50 hover:text-brand-950 md:inline-flex"
+      class="ak-focus hidden h-[47px] w-28 shrink-0 items-center justify-center rounded-full bg-accent-400 px-5 text-base font-medium leading-[normal] tracking-[0.03125em] text-brand-50 uppercase transition hover:bg-brand-50 hover:text-brand-950 lg:inline-flex"
     >
-      Agendá
+      Reservá
     </a>
 
     <button
       aria-controls="mobile-navigation"
       aria-expanded="false"
       aria-label="Abrir menú"
-      class="ak-focus relative ml-auto grid h-11 w-11 place-items-center text-brand-100 md:hidden"
+      class="ak-focus relative ml-auto grid h-11 w-11 place-items-center text-brand-100 lg:hidden"
       data-menu-toggle
       type="button"
     >
@@ -57,7 +59,7 @@ const navItems = [
 <div
   aria-hidden="true"
   aria-label="Navegación móvil"
-  class="invisible fixed inset-0 z-50 flex flex-col bg-brand-950 text-brand-100 opacity-0 transition-all duration-300 md:hidden"
+  class="invisible fixed inset-0 z-50 flex flex-col bg-brand-950 text-brand-100 opacity-0 transition-all duration-300 lg:hidden"
   data-mobile-menu
   id="mobile-navigation"
   role="dialog"
@@ -131,7 +133,7 @@ const navItems = [
   const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
   const closeButton = document.querySelector<HTMLButtonElement>('[data-menu-close]');
   const menuLinks = menu?.querySelectorAll<HTMLAnchorElement>('[data-menu-link]');
-  const desktopBreakpoint = window.matchMedia('(min-width: 768px)');
+  const desktopBreakpoint = window.matchMedia('(min-width: 1024px)');
   let previousOverflow = '';
 
   const setMenuOpen = (open: boolean) => {

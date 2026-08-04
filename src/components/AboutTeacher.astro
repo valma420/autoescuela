@@ -2,32 +2,32 @@
 import { teacher } from '../data/site';
 ---
 
-<section id="profesor" class="h-[765px] overflow-hidden bg-brand-950 pb-[52px] text-brand-50 md:h-auto md:py-[5.5rem]">
+<section id="profesor" class="h-[765px] overflow-hidden bg-brand-950 pb-[52px] text-brand-50 md:h-auto md:py-[5.5rem] desktop:h-[544px] desktop:py-[100px]">
   <div class="ak-container">
-    <div class="lg:grid lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-12">
-      <div class="relative h-[360px] overflow-hidden rounded-[22px] bg-[linear-gradient(142deg,#191a33_0%,#0a0e19_71%)] lg:h-[520px]">
-        <p class="font-display absolute bottom-[21px] right-[18px] rounded-[14px] bg-brand-50 pb-[14px] pl-4 pr-[18px] pt-[13px] text-2xl font-medium leading-none tracking-[-0.01em] text-brand-950 shadow-[0_10px_24px_-4px_rgba(13,15,36,0.35)]">
+    <div class="desktop:grid desktop:grid-cols-[470px_586px] desktop:items-start desktop:gap-16">
+      <div class="relative h-[360px] overflow-hidden rounded-[22px] bg-[linear-gradient(142deg,#191a33_0%,#0a0e19_71%)] desktop:h-[344px] desktop:w-[470px] desktop:rounded-[24px] desktop:bg-[#212442] desktop:bg-none">
+        <p class="font-display absolute bottom-[21px] right-[18px] rounded-[14px] bg-brand-50 pb-[14px] pl-4 pr-[18px] pt-[13px] text-2xl font-medium leading-none tracking-[-0.01em] text-brand-950 shadow-[0_10px_24px_-4px_rgba(13,15,36,0.35)] desktop:bottom-6 desktop:left-6 desktop:right-auto desktop:rounded-full desktop:px-[22px] desktop:py-3 desktop:font-sans desktop:text-base desktop:leading-[normal] desktop:tracking-normal desktop:shadow-none">
           Instructor
         </p>
       </div>
 
-      <div class="mt-[22px] lg:mt-0">
-        <h2 class="font-display h-[39px] w-full whitespace-nowrap text-[46px] font-bold leading-[0.85] tracking-[-0.03em] sm:h-auto sm:w-auto sm:text-6xl">
+      <div class="mt-[22px] desktop:mt-0 desktop:flex desktop:h-[344px] desktop:w-[586px] desktop:flex-col desktop:items-start desktop:gap-5">
+        <h2 class="font-display h-[39px] w-full whitespace-nowrap text-[46px] font-bold leading-[0.85] tracking-[-0.03em] sm:h-auto sm:w-auto sm:text-6xl desktop:h-[52px] desktop:w-full desktop:text-[52px] desktop:font-medium desktop:leading-none">
           {teacher.name}
         </h2>
-        <p class="mt-[22px] h-4 text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-100 uppercase md:h-auto">
+        <p class="mt-[22px] h-4 text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-100 uppercase md:h-auto desktop:mt-0 desktop:h-[19px] desktop:text-base desktop:text-[#b8c7d4]">
           {teacher.role}
         </p>
 
-        <div class="mt-[22px] flex h-[120px] max-w-2xl flex-col text-base leading-6 text-brand-100 md:h-auto md:text-lg md:leading-8">
+        <div class="mt-[22px] flex h-[120px] max-w-2xl flex-col text-base leading-6 text-brand-100 md:h-auto md:text-lg md:leading-8 desktop:mt-0 desktop:h-[120px] desktop:w-[482px] desktop:text-xl desktop:leading-[1.5]">
           {teacher.bio.map((paragraph) => <p>{paragraph}</p>)}
         </div>
 
-        <ul class="mt-[22px] flex h-[90px] flex-col items-start justify-between md:h-auto md:flex-row md:flex-wrap md:justify-start md:gap-2">
+        <ul class="mt-[22px] flex h-[90px] flex-col items-start justify-between md:h-auto md:flex-row md:flex-wrap md:justify-start md:gap-2 desktop:mt-0 desktop:h-[93px] desktop:w-full desktop:flex-col desktop:flex-nowrap desktop:gap-[14px] desktop:pt-2">
           {
             teacher.credentials.map((c) => (
-              <li class="ak-pill h-8 bg-brand-950 px-3 py-2 text-sm text-brand-100">
-                <span class="ak-dot"></span>
+              <li class="ak-pill h-8 bg-brand-950 px-3 py-2 text-sm text-brand-100 desktop:h-[19px] desktop:min-h-0 desktop:gap-3 desktop:bg-transparent desktop:px-0 desktop:py-0 desktop:text-base desktop:leading-[normal] desktop:text-white">
+                <span class="ak-dot desktop:h-[7px] desktop:w-[7px]"></span>
                 {c}
               </li>
             ))
