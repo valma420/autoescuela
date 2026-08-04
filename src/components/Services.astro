@@ -75,23 +75,23 @@ import { hero, services, site } from '../data/site';
       transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  .service-card:is(:focus, :active) {
+  .service-card:is(:focus, :active, .is-pressed) {
     background-color: #191a33;
     color: #f4f8fb;
     box-shadow: none;
   }
 
-  .service-card:is(:focus, :active) .service-card__description {
+  .service-card:is(:focus, :active, .is-pressed) .service-card__description {
     color: #e3f2f7;
   }
 
-  .service-card:is(:focus, :active) .service-card__arrow {
+  .service-card:is(:focus, :active, .is-pressed) .service-card__arrow {
     background-color: #009ee2;
     color: #f4f8fb;
     transform: translateX(2px);
   }
 
-  .service-card:active .service-card__arrow {
+  .service-card:is(:active, .is-pressed) .service-card__arrow {
     transform: translateX(3px);
   }
 
@@ -113,3 +113,54 @@ import { hero, services, site } from '../data/site';
     }
   }
 </style>
+
+<script>
+  const minimumPressDuration = 150;
+  const pressStartedAt = new WeakMap<HTMLElement, number>();
+  const releaseTimers = new WeakMap<HTMLElement, number>();
+
+  const showPressedState = (card: HTMLElement) => {
+    const releaseTimer = releaseTimers.get(card);
+
+    if (releaseTimer !== undefined) {
+      window.clearTimeout(releaseTimer);
+    }
+
+    pressStartedAt.set(card, performance.now());
+    card.classList.add('is-pressed');
+  };
+
+  const hidePressedState = (card: HTMLElement) => {
+    if (!card.classList.contains('is-pressed')) return;
+
+    const pendingRelease = releaseTimers.get(card);
+
+    if (pendingRelease !== undefined) {
+      window.clearTimeout(pendingRelease);
+    }
+
+    const elapsed = performance.now() - (pressStartedAt.get(card) ?? performance.now());
+    const delay = Math.max(0, minimumPressDuration - elapsed);
+    const releaseTimer = window.setTimeout(() => {
+      card.classList.remove('is-pressed');
+      pressStartedAt.delete(card);
+      releaseTimers.delete(card);
+    }, delay);
+
+    releaseTimers.set(card, releaseTimer);
+  };
+
+  document.querySelectorAll<HTMLElement>('.service-card').forEach((card) => {
+    card.addEventListener('pointerdown', (event) => {
+      if (event.pointerType === 'mouse' && event.button !== 0) return;
+
+      showPressedState(card);
+    });
+
+    card.addEventListener('pointerup', () => hidePressedState(card));
+    card.addEventListener('pointercancel', () => hidePressedState(card));
+    card.addEventListener('pointerleave', (event) => {
+      if (event.pointerType === 'mouse') hidePressedState(card);
+    });
+  });
+</script>
