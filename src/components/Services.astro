@@ -24,40 +24,32 @@ import { hero, services, site } from '../data/site';
     <ul class="grid h-[382px] grid-rows-[114px_114px_130px] gap-3 md:h-auto md:grid-cols-2 md:grid-rows-none">
       {
         services.map((service, index) => (
-          <li
-            class:list={[
-              'flex h-full flex-col justify-between rounded-[18px] px-[22px] pb-6 pt-[22px] shadow-[0_8px_20px_-6px_rgba(26,77,115,0.15)] md:min-h-[160px]',
-              index === 0
-                ? 'bg-brand-950 text-brand-50'
-                : 'bg-brand-50 text-brand-950',
-            ]}
-          >
-            <div class="flex items-start justify-between">
-              <h3 class="font-display text-2xl font-medium leading-none tracking-[-0.01em]">{service.title}</h3>
-              <a
-                href={site.contact.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Consultar por ${service.title}`}
+          <li class="h-full md:min-h-[160px]">
+            <a
+              href={site.contact.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Consultar por ${service.title}`}
+              class="service-card ak-focus flex h-full flex-col justify-between overflow-hidden rounded-[18px] bg-brand-50 px-[22px] pb-6 pt-[22px] text-brand-950 shadow-[0_8px_20px_-6px_rgba(26,77,115,0.15)]"
+            >
+              <div class="flex items-start justify-between">
+                <h3 class="font-display text-2xl font-medium leading-none tracking-[-0.01em]">{service.title}</h3>
+                <span
+                  aria-hidden="true"
+                  class="service-card__arrow grid h-9 w-9 shrink-0 place-items-center rounded-full bg-brand-100 text-[17px] font-semibold leading-none text-accent-400"
+                >
+                  →
+                </span>
+              </div>
+              <p
                 class:list={[
-                  'ak-focus grid h-9 w-9 shrink-0 place-items-center rounded-full text-[17px] font-semibold leading-none transition',
-                  index === 0
-                    ? 'bg-accent-400 text-brand-50 hover:bg-brand-50 hover:text-brand-950'
-                    : 'bg-brand-100 text-accent-400 hover:bg-accent-400 hover:text-brand-50',
+                  'service-card__description text-sm font-normal leading-[normal] text-brand-750',
+                  index === 1 ? 'w-[239px]' : 'w-[255px]',
                 ]}
               >
-                →
-              </a>
-            </div>
-            <p
-              class:list={[
-                'text-sm font-normal leading-[normal]',
-                index === 1 ? 'w-[239px]' : 'w-[255px]',
-                index === 0 ? 'text-brand-100' : 'text-brand-800/75',
-              ]}
-            >
-              {service.description}
-            </p>
+                {service.description}
+              </p>
+            </a>
           </li>
         ))
       }
@@ -65,3 +57,59 @@ import { hero, services, site } from '../data/site';
 
   </div>
 </section>
+
+<style>
+  .service-card {
+    touch-action: manipulation;
+    transition:
+      background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),
+      color 200ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .service-card__description,
+  .service-card__arrow {
+    transition:
+      background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),
+      color 200ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .service-card:is(:focus, :active) {
+    background-color: #191a33;
+    color: #f4f8fb;
+    box-shadow: none;
+  }
+
+  .service-card:is(:focus, :active) .service-card__description {
+    color: #e3f2f7;
+  }
+
+  .service-card:is(:focus, :active) .service-card__arrow {
+    background-color: #009ee2;
+    color: #f4f8fb;
+    transform: translateX(2px);
+  }
+
+  .service-card:active .service-card__arrow {
+    transform: translateX(3px);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .service-card:hover {
+      background-color: #191a33;
+      color: #f4f8fb;
+      box-shadow: none;
+    }
+
+    .service-card:hover .service-card__description {
+      color: #e3f2f7;
+    }
+
+    .service-card:hover .service-card__arrow {
+      background-color: #009ee2;
+      color: #f4f8fb;
+      transform: translateX(2px);
+    }
+  }
+</style>
