@@ -2,39 +2,39 @@
 import { coverage } from '../data/site';
 ---
 
-<section id="cobertura" class="h-[570px] overflow-hidden bg-brand-950 py-14 text-brand-50 md:h-auto md:py-[5.5rem]">
+<section id="cobertura" class="h-[504px] overflow-hidden bg-brand-950 py-14 text-brand-50 md:h-auto md:py-[5.5rem]">
   <div class="ak-container">
     <div class="lg:grid lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-12">
       <div>
         <h2 class="font-display text-[30px] font-medium leading-none tracking-[-0.03em] sm:text-5xl">
           {coverage.title}
         </h2>
-        <p class="mt-5 max-w-lg text-base leading-6 text-brand-100 md:text-lg md:leading-7">
+        <p class="mt-[18px] max-w-lg text-base leading-6 text-brand-100 md:text-lg md:leading-7">
           {coverage.description}
         </p>
       </div>
 
-      <div class="mt-5 lg:mt-0">
+      <div class="mt-[18px] lg:mt-0">
         <div
           class="relative h-[220px] overflow-hidden rounded-[20px] border border-brand-750 bg-brand-950 bg-[linear-gradient(to_right,#5c6b77_1px,transparent_1px),linear-gradient(to_bottom,#5c6b77_1px,transparent_1px)] bg-[size:50px_44px]"
           role="img"
           aria-label="Representación gráfica de la zona de clases con base en Villa Urquiza"
         >
-          <span class="absolute left-[35%] top-[31%] h-2.5 w-2.5 rounded-full bg-accent-400"></span>
-          <span class="absolute left-[61%] top-[49%] h-2 w-2 rounded-full bg-accent-400"></span>
-          <span class="absolute left-[27%] top-[68%] h-2 w-2 rounded-full bg-accent-400"></span>
-          <span class="absolute left-[76%] top-[27%] h-2 w-2 rounded-full bg-accent-400"></span>
-          <span class="absolute left-[51%] top-[72%] h-2 w-2 rounded-full bg-accent-400"></span>
-          <span class="absolute left-[47%] top-[43%] h-[18px] w-[18px] rounded-full border-[3px] border-white bg-accent-500"></span>
-          <span class="absolute left-[47%] top-[55%] text-xs font-semibold tracking-[0.04em] text-brand-100 uppercase">Villa Urquiza</span>
+          <span class="absolute left-[119px] top-[69px] h-2.5 w-2.5 rounded-full bg-accent-400"></span>
+          <span class="absolute left-[209px] top-[109px] h-2 w-2 rounded-full bg-accent-400"></span>
+          <span class="absolute left-[89px] top-[149px] h-2 w-2 rounded-full bg-accent-400"></span>
+          <span class="absolute left-[259px] top-[59px] h-2 w-2 rounded-full bg-accent-400"></span>
+          <span class="absolute left-[174px] top-[159px] h-2 w-2 rounded-full bg-accent-400"></span>
+          <span class="absolute left-[159px] top-[94px] h-[18px] w-[18px] rounded-full border-[3px] border-white bg-accent-500"></span>
+          <span class="absolute left-[159px] top-[117px] text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-100 uppercase">Villa Urquiza</span>
         </div>
 
-        <ul class="mt-5 flex h-[76px] content-start flex-wrap gap-2 md:h-auto">
+        <ul class="mt-[18px] flex h-10 content-start flex-wrap gap-2 overflow-hidden md:h-auto">
           {
-            coverage.areas.map((area) => (
-              <li class="inline-flex h-[34px] items-center gap-2 rounded-full border border-brand-750 bg-brand-950 py-2 pl-3 pr-[14px] text-sm font-normal text-brand-100">
-                <span class="ak-dot"></span>
+            coverage.areas.map((area, index) => (
+              <li class="inline-flex items-center gap-2 text-sm font-normal leading-[normal] text-brand-100">
                 {area}
+                {index < coverage.areas.length - 1 && <span class="ak-dot"></span>}
               </li>
             ))
           }

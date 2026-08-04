@@ -2,7 +2,7 @@
 import { teacher } from '../data/site';
 ---
 
-<section id="profesor" class="h-[980px] overflow-hidden bg-brand-950 py-[52px] text-brand-50 md:h-auto md:py-[5.5rem]">
+<section id="profesor" class="h-[765px] overflow-hidden bg-brand-950 pb-[52px] text-brand-50 md:h-auto md:py-[5.5rem]">
   <div class="ak-container">
     <div class="lg:grid lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-12">
       <div class="relative h-[360px] overflow-hidden rounded-[22px] bg-[linear-gradient(142deg,#191a33_0%,#0a0e19_71%)] lg:h-[520px]">
@@ -12,18 +12,18 @@ import { teacher } from '../data/site';
       </div>
 
       <div class="mt-[22px] lg:mt-0">
-        <h2 class="font-display h-[78px] w-[310px] text-[46px] font-bold leading-[0.85] tracking-[-0.03em] sm:h-auto sm:w-auto sm:text-6xl">
+        <h2 class="font-display h-[39px] w-full whitespace-nowrap text-[46px] font-bold leading-[0.85] tracking-[-0.03em] sm:h-auto sm:w-auto sm:text-6xl">
           {teacher.name}
         </h2>
         <p class="mt-[22px] h-4 text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-100 uppercase md:h-auto">
           {teacher.role}
         </p>
 
-        <div class="mt-[22px] flex h-[182px] max-w-2xl flex-col gap-[14px] text-base leading-6 text-brand-100 md:h-auto md:text-lg md:leading-8">
+        <div class="mt-[22px] flex h-[120px] max-w-2xl flex-col text-base leading-6 text-brand-100 md:h-auto md:text-lg md:leading-8">
           {teacher.bio.map((paragraph) => <p>{paragraph}</p>)}
         </div>
 
-        <ul class="mt-[22px] flex h-[152px] flex-col items-start justify-between md:h-auto md:flex-row md:flex-wrap md:justify-start md:gap-2">
+        <ul class="mt-[22px] flex h-[90px] flex-col items-start justify-between md:h-auto md:flex-row md:flex-wrap md:justify-start md:gap-2">
           {
             teacher.credentials.map((c) => (
               <li class="ak-pill h-8 bg-brand-950 px-3 py-2 text-sm text-brand-100">

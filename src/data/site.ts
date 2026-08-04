@@ -45,7 +45,7 @@ export const site = {
     whatsappUrl: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
       whatsappMessage,
     )}`,
-    schedule: 'Lunes a viernes, de 9 a 18 h',
+    schedule: 'Lunes a viernes, de 9 a 19 h',
     instagram: {
       handle: '@akdemia.autoescuela',
       url: 'https://www.instagram.com/akdemia.autoescuela',
@@ -87,8 +87,8 @@ export const hero = {
   highlights: [
     '45 min por clase',
     'Caja manual',
-    'Doble comando',
-    'Puerta a puerta',
+    'Auto coble comando',
+    'A domicilio',
   ],
   stats: [
     { value: '+10', label: 'años de experiencia' },
@@ -106,12 +106,10 @@ export const teacher = {
   role: 'Instructor matriculado por el GCBA',
   photo: '/images/driver-profile.jpg',
   bio: [
-    'Más de 10 años enseñando a manejar en Villa Urquiza y la zona norte de CABA. Trabajo con un método claro para que manejes seguro y tranquilo, sin apuros.',
-    'Doy clases a quienes nunca tocaron un volante y también a quienes quieren perder el miedo o preparar el examen de la licencia.',
+    'Doy clases particulares en Villa Urquiza y alrededores con un método ordenado: cada clase tiene un objetivo concreto y sabés qué vas a practicar. Así llegás al examen sabiendo exactamente qué hacer.',
   ],
   // Datos rápidos que refuerzan confianza.
   credentials: [
-    '+10 años de experiencia',
     'Clases 100% personalizadas',
     'Enfoque en seguridad vial',
     'Título GCBA en técnicas de conducción',
@@ -136,28 +134,21 @@ export const services: Service[] = [
     image: '/images/practice-driving.jpg',
     title: 'Para principiantes',
     description:
-      'Desde cero y a tu ritmo. Arrancamos con lo básico hasta que manejes con confianza.',
+      'Para quienes nunca manejaron. Arrancás de cero, a tu ritmo.',
   },
   {
     icon: '02',
     image: '/images/hero-driving.jpg',
-    title: 'Clases prácticas',
+    title: 'Circuito de examen real',
     description:
-      'Práctica real en calle: estacionamiento, avenidas, rotondas y el tránsito porteño.',
+      'Practicás en el circuito real de la comuna donde vas a rendir.',
   },
   {
     icon: '03',
-    image: '/images/steering-wheel.jpg',
-    title: 'Preparación de examen',
-    description:
-      'Te preparamos para el examen práctico de la licencia de CABA, con todo lo que se evalúa.',
-  },
-  {
-    icon: '04',
     image: '/images/driver-profile.jpg',
     title: 'Perder el miedo',
     description:
-      'Si ya sabés algo pero te falta seguridad, retomamos hasta que manejes tranquilo.',
+      'Para quienes ya tienen la licencia pero no se animan a manejar. Retomamos hasta que manejes tranquilo.',
   },
 ];
 
@@ -201,11 +192,15 @@ export const benefits: Benefit[] = [
 export const coverage = {
   title: 'Dónde doy clases',
   description:
-    'Damos clases en Villa Urquiza, Paternal y Parque Chas, y en zonas de bajo riesgo para que practiques según dónde vas a rendir.',
+    'Practicás en las calles donde vas a rendir. Cubrimos Villa Urquiza y alrededores.',
   areas: [
     'Villa Urquiza',
-    'Paternal',
+    'Belgrano',
     'Parque Chas',
+    'Villa Pueyrredón',
+    'Agronomía',
+    'Saavedra',
+    'Núñez',
   ],
 } as const;
 
@@ -216,7 +211,7 @@ export const coverage = {
 export const licenseInfo = {
   title: 'Tu licencia en CABA',
   description:
-    'Lo que tenés que saber para rendir. Te acompañamos con la info del trámite.',
+    'Lo que tenés que saber para rendir. Te acompañamos con el trámite.',
   items: [
     {
       title: 'Charla de educación vial',
@@ -231,7 +226,7 @@ export const licenseInfo = {
     {
       title: 'Examen práctico',
       description:
-        'Es en calle y únicamente con el vehículo del GCBA: no se rinde con tu auto ni con uno alquilado.',
+        'Es en calle y únicamente con el vehículo del GCBA.',
     },
     {
       title: 'Requisito',
@@ -314,5 +309,5 @@ export const contactCta = {
   title: '¿Listo para empezar a manejar?',
   description:
     'Escribinos por WhatsApp y coordinamos tu primera clase en Villa Urquiza. Sin compromiso.',
-  cta: 'Escribir por WhatsApp',
+  cta: 'Empezá ahora',
 } as const;

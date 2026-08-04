@@ -1,26 +1,29 @@
 ---
 import { licenseInfo } from '../data/site';
+
+const [licenseDescriptionLead, licenseDescriptionEnd] = licenseInfo.description.split('. ');
 ---
 
-<section id="licencia" class="h-[694px] overflow-hidden bg-brand-950 py-[54px] text-brand-50 md:h-auto md:py-[5.5rem]">
+<section id="licencia" class="h-[658px] overflow-hidden bg-brand-100 py-[54px] text-[#0a0e19] md:h-auto md:py-[5.5rem]">
   <div class="ak-container">
     <div class="lg:grid lg:grid-cols-[0.75fr_1.25fr] lg:items-start lg:gap-12">
       <div>
         <h2 class="font-display text-[30px] font-medium leading-none tracking-[-0.03em] sm:text-5xl">
           {licenseInfo.title}
         </h2>
-        <p class="mt-[18px] max-w-md text-base leading-6 text-brand-100">
-          {licenseInfo.description}
+        <p class="mt-[18px] h-12 max-w-md text-base leading-6 text-[#0a0e19]">
+          <span class="block">{licenseDescriptionLead}.</span>
+          <span class="block">{licenseDescriptionEnd}</span>
         </p>
       </div>
 
-      <ul class="mt-[18px] grid h-[472px] grid-rows-[109px_109px_125px_93px] gap-3 lg:mt-0 lg:h-auto lg:grid-cols-2 lg:grid-rows-none">
+      <ul class="mt-[18px] grid h-[436px] grid-rows-[109px_109px_125px_93px] lg:mt-0 lg:h-auto lg:grid-cols-2 lg:grid-rows-none">
         {
-          licenseInfo.items.map((item) => (
-            <li class="h-full rounded-[16px] border border-brand-750 bg-brand-950 px-5 pb-5 pt-[18px] lg:min-h-[140px]">
+          licenseInfo.items.map((item, index) => (
+            <li class="flex h-full flex-col justify-between rounded-[16px] bg-brand-100 px-5 pb-5 pt-[18px] lg:min-h-[140px]">
               <span class="block h-[3px] w-7 rounded-full bg-accent-400" aria-hidden="true"></span>
-              <h3 class="font-display mt-2 text-xl font-medium leading-[1.02] tracking-[-0.03em] text-brand-50">{item.title}</h3>
-              <p class="mt-2 text-sm leading-none text-brand-100">{item.description}</p>
+              <h3 class="font-display text-xl font-medium leading-[1.02] tracking-[-0.03em] text-[#0a0e19]">{item.title}</h3>
+              <p class:list={['text-sm leading-[normal] text-[#0a0e19]', index === 0 && 'w-[253px]', index === 2 && 'w-[243px]']}>{item.description}</p>
             </li>
           ))
         }
