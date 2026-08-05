@@ -29,7 +29,7 @@
   --font-sans: 'Roboto', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-display: 'Josefin Sans', var(--font-sans);
 
-  --breakpoint-desktop: 75rem;
+  --breakpoint-desktop: 80rem;
 }
 
 html {
@@ -108,13 +108,18 @@ body {
   }
 
   .ak-container {
-    padding-inline: 2rem;
+    width: min(calc(100% - 2 * clamp(2.5rem, calc(7.8125vw - 1.25rem), 5rem)), 70rem);
+    max-width: none;
+    padding-inline: 0;
   }
-}
 
-@media (min-width: 1200px) {
-  .ak-container {
+  .ak-header-container {
+    width: min(calc(100% - 2 * clamp(2.5rem, calc(7.8125vw - 1.25rem), 5rem)), 70rem);
     max-width: 70rem;
     padding-inline: 0;
+  }
+
+  .ak-pill.teacher-credential {
+    min-height: 0;
   }
 }

@@ -48,10 +48,10 @@ const footerNavItems = [
     </a>
     <SiteHeader />
     <slot />
-    <footer class="h-[259px] overflow-hidden bg-[#0a0e19] py-10 text-brand-100 md:h-auto desktop:h-[300px]">
-      <div class="ak-container flex h-[179px] flex-col items-start justify-between md:h-auto desktop:h-[220px] desktop:items-stretch">
-        <div class="contents desktop:flex desktop:h-[95px] desktop:w-full desktop:items-start desktop:justify-between">
-          <a class="ak-focus relative block h-10 w-[114px] shrink-0 desktop:h-[95px] desktop:w-[272px]" href="/" aria-label={`${site.name} inicio`}>
+    <footer class="h-[259px] overflow-hidden bg-[#0a0e19] py-10 text-brand-100 md:h-[300px]">
+      <div class="ak-container flex h-[179px] flex-col items-start justify-between md:h-[220px] md:items-stretch">
+        <div class="contents md:flex md:h-[95px] md:w-full md:items-start md:justify-between">
+          <a class="ak-focus relative block h-10 w-[114px] shrink-0 md:h-[95px] md:w-[272px]" href="/" aria-label={`${site.name} inicio`}>
             <img
               src="/images/akdemia-menu-logo-car.svg"
               alt=""
@@ -75,7 +75,7 @@ const footerNavItems = [
             />
           </a>
 
-          <nav class="hidden desktop:block" aria-label="Navegación del pie">
+          <nav class="hidden md:block" aria-label="Navegación del pie">
             <ul class="flex items-center gap-[38px] text-base font-normal leading-[normal] text-accent-400">
               {
                 footerNavItems.map((item) => (
@@ -88,33 +88,33 @@ const footerNavItems = [
           </nav>
         </div>
 
-        <span class="h-2.5 w-px shrink-0 desktop:hidden" aria-hidden="true"></span>
+        <span class="h-2.5 w-px shrink-0 md:hidden" aria-hidden="true"></span>
 
-        <div class="contents desktop:flex desktop:h-[19px] desktop:w-full desktop:items-center desktop:justify-between">
-          <p class="text-sm leading-[normal] text-brand-750 desktop:text-base desktop:font-medium desktop:leading-[1.2] desktop:tracking-[0.09em] desktop:uppercase">
-            {site.location.area} · {site.location.regionShort}<span class="desktop:hidden"> · {site.location.country}</span>
+        <div class="contents md:flex md:h-[52px] md:w-full md:flex-wrap md:content-center md:items-center md:justify-between md:gap-y-[14px] desktop:h-[19px] desktop:flex-nowrap desktop:content-normal">
+          <p class="text-sm leading-[normal] text-brand-750 md:text-base md:font-medium md:leading-[1.2] md:tracking-[0.09em] md:uppercase">
+            {site.location.area} · {site.location.regionShort}<span class="md:hidden"> · {site.location.country}</span>
           </p>
-          <p class="text-sm leading-[normal] text-brand-750 desktop:text-base desktop:font-medium desktop:leading-[1.2] desktop:tracking-[0.09em] desktop:uppercase">{site.contact.schedule}</p>
+          <p class="text-sm leading-[normal] text-brand-750 md:text-base md:font-medium md:leading-[1.2] md:tracking-[0.09em] md:uppercase">{site.contact.schedule}</p>
           <a
             href={site.contact.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="ak-focus text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-100 uppercase desktop:text-base desktop:text-brand-750"
+            class="ak-focus text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-100 uppercase md:text-base md:text-brand-750"
           >
-            <span class="desktop:hidden">WhatsApp </span>{site.contact.phoneInternational}
+            <span class="md:hidden">WhatsApp </span>{site.contact.phoneInternational}
           </a>
           <a
             href={site.contact.instagram.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="ak-focus text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-100 uppercase desktop:text-base desktop:text-brand-750"
+            class="ak-focus text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-100 uppercase md:text-base md:text-brand-750"
           >
             {site.contact.instagram.handle}
           </a>
         </div>
 
         <span class="h-px w-full shrink-0 bg-brand-750" aria-hidden="true"></span>
-        <p class="w-full text-sm font-normal leading-[normal] text-brand-750 md:w-auto desktop:text-base">
+        <p class="w-full text-sm font-normal leading-[normal] text-brand-750 md:w-auto md:text-base">
           &copy; {new Date().getFullYear()} {site.name}. Todos los derechos reservados.
         </p>
       </div>
