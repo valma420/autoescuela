@@ -117,17 +117,20 @@ import { hero, services, site } from '../data/site';
   }
 
   @media (min-width: 1200px) {
-    .service-card-list:not(:has(.service-card:is(:hover, :focus, :active, .is-pressed))) > li:first-child .service-card {
+    .service-card-list:not(:has(.service-card:is(:hover, :focus, :active, .is-pressed))) .service-card.is-pointer-current,
+    .service-card-list:not(:has(.service-card:is(:hover, :focus, :active, .is-pressed, .is-pointer-current))) > li:first-child .service-card {
       background-color: #191a33;
       color: #f4f8fb;
       box-shadow: none;
     }
 
-    .service-card-list:not(:has(.service-card:is(:hover, :focus, :active, .is-pressed))) > li:first-child .service-card__description {
+    .service-card-list:not(:has(.service-card:is(:hover, :focus, :active, .is-pressed))) .service-card.is-pointer-current .service-card__description,
+    .service-card-list:not(:has(.service-card:is(:hover, :focus, :active, .is-pressed, .is-pointer-current))) > li:first-child .service-card__description {
       color: #e3f2f7;
     }
 
-    .service-card-list:not(:has(.service-card:is(:hover, :focus, :active, .is-pressed))) > li:first-child .service-card__arrow {
+    .service-card-list:not(:has(.service-card:is(:hover, :focus, :active, .is-pressed))) .service-card.is-pointer-current .service-card__arrow,
+    .service-card-list:not(:has(.service-card:is(:hover, :focus, :active, .is-pressed, .is-pointer-current))) > li:first-child .service-card__arrow {
       background-color: #009ee2;
       color: #f4f8fb;
       transform: translateX(2px);
@@ -139,6 +142,8 @@ import { hero, services, site } from '../data/site';
   const minimumPressDuration = 150;
   const pressStartedAt = new WeakMap<HTMLElement, number>();
   const releaseTimers = new WeakMap<HTMLElement, number>();
+  const serviceCards = Array.from(document.querySelectorAll<HTMLElement>('.service-card'));
+  const desktopPointer = window.matchMedia('(min-width: 1200px) and (hover: hover) and (pointer: fine)');
 
   const showPressedState = (card: HTMLElement) => {
     const releaseTimer = releaseTimers.get(card);
@@ -171,7 +176,15 @@ import { hero, services, site } from '../data/site';
     releaseTimers.set(card, releaseTimer);
   };
 
-  document.querySelectorAll<HTMLElement>('.service-card').forEach((card) => {
+  serviceCards.forEach((card) => {
+    card.addEventListener('pointerenter', (event) => {
+      if (!desktopPointer.matches || event.pointerType === 'touch') return;
+
+      serviceCards.forEach((candidate) => {
+        candidate.classList.toggle('is-pointer-current', candidate === card);
+      });
+    });
+
     card.addEventListener('pointerdown', (event) => {
       if (event.pointerType === 'mouse' && event.button !== 0) return;
 
