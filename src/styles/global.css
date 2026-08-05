@@ -53,8 +53,8 @@ body {
 
 .ak-container {
   margin-inline: auto;
-  max-width: 72rem;
-  padding-inline: 1.375rem;
+  max-width: none;
+  padding-inline: 1.875rem;
 }
 
 .ak-pill {
@@ -110,7 +110,7 @@ body {
 
   .ak-container,
   .ak-header-container {
-    width: calc(100% - 126px);
+    width: calc(100% - 80px);
     max-width: none;
     margin-inline: auto;
     padding-inline: 0;
@@ -118,5 +118,12 @@ body {
 
   .ak-pill.teacher-credential {
     min-height: 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .ak-container,
+  .ak-header-container {
+    width: calc(100% - 160px);
   }
 }

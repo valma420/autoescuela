@@ -2,40 +2,44 @@
 import { coverage } from '../data/site';
 ---
 
-<section id="cobertura" class="h-[504px] overflow-hidden bg-brand-950 py-14 text-brand-50 md:h-auto md:py-[100px]">
-  <div class="ak-container md:grid md:h-[394px] md:grid-cols-1 md:grid-rows-[52px_18px_60px_18px_19px_40px_187px] desktop:grid-cols-[460px_minmax(0,1fr)] desktop:grid-rows-[52px_60px_46px] desktop:gap-x-16 desktop:gap-y-[18px]">
-    <h2 class="font-display text-[30px] font-medium leading-none tracking-[-0.03em] sm:text-5xl md:row-start-1 md:text-[52px] desktop:col-start-1 desktop:row-start-1">
-      {coverage.title}
-    </h2>
-    <p class="mt-[18px] max-w-lg text-base leading-6 text-brand-100 md:row-start-3 md:mt-0 md:w-full md:max-w-none md:text-xl md:leading-[1.5] desktop:col-start-1 desktop:row-start-2 desktop:w-[392px]">
-      {coverage.description}
-    </p>
+<section id="cobertura" class="h-[487px] overflow-hidden bg-brand-950 py-10 text-brand-50 md:h-[540px] desktop:h-[514px] desktop:py-[60px]">
+  <div class="ak-container">
+    <div class="flex flex-col md:gap-10 desktop:flex-row desktop:gap-16">
+      <div class="contents md:flex md:flex-col md:gap-[18px] desktop:w-[460px] desktop:shrink-0">
+        <h2 class="order-1 font-display text-[30px] font-medium leading-none tracking-[-0.03em] md:text-[52px]">
+          {coverage.title}
+        </h2>
+        <p class="order-2 mt-[15px] text-base leading-6 text-brand-100 md:mt-0 md:text-xl md:leading-[1.5] desktop:w-[392px]">
+          <span class="md:hidden">Practicás en las calles donde vas a rendir. Cubrimos Villa Urquiza y alrededores.</span>
+          <span class="hidden md:inline">Practicás en las calles donde vas a rendir.</span>
+        </p>
+        <ul class="order-4 mt-[15px] flex h-16 content-start flex-wrap gap-2 overflow-hidden text-sm font-normal leading-[normal] text-brand-100 md:mt-0 md:h-auto md:text-base desktop:h-[68px]">
+          {
+            coverage.areas.map((area, index) => (
+              <li class="inline-flex items-center gap-2">
+                {area}
+                {index < coverage.areas.length - 1 && <span class="ak-dot"></span>}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
 
-    <div class="mt-[18px] md:row-start-7 md:mt-0 md:flex md:h-[187px] md:w-full md:items-center md:justify-center md:overflow-hidden md:rounded-[24px] md:bg-brand-50 md:p-8 desktop:col-start-2 desktop:row-span-3 desktop:row-start-1 desktop:h-[394px] desktop:w-[596px] desktop:justify-self-end">
+      <div class="order-3 mt-[15px] h-[220px] overflow-hidden md:mt-0 md:flex md:h-[283px] md:items-center md:justify-center md:rounded-[24px] md:bg-brand-50 md:p-8 desktop:h-[394px] desktop:w-[596px] desktop:shrink-0">
         <div
-          class="relative h-[220px] overflow-hidden rounded-[20px] border border-brand-750 bg-brand-950 bg-[linear-gradient(to_right,#5c6b77_1px,transparent_1px),linear-gradient(to_bottom,#5c6b77_1px,transparent_1px)] bg-[size:50px_44px] md:h-[379.5px] md:w-[577.3px] md:flex-none md:rounded-[34.5px] md:border-[1.725px] md:border-brand-950 md:bg-brand-100 md:bg-[size:86.25px_75.9px] desktop:h-[330px] desktop:w-[502px] desktop:rounded-[30px] desktop:border-[1.5px] desktop:bg-[size:75px_66px]"
+          class="relative h-[220px] overflow-hidden rounded-[20px] border border-brand-750 bg-brand-950 bg-[linear-gradient(to_right,#5c6b77_1px,transparent_1px),linear-gradient(to_bottom,#5c6b77_1px,transparent_1px)] bg-[size:50px_44px] md:h-[240px] md:w-full md:rounded-[34.5px] md:border-[1.725px] md:border-brand-950 md:bg-brand-100 md:bg-[size:86.25px_75.9px] desktop:h-[330px] desktop:w-[532px] desktop:rounded-[30px] desktop:border-[1.5px] desktop:bg-[size:75px_66px]"
           role="img"
           aria-label="Representación gráfica de la zona de clases con base en Villa Urquiza"
         >
-          <span class="absolute left-[119px] top-[69px] h-2.5 w-2.5 rounded-full bg-accent-400 md:left-[207px] md:top-[120.75px] md:h-[17.25px] md:w-[17.25px] desktop:left-[180px] desktop:top-[105px] desktop:h-[15px] desktop:w-[15px]"></span>
-          <span class="absolute left-[209px] top-[109px] h-2 w-2 rounded-full bg-accent-400 md:left-[362.25px] md:top-[189.75px] md:h-[13.8px] md:w-[13.8px] desktop:left-[315px] desktop:top-[165px] desktop:h-3 desktop:w-3"></span>
-          <span class="absolute left-[89px] top-[149px] h-2 w-2 rounded-full bg-accent-400 md:left-[155.25px] md:top-[258.75px] md:h-[13.8px] md:w-[13.8px] desktop:left-[135px] desktop:top-[225px] desktop:h-3 desktop:w-3"></span>
-          <span class="absolute left-[259px] top-[59px] h-2 w-2 rounded-full bg-accent-400 md:left-[448.5px] md:top-[103.5px] md:h-[13.8px] md:w-[13.8px] desktop:left-[390px] desktop:top-[90px] desktop:h-3 desktop:w-3"></span>
-          <span class="absolute left-[174px] top-[159px] h-2 w-2 rounded-full bg-accent-400 md:left-[301.875px] md:top-[276px] md:h-[13.8px] md:w-[13.8px] desktop:left-[262.5px] desktop:top-[240px] desktop:h-3 desktop:w-3"></span>
-          <span class="absolute left-[159px] top-[94px] h-[18px] w-[18px] rounded-full border-[3px] border-white bg-accent-500 md:left-[276px] md:top-[163.875px] md:h-[31.05px] md:w-[31.05px] md:border-[4.6px] md:border-brand-950 md:bg-accent-400 desktop:left-[240px] desktop:top-[142.5px] desktop:h-[27px] desktop:w-[27px] desktop:border-4"></span>
-          <span class="absolute left-[159px] top-[117px] text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-100 uppercase md:left-[276px] md:top-[203.55px] md:text-[22.425px] md:text-brand-950 desktop:left-[240px] desktop:top-[177px] desktop:text-[19.5px]">Villa Urquiza</span>
+          <span class="absolute left-[119px] top-[69px] h-2.5 w-2.5 rounded-full bg-accent-400 md:left-[205.28px] md:top-[119.03px] md:h-[17.25px] md:w-[17.25px] desktop:left-[180px] desktop:top-[105px] desktop:h-[15px] desktop:w-[15px]"></span>
+          <span class="absolute left-[209px] top-[109px] h-2 w-2 rounded-full bg-accent-400 md:left-[360.52px] md:top-[188.03px] md:h-[13.8px] md:w-[13.8px] desktop:left-[315px] desktop:top-[165px] desktop:h-3 desktop:w-3"></span>
+          <span class="absolute left-[89px] top-[149px] h-2 w-2 rounded-full bg-accent-400 md:left-[153.53px] md:top-[257.02px] md:h-[13.8px] md:w-[13.8px] desktop:left-[135px] desktop:top-[225px] desktop:h-3 desktop:w-3"></span>
+          <span class="absolute left-[259px] top-[59px] h-2 w-2 rounded-full bg-accent-400 md:left-[446.77px] md:top-[101.78px] md:h-[13.8px] md:w-[13.8px] desktop:left-[390px] desktop:top-[90px] desktop:h-3 desktop:w-3"></span>
+          <span class="absolute left-[174px] top-[159px] h-2 w-2 rounded-full bg-accent-400 md:left-[300.15px] md:top-[274.27px] md:h-[13.8px] md:w-[13.8px] desktop:left-[262.5px] desktop:top-[240px] desktop:h-3 desktop:w-3"></span>
+          <span class="absolute left-[159px] top-[94px] h-[18px] w-[18px] rounded-full border-[3px] border-white bg-accent-500 md:left-[274.27px] md:top-[162.15px] md:h-[31.05px] md:w-[31.05px] md:border-[4.6px] md:border-brand-950 md:bg-accent-400 desktop:left-[240px] desktop:top-[142.5px] desktop:h-[27px] desktop:w-[27px] desktop:border-4"></span>
+          <span class="absolute left-[159px] top-[117px] text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-100 uppercase md:left-[274.27px] md:top-[201.83px] md:text-[22.425px] md:text-brand-950 desktop:left-[240px] desktop:top-[177px] desktop:text-[19.5px]">Villa Urquiza</span>
         </div>
+      </div>
     </div>
-
-    <ul class="mt-[18px] flex h-10 content-start flex-wrap gap-2 overflow-hidden md:row-start-5 md:mt-0 md:h-[19px] md:w-full md:flex-nowrap desktop:col-start-1 desktop:row-start-3 desktop:h-[46px] desktop:w-[460px] desktop:flex-wrap">
-      {
-        coverage.areas.map((area, index) => (
-          <li class="inline-flex items-center gap-2 text-sm font-normal leading-[normal] text-brand-100 md:text-base">
-            {area}
-            {index < coverage.areas.length - 1 && <span class="ak-dot"></span>}
-          </li>
-        ))
-      }
-    </ul>
   </div>
 </section>

@@ -2,7 +2,7 @@
 import { hero, services, site } from '../data/site';
 ---
 
-<section id="servicios" class="h-[640px] overflow-hidden bg-brand-100 py-14 text-brand-950 md:h-auto md:py-[100px]">
+<section id="servicios" class="h-[616px] overflow-hidden bg-brand-100 py-10 text-brand-950 md:h-[606px] md:py-10 desktop:h-[396px] desktop:py-[60px]">
   <div class="ak-container flex flex-col gap-5 md:gap-[21px]">
     <div class="max-w-2xl desktop:w-full desktop:max-w-none">
       <h2 class="font-display text-[30px] font-medium leading-none tracking-[-0.03em] sm:text-5xl md:text-[52px]">
@@ -10,27 +10,39 @@ import { hero, services, site } from '../data/site';
       </h2>
     </div>
 
-    <ul class="flex h-[76px] content-start flex-wrap gap-2 md:h-auto md:gap-x-3 md:gap-y-0 desktop:h-[50px]">
+    <ul class="flex h-[70px] content-start flex-wrap gap-2 md:h-[53px] md:flex-nowrap md:gap-x-1 md:gap-y-0 desktop:h-[50px] desktop:gap-x-3">
       {
-        hero.highlights.map((item) => (
-          <li class="inline-flex h-[34px] items-center gap-2 rounded-full bg-brand-50 py-[9px] pl-[13px] pr-[15px] text-sm font-normal leading-[normal] text-brand-950 md:h-[50px] md:py-2.5 md:pl-4 md:pr-[18px] md:text-xl md:leading-[1.5]">
+        hero.highlights.map((item, index) => (
+          <li
+            class:list={[
+              'inline-flex h-[34px] shrink-0 items-center gap-2 rounded-full bg-transparent py-[9px] pl-[13px] pr-[15px] text-sm font-normal leading-[normal] whitespace-nowrap text-brand-950 md:h-[50px] md:py-2.5 md:pl-4 md:pr-[18px] md:text-xl md:leading-[1.5]',
+              index === 0 && 'w-[146px] md:w-[196px]',
+              index === 1 && 'w-[120px] md:w-[159px]',
+              index === 2 && 'w-[171px] md:w-[173px]',
+              index === 3 && 'w-[112px] md:w-[148px]',
+            ]}
+          >
             <span class="ak-dot"></span>
-            {item}
+            <span class="md:hidden">{hero.mobileHighlights[index]}</span>
+            <span class="hidden md:inline">{item}</span>
           </li>
         ))
       }
     </ul>
 
-    <ul class="service-card-list grid h-[382px] grid-rows-[114px_114px_130px] gap-3 md:h-[265px] md:grid-cols-2 md:grid-rows-[113px_132px] md:gap-5 desktop:h-[132px] desktop:grid-cols-3 desktop:grid-rows-1">
+    <ul class="service-card-list grid h-[366px] grid-rows-[114px_114px_114px] gap-3 md:h-[379px] md:grid-cols-1 md:grid-rows-[113px_113px_113px] md:gap-5 desktop:h-[132px] desktop:grid-cols-3 desktop:grid-rows-1">
       {
         services.map((service, index) => (
-          <li class:list={['h-full', index === 0 && 'md:col-span-2 desktop:col-span-1']}>
+          <li class="h-full">
             <a
               href={site.contact.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Consultar por ${service.title}`}
-              class="service-card ak-focus flex h-full flex-col justify-between overflow-hidden rounded-[18px] bg-brand-50 px-[22px] pb-6 pt-[22px] text-brand-950 shadow-[0_8px_20px_-6px_rgba(26,77,115,0.15)]"
+              class:list={[
+                'service-card ak-focus flex h-full flex-col justify-between overflow-hidden rounded-[18px] bg-brand-50 px-[22px] pb-6 pt-[22px] text-brand-950 shadow-[0_8px_20px_-6px_rgba(26,77,115,0.15)]',
+                index === 0 && 'service-card--featured',
+              ]}
             >
               <div class="flex items-start justify-between">
                 <h3 class="font-display text-2xl font-medium leading-none tracking-[-0.01em] md:text-[28px]">{service.title}</h3>
@@ -82,6 +94,21 @@ import { hero, services, site } from '../data/site';
     background-color: #191a33;
     color: #f4f8fb;
     box-shadow: none;
+  }
+
+  .service-card--featured {
+    background-color: #191a33;
+    color: #f4f8fb;
+    box-shadow: none;
+  }
+
+  .service-card--featured .service-card__description {
+    color: #e3f2f7;
+  }
+
+  .service-card--featured .service-card__arrow {
+    background-color: #009ee2;
+    color: #f4f8fb;
   }
 
   .service-card:is(:focus, :active, .is-pressed) .service-card__description {

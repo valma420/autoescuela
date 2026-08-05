@@ -2,19 +2,16 @@
 import { contactCta, site } from '../data/site';
 ---
 
-<section id="contacto" class="h-[373px] overflow-hidden bg-brand-950 py-[60px] text-brand-50 md:h-auto md:py-[100px]">
-  <div class="ak-container">
-    <p class="h-4 text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-100 uppercase md:hidden">
-      Empezá hoy
-    </p>
-    <h2 class="font-display mt-[18px] h-[60px] w-[275px] text-[30px] font-medium leading-none tracking-[-0.03em] sm:h-auto sm:w-auto sm:max-w-3xl sm:text-6xl md:mt-0 md:w-full md:max-w-none md:text-[52px] desktop:w-[1010px]">
+<section id="contacto" class="h-[275px] overflow-hidden bg-brand-950 py-10 text-brand-50 md:h-[336px] md:py-10 desktop:h-[339px] desktop:py-[60px]">
+  <div class="ak-container flex h-full flex-col items-center text-center desktop:block">
+    <h2 class="font-display h-[60px] w-[272px] text-[30px] font-medium leading-none tracking-[-0.03em] sm:h-auto sm:w-auto sm:max-w-3xl sm:text-6xl md:w-[492px] md:h-[104px] md:text-[52px] desktop:h-[52px] desktop:w-[1010px]">
       {contactCta.title}
     </h2>
-    <p class="mt-[18px] h-[72px] w-[260px] text-base leading-6 text-brand-100 md:mt-5 md:h-[60px] md:w-full md:max-w-none md:text-xl md:leading-[1.5] desktop:w-[463px]">
+    <p class="mt-[18px] h-12 w-[234px] text-base leading-6 text-brand-100 md:mt-5 md:h-[30px] md:w-[514px] md:text-xl md:leading-[1.5] desktop:w-[514px]">
       {contactCta.description}
     </p>
 
-    <div class="mt-[18px] flex flex-col items-start gap-4 sm:flex-row sm:items-center md:mt-[55px] md:w-full md:justify-center">
+    <div class="mt-[18px] flex flex-col items-center gap-4 sm:flex-row sm:items-center md:mt-[55px] md:w-full md:justify-center desktop:mt-[55px]">
       <a
         href={site.contact.whatsappUrl}
         target="_blank"

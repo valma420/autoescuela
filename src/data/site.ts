@@ -90,6 +90,12 @@ export const hero = {
     'Clases dobles',
     'A domicilio',
   ],
+  mobileHighlights: [
+    '45 min por clase',
+    'Caja manual',
+    'Auto doble comando',
+    'A domicilio',
+  ],
   stats: [
     { value: '+10', label: 'años de experiencia' },
     { value: '1:1', label: 'clases personalizadas' },
@@ -112,6 +118,11 @@ export const teacher = {
   credentials: [
     'Clases 100% personalizadas',
     'Un plan por alumno, clase a clase',
+    'Título GCBA en técnicas de conducción',
+  ],
+  mobileCredentials: [
+    'Clases 100% personalizadas',
+    'Enfoque en seguridad vial',
     'Título GCBA en técnicas de conducción',
   ],
 } as const;
@@ -307,8 +318,7 @@ export const faqs: Faq[] = [
 
 export const contactCta = {
   title: '¿Listo para empezar a manejar?',
-  description:
-    'Escribinos por WhatsApp y coordinamos tu primera clase en Villa Urquiza. Sin compromiso.',
-  cta: 'Empezá ahora',
+  description: 'Escribinos por WhatsApp y coordinamos tu primera clase.',
+  cta: 'Agendá tu clase',
   desktopCta: 'Agendá tu clase',
 } as const;

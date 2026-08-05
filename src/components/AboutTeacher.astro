@@ -2,10 +2,11 @@
 import { teacher } from '../data/site';
 ---
 
-<section id="profesor" class="h-[765px] overflow-hidden bg-brand-950 pb-[52px] text-brand-50 md:h-auto md:py-[100px]">
+<section id="profesor" class="h-[793px] overflow-hidden bg-brand-950 py-10 text-brand-50 md:h-[450px] md:py-10 desktop:h-[464px] desktop:py-[60px]">
   <div class="ak-container">
     <div class="teacher-grid md:grid md:items-start">
       <div class="teacher-photo relative h-[360px] overflow-hidden rounded-[22px] bg-[linear-gradient(142deg,#191a33_0%,#0a0e19_71%)] md:w-full md:rounded-[24px] md:bg-[#212442] md:bg-none">
+        <img src={teacher.photo} alt={`Retrato de ${teacher.name}, instructor de manejo`} width="1200" height="1500" loading="lazy" class="absolute inset-0 h-full w-full object-cover" />
         <p class="font-display absolute bottom-[21px] right-[18px] rounded-[14px] bg-brand-50 pb-[14px] pl-4 pr-[18px] pt-[13px] text-2xl font-medium leading-none tracking-[-0.01em] text-brand-950 shadow-[0_10px_24px_-4px_rgba(13,15,36,0.35)] md:bottom-6 md:left-6 md:right-auto md:rounded-full md:px-[22px] md:py-3 md:font-sans md:text-base md:leading-[normal] md:tracking-normal md:shadow-none">
           Instructor
         </p>
@@ -25,10 +26,11 @@ import { teacher } from '../data/site';
 
         <ul class="mt-[22px] flex h-[90px] flex-col items-start justify-between md:mt-0 md:h-auto md:w-full md:flex-nowrap md:justify-start md:gap-[14px] md:pt-2">
           {
-            teacher.credentials.map((c) => (
+            teacher.credentials.map((c, index) => (
               <li class="teacher-credential ak-pill h-8 bg-brand-950 px-3 py-2 text-sm text-brand-100 md:h-[19px] md:gap-3 md:bg-transparent md:px-0 md:py-0 md:text-base md:leading-[normal] md:text-white">
                 <span class="ak-dot md:h-[7px] md:w-[7px]"></span>
-                {c}
+                <span class="md:hidden">{teacher.mobileCredentials[index]}</span>
+                <span class="hidden md:inline">{c}</span>
               </li>
             ))
           }
@@ -41,12 +43,12 @@ import { teacher } from '../data/site';
 <style>
   @media (min-width: 768px) {
     .teacher-grid {
-      grid-template-columns: clamp(260px, calc(41.015625vw - 55px), 470px) minmax(0, 1fr);
-      gap: clamp(40px, calc(4.6875vw + 4px), 64px);
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 40px;
     }
 
     .teacher-photo {
-      height: clamp(344px, calc(584px - 18.75vw), 440px);
+      height: 370px;
     }
 
   }
@@ -54,6 +56,11 @@ import { teacher } from '../data/site';
   @media (min-width: 1280px) {
     .teacher-grid {
       grid-template-columns: 470px 586px;
+      gap: 64px;
+    }
+
+    .teacher-photo {
+      height: 344px;
     }
   }
 </style>
