@@ -211,7 +211,8 @@ export const coverage = {
     'Villa Pueyrredón',
     'Agronomía',
     'Saavedra',
-    'Núñez',
+    'Coghlan',
+    'Villa Ortúzar',
   ],
 } as const;
 

@@ -1,8 +1,8 @@
 ---
-import { coverage } from '../data/site';
+import { coverage, site } from '../data/site';
 ---
 
-<section id="cobertura" class="ak-section-frame bg-brand-950 text-brand-50">
+<section id="cobertura" class="ak-section-frame bg-brand-950 text-brand-50" data-coverage-section>
   <div class="ak-container">
     <div class="flex flex-col md:gap-10 desktop:flex-row desktop:gap-16">
       <div class="contents md:flex md:flex-col md:gap-[18px] desktop:w-[460px] desktop:shrink-0">
@@ -10,7 +10,7 @@ import { coverage } from '../data/site';
           {coverage.title}
         </h2>
         <p class="ak-body-large order-2 mt-[15px] leading-[1.5] text-brand-100 md:mt-0 desktop:w-[392px]">
-          <span class="md:hidden">Practicás en las calles donde vas a rendir. Cubrimos Villa Urquiza y alrededores.</span>
+          <span class="md:hidden">{coverage.description}</span>
           <span class="hidden md:inline">Practicás en las calles donde vas a rendir.</span>
         </p>
         <ul class="ak-body-small order-4 mt-[15px] flex h-16 content-start flex-wrap gap-2 overflow-hidden font-normal leading-[normal] text-brand-100 md:mt-0 md:h-auto desktop:h-[68px]">
@@ -26,20 +26,284 @@ import { coverage } from '../data/site';
       </div>
 
       <div class="order-3 mt-[15px] h-[220px] overflow-hidden md:mt-0 md:flex md:h-[283px] md:items-center md:justify-center md:rounded-[24px] md:bg-brand-50 md:p-8 desktop:h-[394px] desktop:w-[596px] desktop:shrink-0">
-        <div
-          class="relative h-[220px] overflow-hidden rounded-[20px] border border-brand-750 bg-brand-950 bg-[linear-gradient(to_right,#5c6b77_1px,transparent_1px),linear-gradient(to_bottom,#5c6b77_1px,transparent_1px)] bg-[size:50px_44px] md:h-[240px] md:w-full md:rounded-[34.5px] md:border-[1.725px] md:border-brand-950 md:bg-brand-100 md:bg-[size:86.25px_75.9px] desktop:h-[330px] desktop:w-[532px] desktop:rounded-[30px] desktop:border-[1.5px] desktop:bg-[size:75px_66px]"
-          role="img"
-          aria-label="Representación gráfica de la zona de clases con base en Villa Urquiza"
-        >
-          <span class="absolute left-[119px] top-[69px] h-2.5 w-2.5 rounded-full bg-accent-400 md:left-[205.28px] md:top-[119.03px] md:h-[17.25px] md:w-[17.25px] desktop:left-[180px] desktop:top-[105px] desktop:h-[15px] desktop:w-[15px]"></span>
-          <span class="absolute left-[209px] top-[109px] h-2 w-2 rounded-full bg-accent-400 md:left-[360.52px] md:top-[188.03px] md:h-[13.8px] md:w-[13.8px] desktop:left-[315px] desktop:top-[165px] desktop:h-3 desktop:w-3"></span>
-          <span class="absolute left-[89px] top-[149px] h-2 w-2 rounded-full bg-accent-400 md:left-[153.53px] md:top-[257.02px] md:h-[13.8px] md:w-[13.8px] desktop:left-[135px] desktop:top-[225px] desktop:h-3 desktop:w-3"></span>
-          <span class="absolute left-[259px] top-[59px] h-2 w-2 rounded-full bg-accent-400 md:left-[446.77px] md:top-[101.78px] md:h-[13.8px] md:w-[13.8px] desktop:left-[390px] desktop:top-[90px] desktop:h-3 desktop:w-3"></span>
-          <span class="absolute left-[174px] top-[159px] h-2 w-2 rounded-full bg-accent-400 md:left-[300.15px] md:top-[274.27px] md:h-[13.8px] md:w-[13.8px] desktop:left-[262.5px] desktop:top-[240px] desktop:h-3 desktop:w-3"></span>
-          <span class="absolute left-[159px] top-[94px] h-[18px] w-[18px] rounded-full border-[3px] border-white bg-accent-500 md:left-[274.27px] md:top-[162.15px] md:h-[31.05px] md:w-[31.05px] md:border-[4.6px] md:border-brand-950 md:bg-accent-400 desktop:left-[240px] desktop:top-[142.5px] desktop:h-[27px] desktop:w-[27px] desktop:border-4"></span>
-          <span class="absolute left-[159px] top-[117px] text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-100 uppercase md:left-[274.27px] md:top-[201.83px] md:text-[22.425px] md:text-brand-950 desktop:left-[240px] desktop:top-[177px] desktop:text-[19.5px]">Villa Urquiza</span>
+        <div class="relative h-full w-full md:h-[240px] desktop:h-[330px] desktop:w-[532px]" data-map-frame>
+          <div class="relative h-full w-full" data-map-facade>
+            <div
+              class="relative h-full overflow-hidden rounded-[20px] border border-brand-750 bg-brand-950 bg-[linear-gradient(to_right,#5c6b77_1px,transparent_1px),linear-gradient(to_bottom,#5c6b77_1px,transparent_1px)] bg-[size:50px_44px] md:rounded-[34.5px] md:border-[1.725px] md:border-brand-950 md:bg-brand-100 md:bg-[size:86.25px_75.9px] desktop:rounded-[30px] desktop:border-[1.5px] desktop:bg-[size:75px_66px]"
+            >
+              <span class="sr-only">Representación gráfica de la zona de clases con base en Villa Urquiza</span>
+              <span class="absolute left-[119px] top-[69px] h-2.5 w-2.5 rounded-full bg-accent-400 md:left-[205.28px] md:top-[119.03px] md:h-[17.25px] md:w-[17.25px] desktop:left-[180px] desktop:top-[105px] desktop:h-[15px] desktop:w-[15px]"></span>
+              <span class="absolute left-[209px] top-[109px] h-2 w-2 rounded-full bg-accent-400 md:left-[360.52px] md:top-[188.03px] md:h-[13.8px] md:w-[13.8px] desktop:left-[315px] desktop:top-[165px] desktop:h-3 desktop:w-3"></span>
+              <span class="absolute left-[89px] top-[149px] h-2 w-2 rounded-full bg-accent-400 md:left-[153.53px] md:top-[257.02px] md:h-[13.8px] md:w-[13.8px] desktop:left-[135px] desktop:top-[225px] desktop:h-3 desktop:w-3"></span>
+              <span class="absolute left-[259px] top-[59px] h-2 w-2 rounded-full bg-accent-400 md:left-[446.77px] md:top-[101.78px] md:h-[13.8px] md:w-[13.8px] desktop:left-[390px] desktop:top-[90px] desktop:h-3 desktop:w-3"></span>
+              <span class="absolute left-[174px] top-[159px] h-2 w-2 rounded-full bg-accent-400 md:left-[300.15px] md:top-[274.27px] md:h-[13.8px] md:w-[13.8px] desktop:left-[262.5px] desktop:top-[240px] desktop:h-3 desktop:w-3"></span>
+              <span class="absolute left-[159px] top-[94px] h-[18px] w-[18px] rounded-full border-[3px] border-white bg-accent-500 md:left-[274.27px] md:top-[162.15px] md:h-[31.05px] md:w-[31.05px] md:border-[4.6px] md:border-brand-950 md:bg-accent-400 desktop:left-[240px] desktop:top-[142.5px] desktop:h-[27px] desktop:w-[27px] desktop:border-4"></span>
+              <span class="absolute left-[159px] top-[117px] text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-100 uppercase md:left-[274.27px] md:top-[201.83px] md:text-[22.425px] md:text-brand-950 desktop:left-[240px] desktop:top-[177px] desktop:text-[19.5px]">Villa Urquiza</span>
+
+              <div class="absolute inset-x-4 bottom-4 flex justify-center md:bottom-5">
+                <button
+                  type="button"
+                  class="ak-focus inline-flex min-h-12 touch-manipulation items-center justify-center rounded-full bg-accent-400 px-6 text-sm font-medium tracking-[0.03em] text-brand-50 uppercase shadow-[0_8px_24px_rgba(10,14,25,0.28)] transition hover:bg-brand-50 hover:text-brand-950 disabled:cursor-wait disabled:opacity-80 md:text-base"
+                  aria-controls="coverage-map-panel"
+                  aria-expanded="false"
+                  data-map-trigger
+                >
+                  <span data-map-trigger-label>Explorar cobertura</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="absolute inset-x-3 bottom-3 hidden rounded-xl bg-brand-950/95 p-3 text-sm text-brand-50 shadow-xl md:inset-x-5 md:bottom-5" role="alert" data-map-fallback>
+              <p>No pudimos cargar el mapa interactivo.</p>
+              <div class="mt-2 flex flex-wrap items-center gap-3">
+                <a class="ak-focus inline-flex min-h-11 items-center font-medium text-accent-300 underline underline-offset-4" href={site.contact.whatsappUrl} target="_blank" rel="noopener noreferrer">
+                  Consultar por WhatsApp
+                </a>
+                <button type="button" class="ak-focus inline-flex min-h-11 items-center font-medium text-brand-50 underline underline-offset-4" data-map-retry>
+                  Reintentar
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="hidden h-full w-full overflow-hidden rounded-[20px] md:rounded-[34.5px] desktop:rounded-[30px]" data-map-inline-host></div>
         </div>
       </div>
     </div>
   </div>
+
+  <dialog class="coverage-map-dialog" aria-labelledby="coverage-map-title" data-map-dialog>
+    <div class="h-full" data-map-dialog-host>
+      <div id="coverage-map-panel" class="flex h-full min-h-0 flex-col bg-brand-50 text-brand-950" data-map-panel>
+        <div class="flex min-h-[64px] shrink-0 items-center justify-between gap-3 border-b border-brand-200 px-4 pt-[env(safe-area-inset-top)] md:absolute md:inset-x-0 md:top-0 md:z-[1000] md:min-h-[58px] md:bg-brand-50/95 md:pr-5 md:pl-[76px] md:pt-0">
+          <h3 id="coverage-map-title" class="font-display text-xl font-medium tracking-[-0.02em]">Zona de cobertura</h3>
+          <button type="button" class="ak-focus inline-flex min-h-12 touch-manipulation items-center justify-center rounded-full px-3 text-sm font-medium text-brand-700 transition hover:bg-brand-100 hover:text-brand-950 md:min-h-11" aria-label="Cerrar mapa interactivo" data-map-close>
+            <span class="md:hidden" aria-hidden="true">Cerrar</span>
+            <span class="hidden md:inline" aria-hidden="true">Volver al mapa simple</span>
+          </button>
+        </div>
+
+        <div class="relative min-h-0 flex-1 bg-brand-100">
+          <div class="h-full w-full" aria-label="Mapa interactivo de las zonas donde AKDemia da clases" data-coverage-map></div>
+          <div class="absolute inset-0 grid place-items-center bg-brand-100 text-center text-sm text-brand-700" role="status" aria-live="polite" data-map-loading>
+            <span class="flex flex-col items-center gap-3">
+              <span class="h-8 w-8 animate-spin rounded-full border-4 border-brand-300 border-t-accent-500" aria-hidden="true"></span>
+              Cargando mapa…
+            </span>
+          </div>
+        </div>
+
+        <div class="shrink-0 border-t border-brand-200 bg-brand-50 px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] md:hidden">
+          <a class="ak-focus inline-flex min-h-12 w-full touch-manipulation items-center justify-center rounded-full bg-accent-400 px-5 text-sm font-medium tracking-[0.02em] text-brand-50 uppercase transition hover:bg-brand-950" href={site.contact.whatsappUrl} target="_blank" rel="noopener noreferrer">
+            Consultar mi zona por WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </dialog>
 </section>
+
+<script>
+  const section = document.querySelector<HTMLElement>('[data-coverage-section]');
+  const facade = section?.querySelector<HTMLElement>('[data-map-facade]');
+  const trigger = section?.querySelector<HTMLButtonElement>('[data-map-trigger]');
+  const triggerLabel = section?.querySelector<HTMLElement>('[data-map-trigger-label]');
+  const fallback = section?.querySelector<HTMLElement>('[data-map-fallback]');
+  const retryButton = section?.querySelector<HTMLButtonElement>('[data-map-retry]');
+  const inlineHost = section?.querySelector<HTMLElement>('[data-map-inline-host]');
+  const dialog = section?.querySelector<HTMLDialogElement>('[data-map-dialog]');
+  const dialogHost = section?.querySelector<HTMLElement>('[data-map-dialog-host]');
+  const panel = section?.querySelector<HTMLElement>('[data-map-panel]');
+  const mapElement = section?.querySelector<HTMLElement>('[data-coverage-map]');
+  const loading = section?.querySelector<HTMLElement>('[data-map-loading]');
+  const closeButton = section?.querySelector<HTMLButtonElement>('[data-map-close]');
+  const desktop = window.matchMedia('(min-width: 768px)');
+
+  let mapHandle: import('../scripts/coverage-map').CoverageMapHandle | undefined;
+  let active = false;
+  let loadingMap = false;
+  let ignoreNextDialogClose = false;
+  let previousBodyOverflow = '';
+
+  const setDialogScrollLock = (locked: boolean) => {
+    if (locked) {
+      previousBodyOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return;
+    }
+
+    document.body.style.overflow = previousBodyOverflow;
+  };
+
+  const closeDialogForMove = () => {
+    if (!dialog?.open) return;
+    ignoreNextDialogClose = true;
+    dialog.close();
+    setDialogScrollLock(false);
+  };
+
+  const placePanel = () => {
+    if (!panel || !inlineHost || !dialog || !dialogHost) return;
+
+    if (desktop.matches) {
+      closeDialogForMove();
+      inlineHost.append(panel);
+      facade?.classList.add('hidden');
+      inlineHost.classList.remove('hidden');
+    } else {
+      dialogHost.append(panel);
+      inlineHost.classList.add('hidden');
+      facade?.classList.remove('hidden');
+
+      if (!dialog.open) {
+        previousBodyOverflow = document.body.style.overflow;
+        dialog.showModal();
+        document.body.style.overflow = 'hidden';
+        window.setTimeout(() => closeButton?.focus(), 0);
+      }
+    }
+
+    window.requestAnimationFrame(() => mapHandle?.invalidateSize());
+  };
+
+  const deactivateMap = (restoreFocus = true) => {
+    active = false;
+    trigger?.setAttribute('aria-expanded', 'false');
+
+    if (dialog?.open) {
+      ignoreNextDialogClose = true;
+      dialog.close();
+      setDialogScrollLock(false);
+    }
+
+    if (panel && dialogHost) dialogHost.append(panel);
+    inlineHost?.classList.add('hidden');
+    facade?.classList.remove('hidden');
+
+    if (restoreFocus) trigger?.focus();
+  };
+
+  const showMapFailure = () => {
+    mapHandle?.destroy();
+    mapHandle = undefined;
+    loadingMap = false;
+    loading?.classList.remove('hidden');
+    fallback?.classList.remove('hidden');
+    trigger?.removeAttribute('disabled');
+    if (triggerLabel) triggerLabel.textContent = 'Reintentar mapa';
+    deactivateMap();
+  };
+
+  const activateMap = async () => {
+    if (!trigger || !mapElement || active || loadingMap) return;
+
+    active = true;
+    trigger.setAttribute('aria-expanded', 'true');
+    loadingMap = !mapHandle;
+    fallback?.classList.add('hidden');
+    trigger.setAttribute('disabled', '');
+    if (triggerLabel) triggerLabel.textContent = 'Cargando mapa…';
+    placePanel();
+
+    if (!mapHandle) {
+      try {
+        const { initializeCoverageMap } = await import('../scripts/coverage-map');
+        mapHandle = await initializeCoverageMap(mapElement, {
+          onTileFailure: showMapFailure,
+        });
+      } catch {
+        showMapFailure();
+        return;
+      }
+    }
+
+    loadingMap = false;
+    loading?.classList.add('hidden');
+    trigger.removeAttribute('disabled');
+    if (triggerLabel) triggerLabel.textContent = 'Explorar cobertura';
+    window.requestAnimationFrame(() => mapHandle?.invalidateSize());
+  };
+
+  trigger?.addEventListener('click', () => void activateMap());
+  retryButton?.addEventListener('click', () => void activateMap());
+  closeButton?.addEventListener('click', () => deactivateMap());
+
+  document.addEventListener(
+    'keydown',
+    (event) => {
+      if (event.key === 'Escape' && dialog?.open) {
+        event.preventDefault();
+        deactivateMap();
+      }
+    },
+    { capture: true },
+  );
+
+  dialog?.addEventListener('close', () => {
+    if (ignoreNextDialogClose) {
+      ignoreNextDialogClose = false;
+      return;
+    }
+
+    setDialogScrollLock(false);
+    deactivateMap();
+  });
+
+  desktop.addEventListener('change', () => {
+    if (active) placePanel();
+  });
+</script>
+
+<style>
+  .coverage-map-dialog {
+    margin: 0;
+    height: 100dvh;
+    max-height: none;
+    width: 100vw;
+    max-width: none;
+    border: 0;
+    padding: 0;
+    overscroll-behavior: contain;
+    background: #f4f8fb;
+  }
+
+  .coverage-map-dialog::backdrop {
+    background: rgb(10 14 25 / 72%);
+  }
+
+  :global([data-coverage-map] .leaflet-control-zoom a) {
+    display: grid;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  :global([data-coverage-map] .leaflet-popup-content-wrapper) {
+    border-radius: 0.75rem;
+    color: #191a33;
+  }
+
+  :global([data-coverage-map] .leaflet-popup-content) {
+    margin: 0.75rem 1rem;
+    font-family: var(--font-sans);
+    font-weight: 500;
+  }
+
+  :global([data-coverage-map] .leaflet-control-attribution) {
+    font-size: 0.6875rem;
+  }
+
+  @media (min-width: 768px) {
+    .coverage-map-dialog {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-map-loading] span[aria-hidden='true'] {
+      animation: none;
+    }
+  }
+</style>

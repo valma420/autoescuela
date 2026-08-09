@@ -1,48 +1,108 @@
 import * as L from 'leaflet';
+import leafletCssUrl from 'leaflet/dist/leaflet.css?url';
 
-const mapSelector = '[data-coverage-map]';
-const statusSelector = '[data-coverage-map-status]';
 const geoJsonUrl = '/data/coverage-zones.geojson';
 
-const defaultCenter: L.LatLngExpression = [-34.5705, -58.4865];
+const ensureLeafletStyles = async (): Promise<void> => {
+  const existingLink = document.querySelector<HTMLLinkElement>('[data-leaflet-styles]');
+
+  if (existingLink?.sheet) return;
+
+  await new Promise<void>((resolve, reject) => {
+    const link = existingLink ?? document.createElement('link');
+
+    link.addEventListener('load', () => resolve(), { once: true });
+    link.addEventListener(
+      'error',
+      () => {
+        link.remove();
+        reject(new Error('Leaflet styles failed to load'));
+      },
+      { once: true },
+    );
+
+    if (!existingLink) {
+      link.rel = 'stylesheet';
+      link.href = leafletCssUrl;
+      link.dataset.leafletStyles = '';
+      document.head.append(link);
+    }
+  });
+};
 
 const zoneStyle: L.PathOptions = {
-  color: '#009ee2',
+  color: '#116186',
   fillColor: '#cdebf9',
-  fillOpacity: 0.34,
-  opacity: 0.95,
+  fillOpacity: 0.42,
+  opacity: 0.9,
   weight: 2,
 };
 
+const primaryZoneStyle: L.PathOptions = {
+  color: '#007cb4',
+  fillColor: '#009ee2',
+  fillOpacity: 0.62,
+  opacity: 1,
+  weight: 4,
+};
+
 const zoneHoverStyle: L.PathOptions = {
-  fillOpacity: 0.58,
+  fillOpacity: 0.7,
   weight: 3,
 };
 
-const showStatus = (mapElement: Element) => {
-  const section = mapElement.closest('section');
-  const status = section?.querySelector<HTMLElement>(statusSelector);
-  status?.classList.remove('hidden');
+interface CoverageMapOptions {
+  onTileFailure?: () => void;
+}
+
+export interface CoverageMapHandle {
+  destroy: () => void;
+  invalidateSize: () => void;
+}
+
+const getZoneName = (feature?: GeoJSON.Feature): string | undefined => {
+  const name = feature?.properties?.name;
+  return typeof name === 'string' ? name : undefined;
 };
 
-const initializeCoverageMap = async (mapElement: HTMLElement) => {
-  if (mapElement.dataset.mapReady === 'true') {
-    return;
-  }
-
-  mapElement.dataset.mapReady = 'true';
+export const initializeCoverageMap = async (
+  mapElement: HTMLElement,
+  options: CoverageMapOptions = {},
+): Promise<CoverageMapHandle> => {
+  await ensureLeafletStyles();
 
   const map = L.map(mapElement, {
-    center: defaultCenter,
+    center: [-34.5705, -58.4865],
+    keyboard: true,
     scrollWheelZoom: false,
     zoom: 12,
     zoomControl: true,
   });
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  const tileLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors',
     maxZoom: 19,
-  }).addTo(map);
+  });
+
+  let tileLoaded = false;
+  let tileErrors = 0;
+  let tileFailureReported = false;
+
+  tileLayer.on('tileload', () => {
+    tileLoaded = true;
+    tileErrors = 0;
+  });
+
+  tileLayer.on('tileerror', () => {
+    tileErrors += 1;
+
+    if (!tileLoaded && tileErrors >= 4 && !tileFailureReported) {
+      tileFailureReported = true;
+      options.onTileFailure?.();
+    }
+  });
+
+  tileLayer.addTo(map);
 
   try {
     const response = await fetch(geoJsonUrl);
@@ -54,40 +114,47 @@ const initializeCoverageMap = async (mapElement: HTMLElement) => {
     const geoJson = (await response.json()) as GeoJSON.FeatureCollection;
 
     const layer = L.geoJSON(geoJson, {
-      style: zoneStyle,
+      style: (feature) =>
+        getZoneName(feature) === 'Villa Urquiza' ? primaryZoneStyle : zoneStyle,
       onEachFeature: (feature, featureLayer) => {
-        const name = feature.properties?.name;
+        const name = getZoneName(feature);
 
-        if (typeof name === 'string') {
+        if (name) {
           featureLayer.bindPopup(name);
         }
 
-        featureLayer.on({
-          mouseover: (event) => {
-            event.target.setStyle(zoneHoverStyle);
-          },
-          mouseout: (event) => {
-            layer.resetStyle(event.target);
-          },
-        });
+        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+          featureLayer.on({
+            mouseover: (event) => {
+              event.target.setStyle(zoneHoverStyle);
+            },
+            mouseout: (event) => {
+              layer.resetStyle(event.target);
+            },
+          });
+        }
       },
     }).addTo(map);
 
     const bounds = layer.getBounds();
 
     if (bounds.isValid()) {
-      map.fitBounds(bounds, { padding: [24, 24] });
+      const desktopLayout = window.matchMedia('(min-width: 768px)').matches;
+
+      map.fitBounds(bounds, {
+        maxZoom: 13,
+        paddingBottomRight: [20, 20],
+        paddingTopLeft: desktopLayout ? [20, 70] : [20, 20],
+      });
     }
+
+    return {
+      destroy: () => map.remove(),
+      invalidateSize: () => map.invalidateSize({ animate: false }),
+    };
   } catch (error) {
+    map.remove();
     console.error('No se pudo cargar el mapa de cobertura.', error);
-    showStatus(mapElement);
+    throw error;
   }
 };
-
-if (typeof window !== 'undefined') {
-  document
-    .querySelectorAll<HTMLElement>(mapSelector)
-    .forEach((mapElement) => {
-      void initializeCoverageMap(mapElement);
-    });
-}
