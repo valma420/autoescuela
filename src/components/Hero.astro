@@ -5,7 +5,7 @@ const [titleLead, titleConnector, titleAccent] = hero.title.split(' ');
 ---
 
 <section id="inicio" class="hero-section relative isolate overflow-hidden bg-[linear-gradient(111deg,#191a33_0%,#0a0e19_71%)]">
-  <div class="absolute -left-0.5 top-0 -z-30 h-[780px] w-full overflow-hidden md:inset-0 md:h-full">
+  <div class="absolute -left-0.5 top-0 -z-30 h-full w-full overflow-hidden md:inset-0">
     <img
       src={site.assets.heroImage}
       alt="Auto de práctica recorriendo un circuito con conos"
@@ -49,12 +49,16 @@ const [titleLead, titleConnector, titleAccent] = hero.title.split(' ');
 
 <style>
   .hero-section {
-    height: 777px;
+    height: 100vh;
+    height: 100svh;
+    height: 100dvh;
   }
 
   @media (min-width: 768px) {
     .hero-section {
-      height: calc(597px + var(--ak-section-padding) + var(--ak-section-padding));
+      height: calc(100vh - 84px);
+      height: calc(100svh - 84px);
+      height: calc(100dvh - 84px);
     }
   }
 </style>
