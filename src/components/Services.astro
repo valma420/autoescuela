@@ -33,10 +33,7 @@ import { hero, services, site } from '../data/site';
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Consultar por ${service.title}`}
-              class:list={[
-                'service-card ak-focus flex h-full flex-col justify-between overflow-hidden rounded-[18px] bg-brand-50 px-[22px] pb-6 pt-[22px] text-brand-950 shadow-[0_8px_20px_-6px_rgba(26,77,115,0.15)]',
-                index === 0 && 'service-card--featured',
-              ]}
+              class="service-card ak-focus flex h-full flex-col justify-between overflow-hidden rounded-[18px] bg-brand-50 px-[22px] pb-6 pt-[22px] text-brand-950 shadow-[0_8px_20px_-6px_rgba(26,77,115,0.15)]"
             >
               <div class="flex items-start justify-between">
                 <h3 class="font-display text-[clamp(1.5rem,calc(1.2421rem+1.0582vw),1.75rem)] font-medium leading-none tracking-[-0.01em]">{service.title}</h3>
@@ -101,21 +98,6 @@ import { hero, services, site } from '../data/site';
     box-shadow: none;
   }
 
-  .service-card--featured {
-    background-color: #191a33;
-    color: #f4f8fb;
-    box-shadow: none;
-  }
-
-  .service-card--featured .service-card__description {
-    color: #e3f2f7;
-  }
-
-  .service-card--featured .service-card__arrow {
-    background-color: #009ee2;
-    color: #f4f8fb;
-  }
-
   .service-card:is(:focus, :active, .is-pressed) .service-card__description {
     color: #e3f2f7;
   }
@@ -159,21 +141,6 @@ import { hero, services, site } from '../data/site';
       min-height: 113px;
     }
 
-    .service-card-list:not(:has(.service-card:is(:hover, :focus, :active, .is-pressed))) .service-card.is-pointer-current {
-      background-color: #191a33;
-      color: #f4f8fb;
-      box-shadow: none;
-    }
-
-    .service-card-list:not(:has(.service-card:is(:hover, :focus, :active, .is-pressed))) .service-card.is-pointer-current .service-card__description {
-      color: #e3f2f7;
-    }
-
-    .service-card-list:not(:has(.service-card:is(:hover, :focus, :active, .is-pressed))) .service-card.is-pointer-current .service-card__arrow {
-      background-color: #009ee2;
-      color: #f4f8fb;
-      transform: translateX(2px);
-    }
   }
 
   @media (min-width: 1280px) {
@@ -192,7 +159,6 @@ import { hero, services, site } from '../data/site';
   const pressStartedAt = new WeakMap<HTMLElement, number>();
   const releaseTimers = new WeakMap<HTMLElement, number>();
   const serviceCards = Array.from(document.querySelectorAll<HTMLElement>('.service-card'));
-  const desktopPointer = window.matchMedia('(min-width: 1280px) and (hover: hover) and (pointer: fine)');
 
   const showPressedState = (card: HTMLElement) => {
     const releaseTimer = releaseTimers.get(card);
@@ -226,14 +192,6 @@ import { hero, services, site } from '../data/site';
   };
 
   serviceCards.forEach((card) => {
-    card.addEventListener('pointerenter', (event) => {
-      if (!desktopPointer.matches || event.pointerType === 'touch') return;
-
-      serviceCards.forEach((candidate) => {
-        candidate.classList.toggle('is-pointer-current', candidate === card);
-      });
-    });
-
     card.addEventListener('pointerdown', (event) => {
       if (event.pointerType === 'mouse' && event.button !== 0) return;
 
