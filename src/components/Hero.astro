@@ -4,7 +4,7 @@ import { hero, site } from '../data/site';
 const [titleLead, titleConnector, titleAccent] = hero.title.split(' ');
 ---
 
-<section id="inicio" class="relative isolate h-[777px] overflow-hidden bg-[linear-gradient(111deg,#191a33_0%,#0a0e19_71%)] md:h-[677px] desktop:h-[717px]">
+<section id="inicio" class="hero-section relative isolate overflow-hidden bg-[linear-gradient(111deg,#191a33_0%,#0a0e19_71%)]">
   <div class="absolute -left-0.5 top-0 -z-30 h-[780px] w-full overflow-hidden md:inset-0 md:h-full">
     <img
       src={site.assets.heroImage}
@@ -19,19 +19,19 @@ const [titleLead, titleConnector, titleAccent] = hero.title.split(' ');
   </div>
 
   <div class="absolute inset-x-0 bottom-0 h-[346px] md:inset-0 md:h-auto">
-    <div class="ak-container flex h-full flex-col justify-center gap-4 pb-[34px] md:flex-row md:items-end md:justify-between md:gap-0 md:py-10 desktop:py-[60px]">
+    <div class="ak-container flex h-full flex-col justify-center gap-4 py-[30px] md:flex-row md:items-end md:justify-between md:gap-0 md:py-[var(--ak-section-padding)]">
       <div class="flex flex-col items-start gap-4 md:min-w-0 md:flex-1 md:gap-[22px] desktop:mr-[-217px] desktop:w-[1022px] desktop:flex-none">
         <p class="inline-flex items-center gap-2 py-[7px] pr-[14px] text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-50 uppercase md:py-0 md:text-base">
           <span class="ak-dot"></span>
           {hero.eyebrow}
         </p>
         <h1
-          class="font-display w-full text-[54px] font-bold leading-[0.85] tracking-[-0.03em] text-brand-50 md:max-w-none md:text-[66px] desktop:w-[1022px] desktop:text-[104px]"
+          class="ak-hero-title font-display w-full font-bold leading-[0.85] tracking-[-0.03em] text-brand-50 md:max-w-none desktop:w-[1022px]"
         >
           <span class="block">{titleLead}</span>
           <span class="block"><span class="md:text-accent-400">{titleConnector}</span> <span class="text-accent-400">{titleAccent}</span></span>
         </h1>
-        <p class="w-full max-w-xl text-base leading-6 text-brand-100 md:w-[clamp(315px,calc(37.3046875vw_+_28.5px),506px)] md:text-xl md:leading-[1.5]">
+        <p class="ak-body-large w-full max-w-xl leading-[1.5] text-brand-100 md:w-[clamp(315px,calc(37.3046875vw_+_28.5px),506px)]">
           {hero.subtitle}
         </p>
       </div>
@@ -39,10 +39,22 @@ const [titleLead, titleConnector, titleAccent] = hero.title.split(' ');
         href={site.contact.whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="ak-focus inline-flex min-h-[51px] w-full items-center justify-center rounded-full bg-accent-400 px-7 text-sm font-medium tracking-[0.01em] text-brand-50 uppercase transition duration-200 hover:bg-brand-50 hover:text-brand-950 md:h-[62px] md:min-h-0 md:w-[315px] md:flex-none md:px-[38px] md:py-[19px] md:text-xl md:leading-[1.2]"
+        class="ak-primary-cta ak-focus inline-flex w-full items-center justify-center rounded-full bg-accent-400 px-7 font-medium leading-[1.2] tracking-[0.01em] text-brand-50 uppercase transition duration-200 hover:bg-brand-50 hover:text-brand-950 md:w-[315px] md:flex-none md:px-[38px] md:py-[19px]"
       >
         {hero.primaryCta}
       </a>
     </div>
   </div>
 </section>
+
+<style>
+  .hero-section {
+    height: 777px;
+  }
+
+  @media (min-width: 768px) {
+    .hero-section {
+      height: calc(597px + var(--ak-section-padding) + var(--ak-section-padding));
+    }
+  }
+</style>

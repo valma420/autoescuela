@@ -2,32 +2,32 @@
 import { teacher } from '../data/site';
 ---
 
-<section id="profesor" class="h-[793px] overflow-hidden bg-brand-950 py-10 text-brand-50 md:h-[450px] md:py-10 desktop:h-[464px] desktop:py-[60px]">
+<section id="profesor" class="ak-section-frame bg-brand-950 text-brand-50">
   <div class="ak-container">
     <div class="teacher-grid md:grid md:items-start">
       <div class="teacher-photo relative h-[360px] overflow-hidden rounded-[22px] bg-[linear-gradient(142deg,#191a33_0%,#0a0e19_71%)] md:w-full md:rounded-[24px] md:bg-[#212442] md:bg-none">
         <img src={teacher.photo} alt={`Retrato de ${teacher.name}, instructor de manejo`} width="1200" height="1500" loading="lazy" class="absolute inset-0 h-full w-full object-cover" />
-        <p class="font-display absolute bottom-[21px] right-[18px] rounded-[14px] bg-brand-50 pb-[14px] pl-4 pr-[18px] pt-[13px] text-2xl font-medium leading-none tracking-[-0.01em] text-brand-950 shadow-[0_10px_24px_-4px_rgba(13,15,36,0.35)] md:bottom-6 md:left-6 md:right-auto md:rounded-full md:px-[22px] md:py-3 md:font-sans md:text-base md:leading-[normal] md:tracking-normal md:shadow-none">
+        <p class="absolute bottom-[29px] left-[53%] inline-flex h-[43px] items-center justify-center rounded-[14px] bg-brand-50 px-4 text-[clamp(0.8125rem,calc(0.619rem+0.7937vw),1rem)] font-medium leading-[1.2] tracking-[0.09em] text-brand-950 uppercase shadow-[0_10px_24px_-4px_rgba(13,15,36,0.35)] md:bottom-6 md:left-6">
           Instructor
         </p>
       </div>
 
       <div class="mt-[22px] md:mt-0 md:flex md:w-full md:flex-col md:items-start md:gap-5">
-        <h2 class="font-display h-[39px] w-full whitespace-nowrap text-[46px] font-bold leading-[0.85] tracking-[-0.03em] sm:h-auto sm:w-auto sm:text-6xl md:w-full md:text-[48px] md:font-medium md:leading-none desktop:text-[52px]">
+        <h2 class="ak-teacher-title font-display min-h-[39px] w-full font-bold leading-[0.85] tracking-[-0.03em] min-[360px]:whitespace-nowrap sm:w-auto md:w-full md:font-medium md:leading-none">
           {teacher.name}
         </h2>
-        <p class="mt-[22px] h-4 text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-100 uppercase md:mt-0 md:h-auto md:text-base md:text-[#b8c7d4]">
+        <p class="mt-[22px] h-4 text-[clamp(0.8125rem,calc(0.619rem+0.7937vw),1rem)] font-medium leading-[1.2] tracking-[0.09em] text-brand-100 uppercase md:mt-0 md:h-auto md:text-[#b8c7d4]">
           {teacher.role}
         </p>
 
-        <div class="mt-[22px] flex h-[120px] max-w-2xl flex-col text-base leading-6 text-brand-100 md:mt-0 md:h-auto md:w-full md:text-xl md:leading-[1.5] desktop:max-w-[482px]">
+        <div class="ak-body-large mt-[22px] flex h-[120px] max-w-2xl flex-col leading-[1.5] text-brand-100 md:mt-0 md:h-auto md:w-full desktop:max-w-[482px]">
           {teacher.bio.map((paragraph) => <p>{paragraph}</p>)}
         </div>
 
         <ul class="mt-[22px] flex h-[90px] flex-col items-start justify-between md:mt-0 md:h-auto md:w-full md:flex-nowrap md:justify-start md:gap-[14px] md:pt-2">
           {
             teacher.credentials.map((c, index) => (
-              <li class="teacher-credential ak-pill h-8 bg-brand-950 px-3 py-2 text-sm text-brand-100 md:h-[19px] md:gap-3 md:bg-transparent md:px-0 md:py-0 md:text-base md:leading-[normal] md:text-white">
+              <li class="teacher-credential ak-pill ak-body-small h-8 bg-brand-950 px-3 py-2 text-brand-100 md:h-[19px] md:gap-3 md:bg-transparent md:px-0 md:py-0 md:leading-[normal] md:text-white">
                 <span class="ak-dot md:h-[7px] md:w-[7px]"></span>
                 <span class="md:hidden">{teacher.mobileCredentials[index]}</span>
                 <span class="hidden md:inline">{c}</span>
@@ -43,14 +43,13 @@ import { teacher } from '../data/site';
 <style>
   @media (min-width: 768px) {
     .teacher-grid {
-      grid-template-columns: 260px minmax(0, 1fr);
-      gap: 40px;
+      grid-template-columns: clamp(260px, calc(-55px + 41.0156vw), 470px) minmax(0, 1fr);
+      gap: clamp(40px, calc(4px + 4.6875vw), 64px);
     }
 
     .teacher-photo {
-      height: 370px;
+      height: calc(409px - 5.0781vw);
     }
-
   }
 
   @media (min-width: 1280px) {

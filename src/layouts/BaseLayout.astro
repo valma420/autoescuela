@@ -48,30 +48,30 @@ const footerNavItems = [
     </a>
     <SiteHeader />
     <slot />
-    <footer class="h-[321px] overflow-hidden bg-[#0a0e19] py-10 text-brand-100 md:h-[300px]">
-      <div class="ak-container flex h-[241px] flex-col items-start md:h-[220px] md:items-stretch">
-        <div class="flex flex-col items-start md:flex md:h-[95px] md:w-full md:flex-row md:items-start md:justify-between">
-          <a class="ak-focus relative block h-10 w-[114px] shrink-0 md:h-[95px] md:w-[272px]" href="/" aria-label={`${site.name} inicio`}>
+    <footer class="ak-section-frame min-h-[321px] bg-[#0a0e19] text-brand-100 md:min-h-[300px]">
+      <div class="footer-content ak-container flex flex-col items-start md:items-stretch md:justify-between">
+        <div class="flex flex-col items-start md:h-[69.063px] md:w-full md:flex-row md:items-start md:justify-between desktop:h-[66px]">
+          <a class="ak-logo ak-focus h-[41px] w-[97.36px] md:h-[69.063px] md:w-[164px] desktop:h-[66px] desktop:w-[156.726px]" href="/" aria-label={`${site.name} inicio`}>
             <img
               src="/images/akdemia-menu-logo-car.svg"
               alt=""
               width="191"
               height="81"
-              class="absolute left-[14.8%] top-[7.38%] h-[85.25%] w-[70.4%]"
+              class="ak-logo__car"
             />
             <img
               src="/images/akdemia-menu-logo-wordmark.svg"
               alt={site.name}
               width="145"
               height="21"
-              class="absolute left-[22.86%] top-[40.65%] h-[21.95%] w-[53.15%]"
+              class="ak-logo__wordmark"
             />
             <img
               src="/images/akdemia-menu-logo-subtitle.svg"
               alt=""
               width="102"
               height="10"
-              class="absolute left-[30.56%] top-[64.67%] h-[10.86%] w-[37.44%]"
+              class="ak-logo__subtitle"
             />
           </a>
 
@@ -89,15 +89,15 @@ const footerNavItems = [
         </div>
 
         <div class="mt-[22px] flex h-[73px] flex-col items-start justify-between md:mt-0 md:h-[52px] md:w-full md:flex-row md:flex-wrap md:content-center md:items-center md:justify-between md:gap-y-[14px] desktop:h-[19px] desktop:flex-nowrap desktop:content-normal">
-          <p class="text-sm leading-[normal] text-brand-750 md:text-base md:font-medium md:leading-[1.2] md:tracking-[0.09em] md:uppercase">
+          <p class="text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-750 uppercase md:text-base">
             {site.location.area} · {site.location.regionShort}
           </p>
-          <p class="text-sm leading-[normal] text-brand-750 md:text-base md:font-medium md:leading-[1.2] md:tracking-[0.09em] md:uppercase">{site.contact.schedule}</p>
+          <p class="text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-750 uppercase md:text-base">{site.contact.schedule}</p>
           <a
             href={site.contact.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="ak-focus text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-100 uppercase md:text-base md:text-brand-750"
+            class="ak-focus text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-750 uppercase md:text-base"
           >
             {site.contact.phoneInternational}
           </a>
@@ -105,17 +105,29 @@ const footerNavItems = [
             href={site.contact.instagram.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="ak-focus text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-100 uppercase md:text-base md:text-brand-750"
+            class="ak-focus text-[13px] font-medium leading-[1.2] tracking-[0.09em] text-brand-750 uppercase md:text-base"
           >
             {site.contact.instagram.handle}
           </a>
         </div>
 
         <span class="mt-[26px] h-px w-full shrink-0 bg-brand-750 md:mt-0" aria-hidden="true"></span>
-        <p class="mt-2 w-full text-sm font-normal leading-[normal] text-brand-750 md:mt-0 md:w-auto md:text-base">
+        <p class="mt-2 w-full text-sm font-normal leading-4 text-brand-750 md:mt-0 md:w-auto md:text-base md:leading-[19px]">
           &copy; {new Date().getFullYear()} {site.name}. Todos los derechos reservados.
         </p>
       </div>
     </footer>
   </body>
 </html>
+
+<style>
+  .footer-content {
+    min-height: 241px;
+  }
+
+  @media (min-width: 768px) {
+    .footer-content {
+      min-height: calc(300px - var(--ak-section-padding) - var(--ak-section-padding));
+    }
+  }
+</style>

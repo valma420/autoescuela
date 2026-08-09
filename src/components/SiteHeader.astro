@@ -10,16 +10,14 @@ const navItems = [
 ---
 
 <header class="sticky inset-x-0 top-0 z-40 bg-brand-950 shadow-[inset_0_4px_4px_rgba(0,0,0,0.25)]">
-  <div class="ak-header-container relative mx-auto flex h-[84px] max-w-6xl items-center gap-4 px-[30px] md:max-w-none md:justify-between md:gap-0 md:px-0">
-    <a href="#inicio" class="ak-focus absolute left-1/2 top-3 h-[60px] w-[171px] shrink-0 -translate-x-1/2 md:relative md:left-auto md:top-auto md:translate-x-0" aria-label={`${site.name} inicio`}>
-      <span>
-        <img src="/images/akdemia-menu-logo-car.svg" alt="" width="120" height="51" class="absolute left-[14.8%] top-[7.38%] h-[85.25%] w-[70.4%]" />
-        <img src="/images/akdemia-menu-logo-wordmark.svg" alt={site.name} width="91" height="13" class="absolute left-[22.86%] top-[40.65%] h-[21.95%] w-[53.15%]" />
-        <img src="/images/akdemia-menu-logo-subtitle.svg" alt="" width="64" height="7" class="absolute left-[30.56%] top-[64.67%] h-[10.86%] w-[37.44%]" />
-      </span>
+  <div class="ak-header-container relative flex h-[84px] items-center gap-4 md:justify-between md:gap-0">
+    <a href="#inicio" class="ak-logo ak-focus absolute left-1/2 top-1/2 h-[41px] w-[97.36px] -translate-x-1/2 -translate-y-1/2 md:relative md:left-auto md:top-auto md:h-[52px] md:w-[123.481px] md:translate-x-0 md:translate-y-0" aria-label={`${site.name} inicio`}>
+      <img src="/images/akdemia-menu-logo-car.svg" alt="" width="120" height="51" class="ak-logo__car" />
+      <img src="/images/akdemia-menu-logo-wordmark.svg" alt={site.name} width="91" height="13" class="ak-logo__wordmark" />
+      <img src="/images/akdemia-menu-logo-subtitle.svg" alt="" width="64" height="7" class="ak-logo__subtitle" />
     </a>
 
-    <span class="hidden h-[65px] min-w-0 desktop:block desktop:w-[354px] desktop:flex-none" aria-hidden="true"></span>
+    <span class="hidden h-[65px] min-w-0 desktop:block desktop:w-[402px] desktop:flex-none" aria-hidden="true"></span>
 
     <nav class="hidden w-[337px] shrink-0 items-center gap-[38px] text-base font-normal leading-[normal] text-brand-50 md:flex">
       {
@@ -62,35 +60,18 @@ const navItems = [
   class="invisible fixed inset-0 z-50 flex flex-col bg-brand-950 text-brand-100 opacity-0 transition-all duration-300 md:hidden"
   data-mobile-menu
   id="mobile-navigation"
+  aria-modal="true"
   role="dialog"
 >
-  <div class="flex h-[86px] items-center justify-end gap-[57px] px-[30px]">
-    <a class="ak-focus relative h-[60px] w-[171px] shrink-0" href="#inicio" aria-label={`${site.name} inicio`} data-menu-link>
-      <img
-        src="/images/akdemia-menu-logo-car.svg"
-        alt=""
-        width="120"
-        height="51"
-        class="absolute left-[14.8%] top-[7.38%] h-[85.25%] w-[70.4%]"
-      />
-      <img
-        src="/images/akdemia-menu-logo-wordmark.svg"
-        alt={site.name}
-        width="91"
-        height="13"
-        class="absolute left-[22.86%] top-[40.65%] h-[21.95%] w-[53.15%]"
-      />
-      <img
-        src="/images/akdemia-menu-logo-subtitle.svg"
-        alt=""
-        width="64"
-        height="7"
-        class="absolute left-[30.56%] top-[64.67%] h-[10.86%] w-[37.44%]"
-      />
+  <div class="relative flex h-[86px] items-center justify-center px-[30px]">
+    <a class="ak-logo ak-focus h-[41px] w-[97.36px]" href="#inicio" aria-label={`${site.name} inicio`} data-menu-link>
+      <img src="/images/akdemia-menu-logo-car.svg" alt="" width="120" height="51" class="ak-logo__car" />
+      <img src="/images/akdemia-menu-logo-wordmark.svg" alt={site.name} width="91" height="13" class="ak-logo__wordmark" />
+      <img src="/images/akdemia-menu-logo-subtitle.svg" alt="" width="64" height="7" class="ak-logo__subtitle" />
     </a>
     <button
       aria-label="Cerrar menú"
-      class="ak-focus grid h-[30px] w-5 place-items-center text-[22px] font-medium leading-[30px] text-brand-100"
+      class="ak-focus absolute right-[18px] grid h-11 w-11 place-items-center text-[22px] font-medium leading-[30px] text-brand-100"
       data-menu-close
       type="button"
     >
@@ -134,6 +115,7 @@ const navItems = [
   const closeButton = document.querySelector<HTMLButtonElement>('[data-menu-close]');
   const menuLinks = menu?.querySelectorAll<HTMLAnchorElement>('[data-menu-link]');
   const desktopBreakpoint = window.matchMedia('(min-width: 768px)');
+  const backgroundRegions = Array.from(document.querySelectorAll<HTMLElement>('main, footer'));
   let previousOverflow = '';
 
   const setMenuOpen = (open: boolean) => {
@@ -150,10 +132,12 @@ const navItems = [
     if (open) {
       previousOverflow = document.body.style.overflow;
       document.body.style.overflow = 'hidden';
-      closeButton?.focus();
+      backgroundRegions.forEach((region) => region.setAttribute('inert', ''));
+      window.setTimeout(() => closeButton?.focus(), 0);
       return;
     }
 
+    backgroundRegions.forEach((region) => region.removeAttribute('inert'));
     document.body.style.overflow = previousOverflow;
   };
 
