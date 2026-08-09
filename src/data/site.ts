@@ -207,6 +207,8 @@ export const coverage = {
   areas: [
     'Villa Urquiza',
     'Belgrano',
+    'Núñez',
+    'Colegiales',
     'Parque Chas',
     'Villa Pueyrredón',
     'Agronomía',

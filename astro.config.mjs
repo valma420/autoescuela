@@ -6,6 +6,8 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://akdemiaautoescuela.vercel.app',
   vite: {
+    // Mantiene la ruta del worker ESM intacta en el servidor de desarrollo.
+    optimizeDeps: { exclude: ['maplibre-gl'] },
     // Cast JSDoc: Astro empaqueta su propia copia de Vite y los tipos del
     // plugin de Tailwind difieren de los suyos, aunque en runtime es compatible.
     plugins: /** @type {any} */ ([tailwindcss()]),
