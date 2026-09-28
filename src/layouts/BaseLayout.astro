@@ -4,6 +4,7 @@
  */
 import SEO from '../components/SEO.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+import VntSignature from '../components/VntSignature.astro';
 import { site } from '../data/site';
 import '../styles/global.css';
 
@@ -112,15 +113,12 @@ const footerNavItems = [
         </div>
 
         <span class="mt-[26px] h-px w-full shrink-0 bg-brand-750 md:mt-0" aria-hidden="true"></span>
-        <p class="mt-2 w-full text-sm font-normal leading-4 text-brand-750 md:mt-0 md:w-auto md:text-base md:leading-[19px]">
-          &copy; {new Date().getFullYear()} {site.name}. Todos los derechos reservados. ·
-          <a
-            href="https://vntagencia.com/?ref=akdemia-autoescuela"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="ak-focus underline decoration-current underline-offset-2 transition hover:text-brand-50"
-          >Sitio por VNT</a>
-        </p>
+        <div class="footer-credit mt-2 grid w-full grid-cols-1 items-center gap-2 sm:grid-cols-[minmax(0,1fr)_auto] sm:gap-3 md:mt-0 md:gap-6">
+          <p class="text-xs font-normal leading-normal text-brand-750 md:text-base md:leading-[19px]">
+            &copy; {new Date().getFullYear()} {site.name}. Todos los derechos reservados.
+          </p>
+          <VntSignature />
+        </div>
       </div>
     </footer>
   </body>

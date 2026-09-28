@@ -73,6 +73,16 @@ export const site = {
 } as const;
 
 // ---------------------------------------------------------------------------
+// Firma del estudio
+// ---------------------------------------------------------------------------
+
+export const developerCredit = {
+  label: 'created by',
+  url: 'https://www.instagram.com/vnt.agencia/',
+  accessibleLabel: 'created by VNT — Instagram (se abre en otra pestaña)',
+} as const;
+
+// ---------------------------------------------------------------------------
 // Hero
 // ---------------------------------------------------------------------------
 
